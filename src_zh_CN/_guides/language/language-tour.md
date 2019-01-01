@@ -2028,7 +2028,7 @@ void enableFlags({bool bold, bool hidden}) {...}
 const Scrollbar({Key key, [!@required!] Widget child})
 {% endprettify %}
 
-此时 `Scrollbar` 是一个构造函数， 当 `child` 参数缺少是，分析器会提示错误。
+此时 `Scrollbar` 是一个构造函数， 当 `child` 参数缺少时，分析器会提示错误。
 
 [Required][@required] 被定义在 [meta][] package。 无论是直接引入（import）
 `package:meta/meta.dart` ，或者引入了其他 package，而这个 package 输出（export）了
@@ -2638,7 +2638,7 @@ void main() {
 
 ### 词法闭包
 
-*闭包* 即一个函数对象，不管该汗水对象在何处被调用，
+*闭包* 即一个函数对象，不管该函数对象在何处被调用，
 该函数都可以访问其作用域内的变量。
 
 函数可以封闭定义到它作用域内的变量。 接下来的示例中，
@@ -2647,8 +2647,8 @@ void main() {
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (function-closure)"?>
 {% prettify dart %}
-/// 返回一个函数，该函数将函数的参与与 [addBy]
-相加。
+/// 返回一个函数，该函数将函数的参数与[addBy]相加
+
 Function makeAdder(num addBy) {
   return (num i) => addBy + i;
 }
