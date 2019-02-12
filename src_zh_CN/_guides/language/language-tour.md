@@ -137,12 +137,12 @@ main() {
 
 `int`
 
-:   数据类型。 一些其他 [内置类型](#built-in-types)
-    包括 `String`, `List`, 和 `bool`。
+:   数据类型。一些其他 [内置类型](#built-in-types)
+    包括 `String` , `List` , 和 `bool` 。
 
 `42`
 
-:   字面量. 字面量是一种编译型常量。
+:   字面量。字面量是一种编译型常量。
 
 `print()`
 
