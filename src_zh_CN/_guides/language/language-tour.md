@@ -7783,7 +7783,7 @@ and the [Dart language specification](/guides/language/spec).
 当需要从 Stream 中获取数据值时，
 可以通过一下两种方式：
 
-* 使用 `async` 和 一个 _异步玄幻_ （`await for`）。
+* 使用 `async` 和 一个 _异步循环_ （`await for`）。
 * 使用 Stream API, 更多详情，参考
   [in the library tour](/guides/libraries/library-tour#stream)。
 
