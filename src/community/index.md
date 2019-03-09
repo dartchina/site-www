@@ -13,9 +13,9 @@ For details, see our [code of conduct](/code-of-conduct).
 
 ## Stay informed
 
-* [news.dartlang.org](http://news.dartlang.org) -
+* [Dart news]({{site.news}}) -
   Official news feed for the Dart project.
-* [announce@dartlang.org](https://groups.google.com/a/dartlang.org/d/forum/announce) -
+* [Dart announce]({{site.group}}/d/forum/announce) -
   Low traffic announcements of new releases, breaking changes,
   and other important news. Recommended!
 * [Dart Language & Library Newsletters](https://github.com/dart-lang/sdk/blob/master/docs/newsletter/README.md#dart-language-and-library-newsletters) -
@@ -41,11 +41,11 @@ Get answers and connect with Dart developers.
 
 #### Google Groups
 
-* [General discussions](https://groups.google.com/a/dartlang.org/d/forum/misc)
-* [Dart plugin for JetBrains editors](https://groups.google.com/a/dartlang.org/d/forum/jetbrains-dart-plugin-discuss) (WebStorm, IntelliJ)
-* [Dart VM developers](https://groups.google.com/a/dartlang.org/d/forum/vm-dev)
-* [Dart analyzer](https://groups.google.com/a/dartlang.org/d/forum/analyzer-discuss)
-* [Server-side Dart](https://groups.google.com/a/dartlang.org/d/forum/cloud)
+* [General discussions]({{site.group}}/d/forum/misc)
+* [Dart plugin for JetBrains editors]({{site.group}}/d/forum/jetbrains-dart-plugin-discuss) (WebStorm, IntelliJ)
+* [Dart VM developers]({{site.group}}/d/forum/vm-dev)
+* [Dart analyzer]({{site.group}}/d/forum/analyzer-discuss)
+* [Server-side Dart]({{site.group}}/d/forum/cloud)
 
 ## Contribute
 
@@ -57,16 +57,16 @@ Dart is open source. Learn how to
     ([issue tracker](https://github.com/dart-lang/sdk/issues/))
   * [This site](https://github.com/dart-lang/site-www/)
     ([issue tracker](https://github.com/dart-lang/site-www/issues/))
-* [reviews@dartlang.org](https://groups.google.com/a/dartlang.org/d/forum/reviews) -
+* [Dart reviews]({{site.group}}/d/forum/reviews) -
   High-traffic list of all core SDK code reviews.
 
 ## Additional community resources
 
 Our wonderful community has provided these resources.
 
-* [dartdocs.org](http://www.dartdocs.org) - Documentation for pub packages
 * [Dart Academy](https://dart.academy/) - Tutorials
   and articles written by the Dart community
+* [Smartherd videos](https://www.youtube.com/watch?v=5rtujDjt50I&list=PLlxmoA0rQ-LyHW9voBdNo4gEEIh0SjG-q) - A series of tutorial videos about the Dart language
 * [Chinese version of this site (此网站的中文版)](http://www.dartdoc.cn)
 
 Also see [Community and Support]({{site.webdev}}/community) on Dart webdev.

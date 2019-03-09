@@ -21,7 +21,7 @@ For example, perhaps you've forgotten to close a sink method:
 
 In the Dart ecosystem,
 the Dart Analysis Server and other tools use the
-[analyzer package](https://pub.dartlang.org/packages/analyzer)
+[analyzer package]({{site.pub}}/packages/analyzer)
 to perform static analysis.
 
 You can customize static analysis to look for a variety of potential
@@ -34,14 +34,14 @@ and other suggested guidelines in
 [Effective Dart](/guides/language/effective-dart). Dart tools such as the
 [Dart dev compiler (dartdevc),]({{site.webdev}}/tools/dartdevc)
 [`dartanalyzer`,](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer)
-[`flutter analyze`,](https://flutter.io/debugging/#the-dart-analyzer)
+[`flutter analyze`,]({{site.flutter}}/docs/testing/debugging#the-dart-analyzer)
 and [JetBrains IDEs](/tools/jetbrains-plugin)
 use the analyzer package to evaluate your code.
 
 This document explains how to customize the behavior of the analyzer
 using either an analysis options file or comments in Dart source code. If you want to
 add static analysis to your tool, see the
-[analyzer package](https://pub.dartlang.org/packages/analyzer) docs and the
+[analyzer package]({{site.pub}}/packages/analyzer) docs and the
 [Analysis Server API Specification.](https://htmlpreview.github.io/?https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/doc/api.html)
 
 <aside class="alert alert-info" markdown="1">
@@ -147,7 +147,7 @@ TODO: Clarify that description, and insert an example here.
 {% endcomment %}
 
 
-## Enabling linter rules
+## Enabling and disabling linter rules {#enabling-linter-rules}
 
 The analyzer package also provides a code linter. A wide variety of
 [linter rules][] are available. Linters tend to be
@@ -156,7 +156,7 @@ For example, some rules are more appropriate for library packages
 and others are designed for Flutter apps.
 Note that linter rules can have false positives, unlike static analysis.
 
-### Default Google rules: pedantic
+### Enabling default Google rules: pedantic {#default-google-rules-pedantic}
 
 To enable the list of linter rules that Google uses in its own Dart code,
 depend on the [pedantic package]({{site.pub-pkg}}/pedantic)
@@ -182,10 +182,13 @@ include: package:pedantic/analysis_options.yaml
   code that previously passed analysis might **start failing analysis.**
   We recommend updating your code to work with the new rules.
   Other options are to [use a specific version][]
-  of `pedantic` or to explicitly enable individual linter rules.
+  of `pedantic`, explicitly enable individual linter rules,
+  or [disable individual rules][].
 </aside>
 
-### Individual rules
+[disable individual rules]: #disabling-individual-rules
+
+### Enabling individual rules {#individual-rules}
 
 To enable a single linter rule, add `linter:` to the analysis options file,
 followed by `rules:`.
@@ -213,6 +216,30 @@ In future, related lint rules may be coalesced into meta rules. See
 [Issue 99: Meta linter rules](https://github.com/dart-lang/linter/issues/288)
 for more information.
 {% endcomment %}
+
+
+### Disabling individual rules
+
+If you include an analysis options file such as the one in `pedantic`, 
+you might want to disable some of the included rules.
+Disabling individual rules is just like enabling them,
+except that you add `: false` after the rule name.
+Here's an example of an analysis options file
+that uses all pedantic rules except `unawaited_futures`:
+
+{% prettify yaml %}
+include: package:pedantic/analysis_options.yaml
+
+linter:
+  rules:
+    unawaited_futures: false
+{% endprettify %}
+
+<aside class="alert alert-warning" markdown="1">
+  **Don't include an initial dash (`- `)** when you specify a value (`: false)`.
+  The YAML syntax for key-value maps is slightly different
+  from the YAML syntax for lists.
+</aside>
 
 ## Excluding code from analysis
 
@@ -244,7 +271,7 @@ analyzer:
 {% endprettify %}
 
 You can specify a group of files using
-[glob](https://pub.dartlang.org/packages/glob) syntax:
+[glob]({{site.pub}}/packages/glob) syntax:
 
 {% prettify yaml %}
 analyzer:
@@ -366,12 +393,12 @@ Use the following resources to learn more about static analysis in Dart:
 * [Dart linter rules][linter rules]
 * [dartanalyzer](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer)
 * [dartdevc]({{site.webdev}}/tools/dartdevc)
-* [analyzer package](https://pub.dartlang.org/packages/analyzer)
+* [analyzer package]({{site.pub}}/packages/analyzer)
 
 [analysis_option_deprecated]: {{site.pub-api}}/analyzer/latest/analyzer/AnalysisOptionsWarningCode/ANALYSIS_OPTION_DEPRECATED-constant.html
 [analyzer error codes]: https://github.com/dart-lang/sdk/blob/master/pkg/analyzer/lib/error/error.dart
 [change the severity of rules]: #changing-the-severity-of-rules
-[invalid_assignment]: https://pub.dartlang.org/documentation/analyzer/latest/analyzer/StaticTypeWarningCode/INVALID_ASSIGNMENT-constant.html
+[invalid_assignment]: {{site.pub-api}}/analyzer/latest/analyzer/StaticTypeWarningCode/INVALID_ASSIGNMENT-constant.html
 [linter rules]: http://dart-lang.github.io/linter/lints/
 [sound-dart]: /guides/language/sound-dart
 [todo]: {{site.pub-api}}/analyzer/latest/analyzer/TodoCode/TODO-constant.html
