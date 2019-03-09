@@ -22,7 +22,7 @@ env:
 matrix:
   # allow_failures:
     # - env: TASK="./tool/analyze-and-test-examples.sh"
-      # dart: dev
+      # dart: stable
   exclude:
     - env: TASK="bundle exec jekyll build"
       dart: dev
@@ -58,4 +58,4 @@ deploy:
 
 # Only run Travis jobs for named branches (to avoid double builds for each PR)
 branches:
-  only: [master, /^\d\.x$/, /^\d-dev$/, /travis-build/]
+  only: [master, /^\d\.x$/, /^\d-dev$/, /travis-build/, dash]

@@ -11,7 +11,7 @@ get the SDK and tools for your app type.
 |------------+-----------------------------------+--------------------------|
 | App type   | Get started instructions          | Tool information         |
 |------------|-----------------------------------|--------------------------|
-| Mobile | [Install Flutter]({{site.flutter}}/setup) | [Flutter tools](https://flutter.io/using-ide/) |
+| Mobile | [Install Flutter]({{site.flutter}}/setup) | [Flutter tools]({{site.flutter}}/using-ide) |
 | Web    | [Install the Dart SDK]({{site.webdev}}/tools/sdk) | [Dart tools for the web]({{site.webdev}}/tools) |
 | Script or server | [Install the Dart SDK](/tools/sdk) | [Tools for server-side development](/server/tools) |
 {:.table .table-striped}
@@ -58,10 +58,6 @@ The following Dart plugins are unsupported
 and available as open source.
 
 <ul class="col2">
-<li>
-<img src="{% asset tools/atom-logo.png @path %}" alt="Atom logo">
-<a class="no-automatic-external" href="https://github.com/dart-atom/dartlang/"><b>Atom</b></a>
-</li>
 <li>
 <img src="{% asset tools/emacs.png @path %}" alt="Emacs logo">
 <a class="no-automatic-external" href="https://github.com/nex3/dart-mode"><b>Emacs</b></a>
