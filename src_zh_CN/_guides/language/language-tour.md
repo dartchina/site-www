@@ -35,9 +35,9 @@ You can play with most of Dart's language features using DartPad
 <div class="alert alert-info" markdown="1">
 **提示:**
 使用 DartPad 可以体验 Dart 的大部分语言功能
-([learn more](/tools/dartpad)).
+([了解更多](/tools/dartpad)).
 
-**<a href="{{ site.custom.dartpad.direct-link }}" target="_blank">Open DartPad</a>**
+**<a href="{{ site.custom.dartpad.direct-link }}" target="_blank">打开 DartPad</a>**
 </div> 
 
 {% comment %}
@@ -701,12 +701,12 @@ For more information on using `const` to create constant values, see
 [Lists](#lists), [Maps](#maps), and [Classes](#classes).
 {% endcomment %}
 
-### Final 和 const
+### Final 和 Const
 
 使用过程中从来不会被修改的变量， 可以使用 `final` 或 `const`, 而不是 `var` 或者其他类型，
-final 变量的值只能被设置一次；
-const 变量在编译时就已经固定 (Const 变量
-是隐式 final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。
+Final 变量的值只能被设置一次；
+Const 变量在编译时就已经固定 (Const 变量
+是隐式 Final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。
 
 <div class="alert alert-info" markdown="1">
 **提示：**
@@ -715,7 +715,7 @@ const 变量在编译时就已经固定 (Const 变量
 在变量声明中，参数构造函数中或构造函数的[初始化列表](#initializer-list)中进行初始化。
 </div>
 
-创建和设置一个 final 变量：
+创建和设置一个 Final 变量：
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (final)"?>
 {% prettify dart %}
@@ -732,7 +732,7 @@ name = 'Alice'; // Error: 一个 final 变量只能被设置一次。
 {% endprettify %}
 
 如果需要在**编译时**就固定变量的值，可以使用 `const` 类型变量。
-如果 const 变量是类级别的，需要标记为 `static const`。
+如果 Const 变量是类级别的，需要标记为 `static const`。
 在这些地方可以使用在编译时就已经固定不变的值，字面量的数字和字符串，
 固定的变量，或者是用于计算的固定数字：
 
@@ -742,7 +742,7 @@ const bar = 1000000; // 压力单位 (dynes/cm2)
 const double atm = 1.01325 * bar; // 标准气压
 {% endprettify %}
 
-const 关键字不仅可以用于声明常量变量。 
+Const 关键字不仅可以用于声明常量变量。 
 还可以用来创建常量值，以及声明创建常量值的构造函数。
 任何变量都可以拥有常量值。
 
@@ -757,7 +757,7 @@ const baz = []; // Equivalent to `const []`
 声明 `const` 的初始化表达式中 `const` 可以被省略。
 比如上面的 `baz`。 有关更多信息，参考 [DON’T use const redundantly][]。
 
-非 final ， 非 const 的变量是可以被修改的，即使这些变量
+非 Final ， 非 const 的变量是可以被修改的，即使这些变量
 曾经引用过 const 值。
 
 
@@ -766,7 +766,7 @@ const baz = []; // Equivalent to `const []`
 foo = [1, 2, 3]; // 曾经引用过 const [] 常量值。
 {% endprettify %}
 
-const 变量的值不可以修改：
+Const 变量的值不可以修改：
 
 {:.fails-sa}
 <?code-excerpt "misc/lib/language_tour/variables.dart (cant-assign-to-const)"?>
@@ -810,14 +810,14 @@ use the `Map()` constructor to create a map.
 
 Dart 语言支持以下内建类型：
 
-- numbers
-- strings
-- booleans
-- lists (也被称为 *arrays*)
-- maps
-- sets
-- runes (用于在字符串中表示 Unicode 字符)
-- symbols
+- Number
+- String
+- Boolean
+- List (也被称为 *Array*)
+- Map
+- Set
+- Rune (用于在字符串中表示 Unicode 字符)
+- Symbol
 
 这些类型都可以被初始化为字面量。
 例如, `'this is a string'` 是一个字符串的字面量，
@@ -943,9 +943,9 @@ const msUntilRetry = secondsUntilRetry * msPerSecond;
 {% endprettify %}
 {% endcomment %}
 
-### Numbers
+### Number
 
-Dart 语言的 numbers 有两种类型:
+Dart 语言的 Number 有两种类型:
 
 [int][]
 
@@ -1150,7 +1150,7 @@ For more information on using strings, see
 [Strings and regular expressions](/guides/libraries/library-tour#strings-and-regular-expressions).
 {% endcomment %}
 
-### Strings
+### String
 
 Dart 字符串是一组 UTF-16 单元序列。
 字符串通过单引号或者双引号创建。
@@ -1283,7 +1283,7 @@ assert(iMeantToDoThis.isNaN);
 {% endprettify %}
 {% endcomment %}
 
-### Booleans
+### Boolean
 
 Dart 使用 `bool` 类型表示布尔值。 
 Dart 只有字面量 `true` and `false` 是布尔类型，
@@ -1366,14 +1366,14 @@ information about lists, see [Generics](#generics) and
 [Collections](/guides/libraries/library-tour#collections).
 {% endcomment %}
 
-### Lists
+### List
 
 几乎每种编程语言中最常见的集合可能是 *array* 或有序的对象集合。
-在 Dart 中的 *array* 就是 [List][] 对象，
-通常称之为 *lists* 。
+在 Dart 中的 *Array* 就是 [List][] 对象，
+通常称之为 *List* 。
 
-Dart 中的 list 字面量非常像 JavaScript 中的 array 字面量。 
-下面是一个 Dart list 的示例：
+Dart 中的 List 字面量非常像 JavaScript 中的 array 字面量。 
+下面是一个 Dart List 的示例：
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (list-literal)"?>
 {% prettify dart %}
@@ -1383,7 +1383,7 @@ var list = [1, 2, 3];
 <aside class="alert alert-info" markdown="1">
   **提示：**
   Dart 推断 `list` 的类型为 `List<int>` 。 
-  如果尝试将非整数对象添加到此 list 中，
+  如果尝试将非整数对象添加到此 List 中，
   则分析器或运行时会引发错误。 
   有关更多信息，请阅读
   [类型推断。](/guides/language/sound-dart#type-inference)
@@ -1391,7 +1391,7 @@ var list = [1, 2, 3];
 
 Lists 的下标索引从 0 开始，第一个元素的索引是 0。
 list.length - 1 是最后一个元素的索引。 
-访问 list 的长度和元素与 
+访问 List 的长度和元素与 
 JavaScript 中的用法一样：
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-indexing)"?>
@@ -1404,7 +1404,7 @@ list[1] = 1;
 assert(list[1] == 1);
 {% endprettify %}
 
-在 list 字面量之前添加 const 关键字，可以定义 list 类型的编译时常量：
+在 List 字面量之前添加 const 关键字，可以定义 List 类型的编译时常量：
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-list)"?>
 {% prettify dart %}
@@ -1412,7 +1412,7 @@ var constantList = const [1, 2, 3];
 // constantList[1] = 1; // 取消注释会引起错误。
 {% endprettify %}
 
-List 类型包含了很多 lists 的操作函数。 
+List 类型包含了很多 List 的操作函数。 
 更多信息参考 [泛型](#generics) 和
 [集合](/guides/libraries/library-tour#collections).
 
@@ -1680,13 +1680,13 @@ For more information about maps, see
 [Maps](/guides/libraries/library-tour#maps).
 {% endcomment %}
 
-### Maps
+### Map
 
-通常来说， map 是用来关联 keys 和 values 的对象。
-keys 和 values 可以是任何类型的对象。在一个 map 对象中一个 *key* 只能出现一次。
-但是 *value* 可以出现多次。 Dart 中 map 通过 map 字面量 和 [Map][] 类型来实现。
+通常来说， Map 是用来关联 keys 和 values 的对象。
+keys 和 values 可以是任何类型的对象。在一个 Map 对象中一个 *key* 只能出现一次。
+但是 *value* 可以出现多次。 Dart 中 Map 通过 Map 字面量 和 [Map][] 类型来实现。
 
-下面是使用 map 字面量的两个简单例子：
+下面是使用 Map 字面量的两个简单例子：
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-literal)"?>
 {% prettify dart %}
@@ -1712,7 +1712,7 @@ var nobleGases = {
   有关更多信息，请阅读[类型推断。](/guides/language/sound-dart#type-inference)。
 </aside>
 
-以上 map 对象也可以使用 Map 构造函数创建：
+以上 Map 对象也可以使用 Map 构造函数创建：
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-constructor)"?>
 {% prettify dart %}
@@ -1734,7 +1734,7 @@ nobleGases[18] = 'argon';
 有关更多信息，参考 [构造函数的使用](#使用构造函数)。
 </aside>
 
-类似 JavaScript ，添加 key-value 对到已有的 map 中：
+类似 JavaScript ，添加 key-value 对到已有的 Map 中：
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-add-item)"?>
 {% prettify dart %}
@@ -1742,7 +1742,7 @@ var gifts = {'first': 'partridge'};
 gifts['fourth'] = 'calling birds'; // Add a key-value pair
 {% endprettify %}
 
-类似 JavaScript ，从一个 map 中获取一个 value：
+类似 JavaScript ，从一个 Map 中获取一个 value：
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-retrieve-item)"?>
 {% prettify dart %}
@@ -1750,7 +1750,7 @@ var gifts = {'first': 'partridge'};
 assert(gifts['first'] == 'partridge');
 {% endprettify %}
 
-如果 map 中不包含所要查找的 key，那么 map 返回 null：
+如果 Map 中不包含所要查找的 key，那么 Map 返回 null：
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-missing-key)"?>
 {% prettify dart %}
@@ -1758,7 +1758,7 @@ var gifts = {'first': 'partridge'};
 assert(gifts['fifth'] == null);
 {% endprettify %}
 
-使用 `.length` 函数获取当前 map 中的 key-value 对数量：
+使用 `.length` 函数获取当前 Map 中的 key-value 对数量：
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-length)"?>
 {% prettify dart %}
@@ -1767,8 +1767,7 @@ gifts['fourth'] = 'calling birds';
 assert(gifts.length == 2);
 {% endprettify %}
 
-创建 map 类型运行时常量，要在 map 字面量前加上关键字 `const`。
-add `const` before the map literal:
+创建 Map 类型运行时常量，要在 Map 字面量前加上关键字 `const`。
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-map)"?>
 {% prettify dart %}
@@ -1781,7 +1780,7 @@ final constantMap = const {
 // constantMap[2] = 'Helium'; // 取消注释会引起错误。
 {% endprettify %}
 
-更名多关于 map 的内容，参考
+更名多关于 Map 的内容，参考
 [Generics](#generics) and
 [Maps](/guides/libraries/library-tour#maps).
 
@@ -1850,9 +1849,9 @@ For more information, see
 </div>
 {% endcomment %}
 
-### Runes
+### Rune
 
-在 Dart 中，runes 用来表示字符串中的 UTF-32 编码字符。
+在 Dart 中， Rune 用来表示字符串中的 UTF-32 编码字符。
 
 Unicode 定义了一个全球的书写系统编码，
 系统中使用的所有字母，数字和符号都对应唯一的数值编码。
@@ -1870,9 +1869,9 @@ Unicode 定义了一个全球的书写系统编码，
 [String][]
 类有一些属性可以获得 rune 数据。
 属性 `codeUnitAt` 和 `codeUnit` 返回16位编码数据。
-属性 `runes` 获取字符串中的 runes 。
+属性 `runes` 获取字符串中的 Rune 。
 
-下面是示例演示了 runes、 16-bit code units、
+下面是示例演示了 Rune 、 16-bit code units、
 和 32-bit code points 之间的关系。
 点击运行按钮 {% asset red-run.png alt="" %}
 查看 runes 结果。
@@ -1906,7 +1905,7 @@ src="{{site.custom.dartpad.embed-inline-prefix}}?id=589bc5c95318696cefe5&vertica
 
 <div class="alert alert-warning" markdown="1">
 **提示：**
-谨慎使用 list 方式操作 runes。
+谨慎使用 list 方式操作 Rune 。
 这种方法很容易引发崩溃，
 具体原因取决于特定的语言，字符集和操作。
 有关更多信息，参考
@@ -1954,7 +1953,7 @@ int handleError(String source) {
 Symbol literals are compile-time constants.
 {% endcomment %}
 
-### Symbols
+### Symbol
 
 一个 Symbol 对象表示 Dart 程序中声明的运算符或者标识符。 
 你也许永远都不需要使用 Symbol ，但要按名称引用标识符的 API 时， Symbol 就非常有用了。
@@ -3937,7 +3936,7 @@ Unlike JavaScript, conditions must use boolean values, nothing else. See
 [Booleans](#booleans) for more information.
 {% endcomment %}
 
-### If 和 else
+### if 和 else
 
 Dart 支持 `if - else` 语句，其中 `else` 是可选的， 
 比如下面的例子， 另参考 [conditional expressions](#conditional-expressions).
@@ -4005,7 +4004,7 @@ for (var x in collection) {
 {% endprettify %}
 {% endcomment %}
 
-### For 循环
+### for 循环
 
 进行迭代操作，可以使用标准 `for` 语句。 例如：
 
@@ -4074,7 +4073,7 @@ do {
 {% endprettify %}
 {% endcomment %}
 
-### While 和 do-while
+### while 和 do-while
 
 `while` 循环在执行前判断执行条件：
 
@@ -4131,7 +4130,7 @@ candidates
 {% endprettify %}
 {% endcomment %}
 
-### Break 和 continue
+### break 和 continue
 
 使用 `break` 停止程序循环：
 
@@ -4267,7 +4266,7 @@ A `case` clause can have local variables, which are visible only inside
 the scope of that clause.
 {% endcomment %}
 
-### Switch 和 case
+### switch 和 case
 
 在 Dart 中 switch 语句使用 `==` 比较整数，字符串，或者编译时常量。
 比较的对象必须都是同一个类的实例（并且不可以是子类），
@@ -4409,7 +4408,7 @@ continues. If it's false, the assertion fails and an exception (an
 [AssertionError][]) is thrown.
 {% endcomment %}
 
-### Assert
+### assert
 
 如果 `assert` 语句中的布尔条件为 false ， 那么正常的程序执行流程会被中断。
 在本章中包含部分 assert 的使用，
@@ -4517,7 +4516,7 @@ void distanceTo(Point other) => throw UnimplementedError();
 {% endprettify %}
 {% endcomment %}
 
-### Throw
+### throw
 
 下面是关于抛出或者 *引发* 异常的示例：
 
@@ -4629,7 +4628,7 @@ void main() {
 {% endprettify %}
 {% endcomment %}
 
-### Catch
+### catch
 
 捕获异常可以避免异常继续传递（除非重新抛出（ rethrow ）异常）。 
 可以通过捕获异常的机会来处理该异常：
@@ -4746,7 +4745,7 @@ Learn more by reading the
 section of the library tour.
 {% endcomment %}
 
-### Finally
+### finally
 
 不管是否抛出异常， `finally` 中的代码都会被执行。
 如果 `catch` 没有匹配到异常，
@@ -5945,11 +5944,11 @@ in a temporary variable.
 </div>
 {% endcomment %}
 
-#### Getters 和 setters
+#### Getter 和 Setter
 
-getters 和 setters 是用于对象属性读和写的特殊方法。 
-回想之前的例子，每个实例变量都有一个隐式 getter ，通常情况下还会有一个 setter 。
-使用 `get` 和 `set` 关键字实现 getters 和 setters ，能够为实例创建额外的属性。
+Getter 和 Setter 是用于对象属性读和写的特殊方法。 
+回想之前的例子，每个实例变量都有一个隐式 Getter ，通常情况下还会有一个 Setter 。
+使用 `get` 和 `set` 关键字实现 Getter 和 Setter ，能够为实例创建额外的属性。
 
 
 <?code-excerpt "misc/lib/language_tour/classes/rectangle.dart"?>
@@ -5974,8 +5973,8 @@ void main() {
 }
 {% endprettify %}
 
-最开始实现 getters 和 setters 也许是直接返回成员变量；
-随着需求变化，getters 和 setters 可能需要进行计算处理而使用方法来实现；
+最开始实现 Getter 和 Setter 也许是直接返回成员变量；
+随着需求变化， Getter 和 Setter 可能需要进行计算处理而使用方法来实现；
 但是，调用对象的代码不需要做任何的修改。
 
 <div class="alert alert-info" markdown="1">
