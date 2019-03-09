@@ -95,7 +95,7 @@ Although your tests partly depend on the platform your code is intended
 for&mdash;Flutter, the web, or server-side, for example&mdash;the
 following packages are useful across Dart platforms:
 
-* [package:test](https://pub.dartlang.org/packages/test)<br>
+* [package:test]({{site.pub}}/packages/test)<br>
   Provides a standard way of writing tests in Dart. You can use the test
   package to:
     * Write single tests, or groups of tests.
@@ -110,7 +110,7 @@ following packages are useful across Dart platforms:
       multiple files or an entire package.
 
 
-* [package:mockito](https://pub.dartlang.org/packages/mockito)<br>
+* [package:mockito]({{site.pub}}/packages/mockito)<br>
   Provides a way to create
   [mock objects,](https://en.wikipedia.org/wiki/Mock_object)
   easily configured for use in fixed scenarios, and to verify
@@ -129,7 +129,7 @@ following packages are useful across Dart platforms:
 虽然测试部分取决于代码所针对的平台&mdash;例如， Flutter ，Web 或服务器端&mdash;
 但是以下的 package 适用于所有的 Dart 平台：
 
-* [package:test](https://pub.dartlang.org/packages/test)<br>
+* [package:test]({{site.pub}}/packages/test)<br>
   提供在 Dart 中编写标准的测试用例。你可以使用 package 来：
     * 编写单个或一组测试。
     * 使用 `@TestOn` 注解限制测试在特定的环境中运行。
@@ -138,7 +138,7 @@ following packages are useful across Dart platforms:
       或表示一些测试完成需要更多的时间。
     * 创建一个`dart_test.yaml` 文件，以跨多个文件或整个包配置 Tag 测试。
 
-* [package:mockito](https://pub.dartlang.org/packages/mockito)<br>
+* [package:mockito]({{site.pub}}/packages/mockito)<br>
   提供一种创建
   [mock 对象](https://en.wikipedia.org/wiki/Mock_object) 的方法，
   进行简单的配置即可应用在固定测试情景中，验证被测系统是否以预期方式与模拟对象进行交互。
@@ -152,11 +152,11 @@ following packages are useful across Dart platforms:
 
 Use the following resources to learn more about testing Flutter apps:
 
-* [Testing Flutter Apps](https://flutter.io/testing/)<br>
+* [Testing Flutter Apps]({{site.flutter}}/docs/testing)<br>
   How to perform unit, widget, or integration tests on a Flutter app.
-* [flutter_test](https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html)<br>
+* [flutter_test]({{site.flutter_api}}/flutter/flutter_test/flutter_test-library.html)<br>
   A testing library for Flutter built on top of package:test.
-* [flutter_driver](https://docs.flutter.io/flutter/flutter_driver/flutter_driver-library.html)<br>
+* [flutter_driver]({{site.flutter_api}}/flutter/flutter_driver/flutter_driver-library.html)<br>
   A testing library for testing Flutter applications on real devices and
   emulators (in a separate process).
 * [flutter/examples/flutter_gallery](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)<br>
@@ -170,11 +170,11 @@ Use the following resources to learn more about testing Flutter apps:
 
 通过下面的资源了解更多关于 Flutter 应用测试的内容：
 
-* [测试 Flutter 应用](https://flutter.io/testing/)<br>
+* [测试 Flutter 应用]({{site.flutter}}/docs/testing)<br>
   如何在一个 Flutter 应用程序中进行 unit ， widget ，以及集成测试。
-* [flutter_test](https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html)<br>
+* [flutter_test]({{site.flutter_api}}/flutter/flutter_test/flutter_test-library.html)<br>
   基于 package:test 之上的 Flutter 测试库。
-* [flutter_driver](https://docs.flutter.io/flutter/flutter_driver/flutter_driver-library.html)<br>
+* [flutter_driver]({{site.flutter_api}}/flutter/flutter_driver/flutter_driver-library.html)<br>
   在真机或模拟器上对 Flutter 应用程序测试的测试库（在一个独立的进程中）。
 * [flutter/examples/flutter_gallery](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)<br>
   测试 Flutter gallery 的示例。
@@ -190,10 +190,10 @@ applications:
 
 * [Testing]({{site.webdev}}/angular/guide/testing)(a page
   in the AngularDart guide)<br>
-  How to use the [angular_test](https://pub.dartlang.org/packages/angular_test)
+  How to use the [angular_test]({{site.pub}}/packages/angular_test)
   package to test AngularDart components and subsystems.
   <!-- More pages are coming! -->
-* [package:webdriver](https://pub.dartlang.org/packages/webdriver)<br>
+* [package:webdriver]({{site.pub}}/packages/webdriver)<br>
   A Dart package for interfacing with
   [WebDriver](https://www.w3.org/TR/webdriver/) servers.
 {% endcomment %}
@@ -204,10 +204,10 @@ applications:
 通过下面的资源了解更多关于 Dart web 应用测试的内容：
 
 * [Testing]({{site.webdev}}/angular/guide/testing)（ AngularDart 指南中的一个页面）<br>
-  如何使用 [angular_test](https://pub.dartlang.org/packages/angular_test)
+  如何使用 [angular_test]({{site.pub}}/packages/angular_test)
   package 来测试 AngularDart component 以及其系统。
   <!-- More pages are coming! -->
-* [package:webdriver](https://pub.dartlang.org/packages/webdriver)<br>
+* [package:webdriver]({{site.pub}}/packages/webdriver)<br>
   一个用于连接 [WebDriver](https://www.w3.org/TR/webdriver/) 服务的 Dart package 。
 
 
@@ -232,7 +232,7 @@ Dart plugins exist for many commonly used IDEs.
 
 If you don't have a preferred IDE, try
 [WebStorm]({{site.webdev}}/tools/webstorm) for web apps, or
-[IntelliJ](https://www.dartlang.org/tools/jetbrains-plugin) for Flutter.
+[IntelliJ](/tools/jetbrains-plugin) for Flutter.
 The JetBrains products have a full-featured Dart debugger, and WebStorm and
 IntelliJ Ultimate include additional built-in support for running test suites.
 {% endcomment %}
@@ -244,7 +244,8 @@ IntelliJ Ultimate include additional built-in support for running test suites.
 
 如果没有一个首选的 IDE ，请尝试
 [WebStorm]({{site.webdev}}/tools/webstorm) 用来开发 Web 应用，或
-[IntelliJ](https://www.dartlang.org/tools/jetbrains-plugin) 用来开发 Flutter 。
+[IntelliJ](/tools/jetbrains-plugin)
+用来开发 Flutter 。
 JetBrains 具有全功能的 Dart 调试器， WebStorm 和 IntelliJ Ultimate 内置了支持
 运行测试的套件。
 
@@ -258,10 +259,10 @@ Dart applications. You can learn more using the following resources:
 * [Observatory: A Profiler for Dart
   Apps](https://dart-lang.github.io/observatory/)
 * [Dart
-  Observatory](https://flutter.io/debugging/#dart-observatory-statement-level-single-stepping-debugger-and-profiler),
-  a section in [Debugging Flutter Apps](https://flutter.io/debugging/)
+  Observatory]({{site.flutter}}/testing/debugging#dart-observatory-statement-level-single-stepping-debugger-and-profiler),
+  a section in [Debugging Flutter Apps]({{site.flutter}}/testing//debugging)
 * [Dart VM
-  Observatory](https://groups.google.com/a/dartlang.org/forum/#!forum/observatory-discuss)
+  Observatory]({{site.group}}/forum/#!forum/observatory-discuss)
   discussion group
 {% endcomment %}
 
@@ -272,10 +273,10 @@ Observatory 是一个基于浏览器的 Dart 应用程序分析和调试工具�
 
 * [Observatory: Dart 应用程序分析工具](https://dart-lang.github.io/observatory/)
 * [Dart
-  Observatory](https://flutter.io/debugging/#dart-observatory-statement-level-single-stepping-debugger-and-profiler)，
-  [Flutter 应用程序调试](https://flutter.io/debugging/) 中的一节内容
+  Observatory]({{site.flutter}}/testing/debugging#dart-observatory-statement-level-single-stepping-debugger-and-profiler)，
+  [Flutter 应用程序调试]({{site.flutter}}/debugging/) 中的一节内容
 * [Dart VM
-  Observatory](https://groups.google.com/a/dartlang.org/forum/#!forum/observatory-discuss)
+  Observatory]({{site.group}}/forum/#!forum/observatory-discuss)
   讨论组
 
 
