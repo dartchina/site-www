@@ -6663,14 +6663,14 @@ For a theoretical presentation of the evolution of mixins in Dart, see
 
 
 
-### 为类添加功能：mixins
+### 为类添加功能： Mixin
 
-mixins 是复用类代码的一种途径，
+Mixin 是复用类代码的一种途径，
 复用的类可以在不同层级，之间可以不存在继承关系。
 
 
-通过 `with` 后面跟一个或多个混入的名称，来 _使用_ mixin，
-下面的示例演示了两个使用 mixin 的类：
+通过 `with` 后面跟一个或多个混入的名称，来 _使用_ Mixin ，
+下面的示例演示了两个使用 Mixin 的类：
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musician and Maestro)" replace="/(with.*) \{/[!$1!] {/g"?>
 {% prettify dart %}
@@ -6687,8 +6687,8 @@ class Maestro extends Person
 }
 {% endprettify %}
 
-通过创建一个继承自 Object 且没有构造函数的类，来 _实现_ 一个 mixin 。
-如果 mixin 不希望作为常规类被使用，使用关键字 `mixin` 替换 `class` 。
+通过创建一个继承自 Object 且没有构造函数的类，来 _实现_ 一个 Mixin 。
+如果 Mixin 不希望作为常规类被使用，使用关键字 `mixin` 替换 `class` 。
 例如：
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musical)"?>
@@ -6710,9 +6710,9 @@ mixin Musical {
 }
 {% endprettify %}
 
-指定只有某些类型可以使用的 mixin - 
-比如，mixin 可以调用 mixin 自身没有定义的方法 - 
-使用 `on` 来指定可以使用 mixin 的父类类型：
+指定只有某些类型可以使用的 Mixin - 
+比如， Mixin 可以调用 Mixin 自身没有定义的方法 - 
+使用 `on` 来指定可以使用 Mixin 的父类类型：
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (mixin-on)"?>
 {% prettify dart %}
@@ -6728,7 +6728,7 @@ mixin MusicalPerformer on Musician {
 <aside class="alert alert-info" markdown="1">
   **版本提示：** `mixin` 关键字在 Dart 2.1 中被引用支持。
   早期版本中的代码通常使用 `abstract class` 代替。
-  更多有关 mixin 在 2.1 中的变更信息，请参见
+  更多有关 Mixin 在 2.1 中的变更信息，请参见
   [Dart SDK changelog][] 和 [2.1 mixin specification][] 。
 </aside>
 
@@ -6737,13 +6737,13 @@ mixin MusicalPerformer on Musician {
 
 
 <div class="alert alert-info" markdown="1">
-  **提示：** 对 mixins 的一些限制正在被移除。 关于更多详情，参考
+  **提示：** 对 Mixin 的一些限制正在被移除。 关于更多详情，参考
   [proposed mixin specification.][Dart 2.0 Mixins]
 
   [Dart 2.0 Mixins]: https://github.com/dart-lang/sdk/blob/master/docs/language/informal/mixin-declaration.md
 </div>
 
-有关 Dart 中 mixins 的理论演变，参考
+有关 Dart 中 Mixin 的理论演变，参考
 [A Brief History of Mixins in Dart](/articles/language/mixins).
 
 {% comment %}
