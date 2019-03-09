@@ -786,6 +786,7 @@ The Dart language has special support for the following types:
 - strings
 - booleans
 - lists (also known as *arrays*)
+- sets
 - maps
 - runes (for expressing Unicode characters in a string)
 - symbols
@@ -814,6 +815,7 @@ Dart 语言支持以下内建类型：
 - booleans
 - lists (也被称为 *arrays*)
 - maps
+- sets
 - runes (用于在字符串中表示 Unicode 字符)
 - symbols
 
@@ -1328,7 +1330,7 @@ var list = [1, 2, 3];
 
 <aside class="alert alert-info" markdown="1">
   **Note:**
-  The analyzer infers that `list` has type `List<int>`.
+  Dart infers that `list` has type `List<int>`.
   If you try to add non-integer objects to this list,
   the analyzer or runtime raises an error.
   For more information, read about
@@ -1380,7 +1382,7 @@ var list = [1, 2, 3];
 
 <aside class="alert alert-info" markdown="1">
   **提示：**
- 分析器推断 `list` 的类型为 `List<int>` 。 
+  Dart 推断 `list` 的类型为 `List<int>` 。 
   如果尝试将非整数对象添加到此 list 中，
   则分析器或运行时会引发错误。 
   有关更多信息，请阅读
@@ -1414,6 +1416,159 @@ List 类型包含了很多 lists 的操作函数。
 更多信息参考 [泛型](#generics) 和
 [集合](/guides/libraries/library-tour#collections).
 
+
+{% comment %}
+### Sets
+
+A set in Dart is an unordered collection of unique items.
+Dart support for sets is provided by set literals and the [Set][] type.
+
+<aside class="alert alert-info" markdown="1">
+  **Version note:** Although the Set _type_ has always been a core part of Dart,
+  set _literals_ were introduced in Dart 2.2.
+</aside>
+
+Here is a simple Dart set, created using a set literal:
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-literal)"?>
+{% prettify dart %}
+var halogens = {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+{% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+  **Note:**
+  Dart infers that `halogens` has the type
+  `Set<String>`. If you try to add the wrong type of value
+  to the set, the analyzer or runtime raises an error.
+  For more information, read about
+  [type inference.](/guides/language/sound-dart#type-inference)
+</aside>
+
+To create an empty set, use `{}` preceded by a type argument,
+or assign `{}` to a variable of type `Set`:
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-vs-map)"?>
+{% prettify dart %}
+var names = <String>{};
+// Set<String> names = {}; // This works, too.
+// var names = {}; // Creates a map, not a set.
+{% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+  **Set or map?**
+  The syntax for map literals is similar to that for set literals.
+  Because map literals came first, `{}` defaults to the `Map` type.
+  If you forget the type annotation on `{}` or the variable it's assigned to,
+  then Dart creates an object of type `Map<dynamic, dynamic>`.
+</aside>
+
+Add items to an existing set using the `add()` or `addAll()` methods:
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-add-items)"?>
+{% prettify dart %}
+var elements = <String>{};
+elements.add('fluorine');
+elements.addAll(halogens);
+{% endprettify %}
+
+Use `.length` to get the number of items in the set:
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (set-length)"?>
+{% prettify dart %}
+var elements = <String>{};
+elements.add('fluorine');
+elements.addAll(halogens);
+assert(elements.length == 5);
+{% endprettify %}
+
+To create a set that's a compile-time constant,
+add `const` before the set literal:
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-set)"?>
+{% prettify dart %}
+final constantSet =
+    const {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+// constantSet.add('helium'); // Uncommenting this causes an error.
+{% endprettify %}
+
+For more information about sets, see
+[Generics](#generics) and
+[Sets](/guides/libraries/library-tour#sets).
+{% endcomment %}
+
+### Set
+
+在 Dart 中 Set 是一个元素唯一且无需的集合。
+Dart 为 Set 提供了 Set 字面量和 [Set][] 类型。
+
+<aside class="alert alert-info" markdown="1">
+  **版本提示：** 虽然 Set _类型_ 一直是 Dart 的核心部分，
+  但在 Dart2.2 中才引入了 Set _字面量_ 。
+</aside>
+
+下面是通过字面量创建 Set 的一个简单示例：
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-literal)"?>
+{% prettify dart %}
+var halogens = {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+{% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+  **Note:**
+  Dart 推断 `halogens` 类型为 `Set<String>` 。如果尝试为它添加一个
+  错误类型的值，分析器或执行时会抛出错误。更多内容，参阅
+  [类型推断](/guides/language/sound-dart#type-inference)。
+</aside>
+
+要创建一个空集，使用前面带有类型参数的 `{}` ，或者将 `{}` 赋值给 `Set` 类型的变量：
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-vs-map)"?>
+{% prettify dart %}
+var names = <String>{};
+// Set<String> names = {}; // 这样也是可以的。
+// var names = {}; // 这样会创建一个 Map ，而不是 Set 。
+{% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+  **是 Set 还是 Map ？**
+  Map 字面量语法同 Set 字面量语法非常相似。
+  因为先有的 Map 字母量语法，所以 `{}` 默认是 `Map` 类型。
+  如果忘记在 `{}` 上注释类型或赋值到一个未声明类型的变量上，
+  那么 Dart 会创建一个类型为 `Map<dynamic, dynamic>` 的对象。
+</aside>
+
+使用 `add()` 或 `addAll()` 为已有的 Set 添加元素：
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-add-items)"?>
+{% prettify dart %}
+var elements = <String>{};
+elements.add('fluorine');
+elements.addAll(halogens);
+{% endprettify %}
+
+使用 `.length` 来获取 Set 中元素的个数：
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (set-length)"?>
+{% prettify dart %}
+var elements = <String>{};
+elements.add('fluorine');
+elements.addAll(halogens);
+assert(elements.length == 5);
+{% endprettify %}
+
+在 Set 字面量前增加 `const` ，来创建一个编译时 Set 常量：
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-set)"?>
+{% prettify dart %}
+final constantSet =
+    const {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+// constantSet.add('helium'); // Uncommenting this causes an error.
+{% endprettify %}
+
+更多关于 Set 的内容，参阅
+[Generic](#generics) 及
+[Set](/guides/libraries/library-tour#sets)。
+
 {% comment %}
 ### Maps
 
@@ -1442,7 +1597,7 @@ var nobleGases = {
 
 <aside class="alert alert-info" markdown="1">
   **Note:**
-  The analyzer infers that `gifts` has the type
+  Dart infers that `gifts` has the type
   `Map<String, String>` and `nobleGases` has the type
   `Map<int, String>`. If you try to add the wrong type of value
   to either map, the analyzer or runtime raises an error.
@@ -1551,7 +1706,7 @@ var nobleGases = {
 
 <aside class="alert alert-info" markdown="1">
   **提示：**
-  分析器会将 `gifts` 的类型推断为 `Map<String, String>`，
+  Dart 会将 `gifts` 的类型推断为 `Map<String, String>`，
   `nobleGases` 的类型推断为 `Map<int, String>` 。 
   如果尝试在上面的 map 中添加错误类型，那么分析器或者运行时会引发错误。 
   有关更多信息，请阅读[类型推断。](/guides/language/sound-dart#type-inference)。
@@ -1660,7 +1815,7 @@ to see runes in action.
 
 {% comment %}
 https://gist.github.com/589bc5c95318696cefe5
-https://dartpad.dartlang.org/589bc5c95318696cefe5
+{{site.dartpad}}/589bc5c95318696cefe5
 Unicode emoji: http://unicode.org/emoji/charts/full-emoji-list.html
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (runes)"?>
@@ -1724,7 +1879,7 @@ Unicode 定义了一个全球的书写系统编码，
 
 {% comment %}
 https://gist.github.com/589bc5c95318696cefe5
-https://dartpad.dartlang.org/589bc5c95318696cefe5
+{{site.dartpad}}/589bc5c95318696cefe5
 Unicode emoji: http://unicode.org/emoji/charts/full-emoji-list.html
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (runes)"?>
@@ -2147,7 +2302,7 @@ void doStuff(
 
 {% comment %}
 https://gist.github.com/d988cfce0a54c6853799
-https://dartpad.dartlang.org/d988cfce0a54c6853799
+{{site.dartpad}}/d988cfce0a54c6853799
 (The gist needs updating: see https://github.com/dart-lang/site-www/issues/189)
 <iframe
 src="{{site.custom.dartpad.embed-inline-prefix}}?id=d988cfce0a54c6853799&verticalRatio=70"
@@ -2272,7 +2427,7 @@ void doStuff(
 
 {% comment %}
 https://gist.github.com/d988cfce0a54c6853799
-https://dartpad.dartlang.org/d988cfce0a54c6853799
+{{site.dartpad}}/d988cfce0a54c6853799
 (The gist needs updating: see https://github.com/dart-lang/site-www/issues/189)
 <iframe
 src="{{site.custom.dartpad.embed-inline-prefix}}?id=d988cfce0a54c6853799&verticalRatio=70"
@@ -2322,7 +2477,7 @@ void main(List<String> arguments) {
 }
 {% endprettify %}
 
-You can use the [args library](https://pub.dartlang.org/packages/args) to
+You can use the [args library]({{site.pub}}/packages/args) to
 define and parse command-line arguments.
 {% endcomment %}
 
@@ -2364,7 +2519,7 @@ void main(List<String> arguments) {
 }
 {% endprettify %}
 
-使用 [args library](https://pub.dartlang.org/packages/args) 可以定义和解析命令行参数。
+使用 [args library]({{site.pub}}/packages/args) 可以定义和解析命令行参数。
 
 {% comment %}
 ### Functions as first-class objects
@@ -2459,7 +2614,7 @@ Click the run button {% asset red-run.png alt="" %} to execute the code.
 
 {% comment %}
 https://gist.github.com/chalin/5d70bc1889d055c7a18d35d77874af88
-https://dartpad.dartlang.org/5d70bc1889d055c7a18d35d77874af88
+{{site.dartpad}}/5d70bc1889d055c7a18d35d77874af88
 {% endcomment %}
 
 <iframe
@@ -2514,7 +2669,7 @@ list.forEach((item) {
 
 {% comment %}
 https://gist.github.com/chalin/5d70bc1889d055c7a18d35d77874af88
-https://dartpad.dartlang.org/5d70bc1889d055c7a18d35d77874af88
+{{site.dartpad}}/5d70bc1889d055c7a18d35d77874af88
 {% endcomment %}
 
 <iframe
@@ -3232,7 +3387,7 @@ b ??= value;
 {% comment %}
 <!-- embed a dartpad when we can hide code -->
 https://gist.github.com/9de887c4daf76d39e524
-https://dartpad.dartlang.org/9de887c4daf76d39e524
+{{site.dartpad}}/9de887c4daf76d39e524
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (assignment-gist-main-body)" plaster="none"?>
 {% prettify dart %}
@@ -3295,7 +3450,7 @@ b ??= value;
 {% comment %}
 <!-- embed a dartpad when we can hide code -->
 https://gist.github.com/9de887c4daf76d39e524
-https://dartpad.dartlang.org/9de887c4daf76d39e524
+{{site.dartpad}}/9de887c4daf76d39e524
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (assignment-gist-main-body)" plaster="none"?>
 {% prettify dart %}
@@ -4669,7 +4824,7 @@ Use `?.` instead of `.` to avoid an exception
 when the leftmost operand is null:
 
 {% comment %}
-https://dartpad.dartlang.org/0cb25997742ed5382e4a
+{{site.dartpad}}/0cb25997742ed5382e4a
 https://gist.github.com/0cb25997742ed5382e4a
 {% endcomment %}
 
@@ -4708,7 +4863,7 @@ num distance = p.distanceTo(Point(4, 4));
 导致的异常：
 
 {% comment %}
-https://dartpad.dartlang.org/0cb25997742ed5382e4a
+{{site.dartpad}}/0cb25997742ed5382e4a
 https://gist.github.com/0cb25997742ed5382e4a
 {% endcomment %}
 
@@ -5192,7 +5347,7 @@ Click the run button {% asset red-run.png alt="" %} to execute the code.
 
 {% comment %}
 https://gist.github.com/Sfshaza/e57aa06401e6618d4eb8
-https://dartpad.dartlang.org/e57aa06401e6618d4eb8
+{{site.dartpad}}/e57aa06401e6618d4eb8
 
 <?code-excerpt "misc/lib/language_tour/classes/employee.dart" plaster="none"?>
 {% prettify dart %}
@@ -5275,7 +5430,7 @@ For example, arguments can call static methods but not instance methods.
 
 {% comment %}
 https://gist.github.com/Sfshaza/e57aa06401e6618d4eb8
-https://dartpad.dartlang.org/e57aa06401e6618d4eb8
+{{site.dartpad}}/e57aa06401e6618d4eb8
 
 <?code-excerpt "misc/lib/language_tour/classes/employee.dart" plaster="none"?>
 {% prettify dart %}
@@ -5383,7 +5538,7 @@ Click the run button {% asset red-run.png alt="" %} to execute the code.
 
 {% comment %}
 https://gist.github.com/Sfshaza/7a9764702c0608711e08
-https://dartpad.dartlang.org/7a9764702c0608711e08
+{{site.dartpad}}/a9764702c0608711e08
 
 <?code-excerpt "misc/lib/language_tour/classes/point_with_distance_field.dart"?>
 {% prettify dart %}
@@ -5413,6 +5568,7 @@ src="{{site.custom.dartpad.embed-inline-prefix}}?id=7a9764702c0608711e08&vertica
     height="420px"
     style="border: 1px solid #ccc;">
 </iframe>
+
 {% endcomment %}
 
 #### 初始化列表
@@ -5462,7 +5618,7 @@ https://github.com/dart-lang/sdk/blob/master/docs/language/informal/assert-in-in
 
 {% comment %}
 https://gist.github.com/Sfshaza/7a9764702c0608711e08
-https://dartpad.dartlang.org/7a9764702c0608711e08
+{{site.dartpad}}/a9764702c0608711e08
 
 <?code-excerpt "misc/lib/language_tour/classes/point_with_distance_field.dart"?>
 {% prettify dart %}
@@ -5494,6 +5650,7 @@ src="{{site.custom.dartpad.embed-inline-prefix}}?id=7a9764702c0608711e08&vertica
 </iframe>
 
 {% comment %}
+
 #### Redirecting constructors
 
 Sometimes a constructor’s only purpose is to redirect to another
@@ -6753,6 +6910,7 @@ such as E, T, S, K, and V.
 [By convention]: /guides/language/effective-dart/design#do-follow-existing-mnemonic-conventions-when-naming-type-parameters
 
 {% comment %}
+
 ### Why use generics?
 
 Generics are often required for type safety, but they have more benefits
@@ -6815,6 +6973,7 @@ abstract class Cache<T> {
 
 In this code, T is the stand-in type. It’s a placeholder that you can
 think of as a type that a developer will define later.
+
 {% endcomment %}
 
 ### 为什么使用泛型
@@ -6879,11 +7038,12 @@ abstract class Cache<T> {
 这是一个类型占位符，在开发者调用该接口的时候会指定具体类型。
 
 {% comment %}
+
 ### Using collection literals
 
-List and map literals can be parameterized. Parameterized literals are
+List, set, and map literals can be parameterized. Parameterized literals are
 just like the literals you’ve already seen, except that you add
-<code>&lt;<em>type</em>></code> (for lists) or
+<code>&lt;<em>type</em>></code> (for lists and sets) or
 <code>&lt;<em>keyType</em>, <em>valueType</em>></code> (for maps)
 before the opening bracket. Here
 is example of using typed literals:
@@ -6891,25 +7051,30 @@ is example of using typed literals:
 <?code-excerpt "misc/lib/language_tour/generics/misc.dart (collection-literals)"?>
 {% prettify dart %}
 var names = <String>['Seth', 'Kathy', 'Lars'];
+var uniqueNames = <String>{'Seth', 'Kathy', 'Lars'};
 var pages = <String, String>{
   'index.html': 'Homepage',
   'robots.txt': 'Hints for web robots',
   'humans.txt': 'We are people, not machines'
 };
 {% endprettify %}
+
 {% endcomment %}
 
 ### 使用集合字面量
 
-list 和 map 字面量也是可以参数化的。
+List , Set 和 Map 字面量也是可以参数化的。
 参数化字面量和之前的字面量定义类似，
-对于 list 只需要在声明语句前加 <code>&lt;<em>type</em>></code> 前缀，
-对于 map 只需要在声明语句前加 <code>&lt;<em>keyType</em>, <em>valueType</em>></code> 前缀，
+对于 List 或 Set 只需要在声明语句前加 
+<code>&lt;<em>type</em>></code> 前缀，
+对于 Map 只需要在声明语句前加 
+<code>&lt;<em>keyType</em>, <em>valueType</em>></code> 前缀，
 下面是参数化字面量的示例：
 
 <?code-excerpt "misc/lib/language_tour/generics/misc.dart (collection-literals)"?>
 {% prettify dart %}
 var names = <String>['Seth', 'Kathy', 'Lars'];
+var uniqueNames = <String>{'Seth', 'Kathy', 'Lars'};
 var pages = <String, String>{
   'index.html': 'Homepage',
   'robots.txt': 'Hints for web robots',
@@ -6918,6 +7083,7 @@ var pages = <String, String>{
 {% endprettify %}
 
 {% comment %}
+
 ### Using parameterized types with constructors
 
 To specify one or more types when using a constructor, put the types in
@@ -6925,10 +7091,10 @@ angle brackets (`<...>`) just after the class name. For example:
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (constructor-1)"?>
 {% prettify dart %}
-var names = List<String>();
-names.addAll(['Seth', 'Kathy', 'Lars']);
 var nameSet = Set<String>.from(names);
 {% endprettify %}
+
+[PENDING: update this sample; it ]
 
 The following code creates a map that has integer keys and values of
 type View:
@@ -6937,6 +7103,7 @@ type View:
 {% prettify dart %}
 var views = Map<int, View>();
 {% endprettify %}
+
 {% endcomment %}
 
 ### 使用泛型类型的构造函数
@@ -6946,10 +7113,10 @@ var views = Map<int, View>();
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (constructor-1)"?>
 {% prettify dart %}
-var names = List<String>();
-names.addAll(['Seth', 'Kathy', 'Lars']);
 var nameSet = Set<String>.from(names);
 {% endprettify %}
+
+[PENDING: update this sample; it ]
 
 下面代码创建了一个 key 为 integer， value 为 View 的 map 对象：
 
@@ -7087,7 +7254,7 @@ var foo = [!Foo<Object>!]();
 Initially, Dart's generic support was limited to classes.
 A newer syntax, called _generic methods_, allows type arguments on methods and functions:
 
-<!-- https://dartpad.dartlang.org/a02c53b001977efa4d803109900f21bb -->
+<!-- {{site.dartpad}}/a02c53b001977efa4d803109900f21bb -->
 <!-- https://gist.github.com/a02c53b001977efa4d803109900f21bb -->
 <?code-excerpt "misc/test/language_tour/generics_test.dart (method)" replace="/<T.(?=\()|T/[!$&!]/g"?>
 {% prettify dart %}
@@ -7115,7 +7282,7 @@ For more information about generics, see
 最初，Dart 的泛型只能用于类。
 新语法_泛型方法_，允许在方法和函数上使用类型参数：
 
-<!-- https://dartpad.dartlang.org/a02c53b001977efa4d803109900f21bb -->
+<!-- {{site.dartpad}}/a02c53b001977efa4d803109900f21bb -->
 <!-- https://gist.github.com/a02c53b001977efa4d803109900f21bb -->
 <?code-excerpt "misc/test/language_tour/generics_test.dart (method)" replace="/<T.(?=\()|T/[!$&!]/g"?>
 {% prettify dart %}
@@ -7955,7 +8122,7 @@ Click the run button {% asset red-run.png alt="" %} to execute the code.
 
 {% comment %}
 https://gist.github.com/405379bacf30335f3aed
-https://dartpad.dartlang.org/405379bacf30335f3aed
+{{site.dartpad}}/405379bacf30335f3aed
 
 <?code-excerpt "misc/lib/language_tour/callable_classes.dart"?>
 {% prettify dart %}
@@ -7993,7 +8160,7 @@ For more information on treating classes like functions, see
 
 {% comment %}
 https://gist.github.com/405379bacf30335f3aed
-https://dartpad.dartlang.org/405379bacf30335f3aed
+{{site.dartpad}}/405379bacf30335f3aed
 
 <?code-excerpt "misc/lib/language_tour/callable_classes.dart"?>
 {% prettify dart %}
@@ -8507,6 +8674,7 @@ documentation.]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}})
 [Guidelines for Dart Doc Comments.](/guides/language/effective-dart/documentation)
 
 {% comment %}
+
 ## Summary
 
 This page summarized the commonly used features in the Dart language.
@@ -8529,8 +8697,8 @@ To learn more about Dart's core libraries, see
 [double]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/double-class.html
 [Error]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Error-class.html
 [Exception]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Exception-class.html
-[Flutter]: https://flutter.io
-[Flutter debug mode]: https://flutter.io/debugging/#debug-mode-assertions
+[Flutter]: {{site.flutter}}
+[Flutter debug mode]: {{site.flutter}}/docs/testing/debugging#debug-mode-assertions
 [forEach()]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Iterable/forEach.html
 [Function API reference]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Function-class.html
 [Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html
@@ -8545,12 +8713,14 @@ To learn more about Dart's core libraries, see
 [@required]: {{site.pub-api}}/meta/latest/meta/required-constant.html
 [Object]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Object-class.html
 [ObjectVsDynamic]: /guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed
+[Set]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Set-class.html
 [StackTrace]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/StackTrace-class.html
 [Stream]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Stream-class.html
 [String]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/String-class.html
 [Symbol]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Symbol-class.html
 [synchronous-async-start]: https://github.com/dart-lang/sdk/blob/master/docs/newsletter/20170915.md#synchronous-async-start
 [Type]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Type-class.html
+
 {% endcomment %}
 
 ## 总结
@@ -8591,6 +8761,7 @@ To learn more about Dart's core libraries, see
 [@required]: {{site.pub-api}}/meta/latest/meta/required-constant.html
 [Object]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Object-class.html
 [ObjectVsDynamic]: /guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed
+[Set]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Set-class.html
 [StackTrace]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/StackTrace-class.html
 [Stream]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Stream-class.html
 [String]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/String-class.html
