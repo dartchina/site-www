@@ -93,7 +93,7 @@ You might find the following tutorials helpful.
 {% comment %}
 ## More resources
 
-[api.dartlang.org]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}})
+[Dart API]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}})
 : API reference for dart:* libraries.
 
 [A Tour of the dart:io Library](/server/io-library-tour)
@@ -109,7 +109,7 @@ You might find the following tutorials helpful.
 
 ## 更多资源
 
-[api.dartlang.org]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}})
+[Dart API]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}})
 : dart:* 的 API 参考。
 
 [dart:io 库概览](/server/io-library-tour)

@@ -811,7 +811,7 @@ try {
 Many more code samples are in the
 [Language Tour](/guides/language/language-tour) and the
 [Library Tour](/guides/libraries/library-tour).
-Also see the [API reference](https://api.dartlang.org),
+Also see the [Dart API reference]({{site.dart_api}}),
 which often contains examples.
 {% endcomment %}
 
@@ -821,5 +821,5 @@ which often contains examples.
 更多代码示例在
 [语言概览](/guides/language/language-tour) 和
 [库概览](/guides/libraries/library-tour) 中。
-另请参阅 [API reference](https://api.dartlang.org)，
+另请参阅 [Dart API reference]({{site.dart_api}})，
 其中通常包含代码示例。

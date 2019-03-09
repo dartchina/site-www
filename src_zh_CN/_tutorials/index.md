@@ -20,10 +20,12 @@ If you want a hands-on coding experience, try a
 
 
 {% comment %}
+
 **Who are you?**
 
 * You already know how to program in a structured language like C or Java.
 * You are familiar with object-oriented programming.
+
 {% endcomment %}
 
 
@@ -34,6 +36,7 @@ If you want a hands-on coding experience, try a
 
 
 {% comment %}
+
 ## Language tutorials
 
 The language tour shows you how to use each major Dart feature.
@@ -57,6 +60,7 @@ which are fundamental to most Dart programs.
     <p>Use streams to manage sequences of data.</p>
   </div>
 </div>
+
 {% endcomment %}
 
 
@@ -68,6 +72,7 @@ which are fundamental to most Dart programs.
 
 
 {% comment %}
+
 ## Libraries &amp; packages tutorials
 
 Dart developers have been busy creating code libraries that can help you
@@ -77,10 +82,12 @@ Leverage that code or put your code out in the world to share with others.
 <div class="card-grid">
   <div class="card">
     <h3><a href="/tutorials/libraries/shared-pkgs">Install Shared Packages</a></h3>
-    <p>Organize and share code at
-       <a href="{{site.pub}}">pub.dartlang.org.</a></p>
+    <p>Organize and share code at the
+       [Pub site]({{site.pub}}).</p>
   </div>
 </div>
+
+
 {% endcomment %}
 
 
@@ -92,9 +99,7 @@ Dart 开发者一直忙于创建可以帮助你提高工作效率的代码库。
 <div class="card-grid">
   <div class="card">
     <h3><a href="/tutorials/libraries/shared-pkgs">安装共享包</a></h3>
-    <p>在
-       <a href="{{site.pub}}">pub.dartlang.org</a>
-       上组织和共享代码。
+    <p>在 [Pub site]({{site.pub}}) 上组织和共享代码。
     </p>
   </div>
 </div>

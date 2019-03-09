@@ -3335,24 +3335,23 @@ libraries, however. Others that you might want to look into include
 [dart:collection][] and [dart:typed\_data,][dart:typed\_data]
 as well as platform-specific libaries like the
 [Dart web development libraries][webdev libraries]
-and the [Flutter libraries.][docs.flutter.io]
+and the [Flutter libraries.][docs.flutter]
 
 You can get yet more libraries by using the [pub tool](/tools/pub). The
-[collection,](https://pub.dartlang.org/packages/collection)
-[crypto,](https://pub.dartlang.org/packages/crypto)
-[http,](https://pub.dartlang.org/packages/http)
-[intl,](https://pub.dartlang.org/packages/intl) and
-[test](https://pub.dartlang.org/packages/test) libraries are just a
+[collection,]({{site.pub}}/packages/collection)
+[crypto,]({{site.pub}}/packages/crypto)
+[http,]({{site.pub}}/packages/http)
+[intl,]({{site.pub}}/packages/intl) and
+[test]({{site.pub}}/packages/test) libraries are just a
 sampling of what you can install using pub.
 
 To learn more about the Dart language, see the
 [language tour][].
 
 [language tour]: /guides/language/language-tour
-[docs.flutter.io]: https://docs.flutter.io/
-[dartdocs.org]: https://www.dartdocs.org/
-[pub.dartlang.org]: https://pub.dartlang.org
-[DartPad]: https://dartpad.dartlang.org
+[docs.flutter]: {{site.flutter_api}}
+[pub.dartlang]: {{site.pub}}
+[DartPad]: {{site.dartpad}}
 [Assert]: /guides/language/language-tour#assert
 [ArgumentError]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/ArgumentError-class.html
 [Comparable]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Comparable-class.html
@@ -3404,24 +3403,23 @@ To learn more about the Dart language, see the
 本页向您介绍了 Dart 内置库中最常用的功能。
 但是，并没有涵盖所有内置库。
 您可能想要查看的其他内容包括 [dart:collection][] 和 [dart:typed\_data,][dart:typed\_data] ，
-以及特定于平台的库，如 [Dart web development libraries][webdev libraries] 和 [Flutter libraries][docs.flutter.io] 。
+以及特定于平台的库，如 [Dart web development libraries][webdev libraries] 和 [Flutter libraries.][docs.flutter] 。
 
 
 您可以使用 [pub tool](/tools/pub) 工具获得更多库。
-[collection，](https://pub.dartlang.org/packages/collection)
-[crypto，](https://pub.dartlang.org/packages/crypto)
-[http，](https://pub.dartlang.org/packages/http)
-[intl，](https://pub.dartlang.org/packages/intl) 以及
-[test](https://pub.dartlang.org/packages/test)，
+[collection,]({{site.pub}}/packages/collection)
+[crypto,]({{site.pub}}/packages/crypto)
+[http,]({{site.pub}}/packages/http)
+[intl,]({{site.pub}}/packages/intl) 以及
+[test]({{site.pub}}/packages/test)
 以上只是简单的列举了一些可以通过 pub 安装的库。
 
 要了解有关 Dart 语言的更多信息，请参考 [language tour][]。
 
 [language tour]: /guides/language/language-tour
-[docs.flutter.io]: https://docs.flutter.io/
-[dartdocs.org]: https://www.dartdocs.org/
-[pub.dartlang.org]: https://pub.dartlang.org
-[DartPad]: https://dartpad.dartlang.org
+[docs.flutter]: {{site.flutter_api}}
+[pub.dartlang]: {{site.pub}}
+[DartPad]: {{site.dartpad}}
 [Assert]: /guides/language/language-tour#assert
 [ArgumentError]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/ArgumentError-class.html
 [Comparable]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Comparable-class.html

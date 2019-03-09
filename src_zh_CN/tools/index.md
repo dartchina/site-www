@@ -21,7 +21,7 @@ get the SDK and tools for your app type.
 |------------+-----------------------------------+--------------------------|
 | App type   | Get started instructions          | Tool information         |
 |------------|-----------------------------------|--------------------------|
-| Mobile | [Install Flutter]({{site.flutter}}/setup) | [Flutter tools](https://flutter.io/using-ide/) |
+| Mobile | [Install Flutter]({{site.flutter}}/setup) | [Flutter tools]({{site.flutter}}/using-ide) |
 | Web    | [Install the Dart SDK]({{site.webdev}}/tools/sdk) | [Dart tools for the web]({{site.webdev}}/tools) |
 | Script or server | [Install the Dart SDK](/tools/sdk) | [Tools for server-side development](/server/tools) |
 {:.table .table-striped}
@@ -36,7 +36,7 @@ support the Dart language.
 |------------+-----------------------------------+--------------------------|
 |  应用类型   |               使用说明              |          工具信息         |
 |------------|-----------------------------------|--------------------------|
-| 移动端      | [安装 Flutter]({{site.flutter}}/setup) | [Flutter 工具](https://flutter.io/using-ide/) |
+| 移动端      | [安装 Flutter]({{site.flutter}}/setup) | [Flutter 工具]({{site.flutter}}/using-ide) |
 | Web        | [安装 Dart SDK]({{site.webdev}}/tools/sdk) | [Dart Web 端工具]({{site.webdev}}/tools) |
 | 脚本或服务器 | [安装 Dart SDK](/tools/sdk) | [服务端开发工具](/server/tools) |
 {:.table .table-striped}

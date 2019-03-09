@@ -23,9 +23,9 @@ For details, see our [code of conduct](/code-of-conduct).
 {% comment %}
 ## Stay informed
 
-* [news.dartlang.org](http://news.dartlang.org) -
+* [Dart news]({{site.news}}) -
   Official news feed for the Dart project.
-* [announce@dartlang.org](https://groups.google.com/a/dartlang.org/d/forum/announce) -
+* [Dart announce]({{site.group}}/d/forum/announce) -
   Low traffic announcements of new releases, breaking changes,
   and other important news. Recommended!
 * [Dart Language & Library Newsletters](https://github.com/dart-lang/sdk/blob/master/docs/newsletter/README.md#dart-language-and-library-newsletters) -
@@ -39,9 +39,9 @@ For details, see our [code of conduct](/code-of-conduct).
 
 ## 一手消息
 
-* [news.dartlang.org](http://news.dartlang.org) -
+* [Dart news]({{site.news}}) -
   Dart 项目的官方新闻。
-* [announce@dartlang.org](https://groups.google.com/a/dartlang.org/d/forum/announce) -
+* [Dart announce]({{site.group}}/d/forum/announce) -
   第一时间的发行版本公告，重大变化，以及其他重要新闻。推荐！
 * [Dart Language & Library Newsletters](https://github.com/dart-lang/sdk/blob/master/docs/newsletter/README.md#dart-language-and-library-newsletters) -
   有关现有功能和计划变更信息。
@@ -86,23 +86,25 @@ Get answers and connect with Dart developers.
 
 
 {% comment %}
+
 #### Google Groups
 
-* [General discussions](https://groups.google.com/a/dartlang.org/d/forum/misc)
-* [Dart plugin for JetBrains editors](https://groups.google.com/a/dartlang.org/d/forum/jetbrains-dart-plugin-discuss) (WebStorm, IntelliJ)
-* [Dart VM developers](https://groups.google.com/a/dartlang.org/d/forum/vm-dev)
-* [Dart analyzer](https://groups.google.com/a/dartlang.org/d/forum/analyzer-discuss)
-* [Server-side Dart](https://groups.google.com/a/dartlang.org/d/forum/cloud)
+* [General discussions]({{site.group}}/d/forum/misc)
+* [Dart plugin for JetBrains editors]({{site.group}}/d/forum/jetbrains-dart-plugin-discuss) (WebStorm, IntelliJ)
+* [Dart VM developers]({{site.group}}/d/forum/vm-dev)
+* [Dart analyzer]({{site.group}}/d/forum/analyzer-discuss)
+* [Server-side Dart]({{site.group}}/d/forum/cloud)
+
 {% endcomment %}
 
 
 #### Google 团队
 
-* [一般性讨论](https://groups.google.com/a/dartlang.org/d/forum/misc)
-* [用于 JetBrains 编辑器的 Dart 插件](https://groups.google.com/a/dartlang.org/d/forum/jetbrains-dart-plugin-discuss) (WebStorm, IntelliJ)
-* [Dart VM 开发者](https://groups.google.com/a/dartlang.org/d/forum/vm-dev)
-* [Dart analyzer](https://groups.google.com/a/dartlang.org/d/forum/analyzer-discuss)
-* [服务端 Dart](https://groups.google.com/a/dartlang.org/d/forum/cloud)
+* [一般性讨论]({{site.group}}/d/forum/misc)
+* [用于 JetBrains 编辑器的 Dart 插件]({{site.group}}/d/forum/jetbrains-dart-plugin-discuss) (WebStorm, IntelliJ)
+* [Dart VM 开发者]({{site.group}}/d/forum/vm-dev)
+* [Dart analyzer]({{site.group}}/d/forum/analyzer-discuss)
+* [服务端 Dart]({{site.group}}/d/forum/cloud)
 
 
 {% comment %}
@@ -116,7 +118,7 @@ Dart is open source. Learn how to
     ([issue tracker](https://github.com/dart-lang/sdk/issues/))
   * [This site](https://github.com/dart-lang/site-www/)
     ([issue tracker](https://github.com/dart-lang/site-www/issues/))
-* [reviews@dartlang.org](https://groups.google.com/a/dartlang.org/d/forum/reviews) -
+* [Dart reviews]({{site.group}}/d/forum/reviews) -
   High-traffic list of all core SDK code reviews.
 {% endcomment %}
 
@@ -131,7 +133,7 @@ Dart 是开源项目。了解如何
     ([issue tracker](https://github.com/dart-lang/sdk/issues/))
   * [This site](https://github.com/dart-lang/site-www/)
     ([issue tracker](https://github.com/dart-lang/site-www/issues/))
-* [reviews@dartlang.org](https://groups.google.com/a/dartlang.org/d/forum/reviews) -
+* [Dart reviews]({{site.group}}/d/forum/reviews) -
   所有核心 SDK 的高频率 code review 列表。
 
 
@@ -140,9 +142,9 @@ Dart 是开源项目。了解如何
 
 Our wonderful community has provided these resources.
 
-* [dartdocs.org](http://www.dartdocs.org) - Documentation for pub packages
 * [Dart Academy](https://dart.academy/) - Tutorials
   and articles written by the Dart community
+* [Smartherd videos](https://www.youtube.com/watch?v=5rtujDjt50I&list=PLlxmoA0rQ-LyHW9voBdNo4gEEIh0SjG-q) - A series of tutorial videos about the Dart language
 * [Chinese version of this site (此网站的中文版)](http://www.dartdoc.cn)
 
 Also see [Community and Support]({{site.webdev}}/community) on Dart webdev.
@@ -153,8 +155,8 @@ Also see [Community and Support]({{site.webdev}}/community) on Dart webdev.
 
 我们丰富的社区还提供了这些资源。
 
-* [dartdocs.org](http://www.dartdocs.org) - Pub 包文档
 * [Dart 学院](https://dart.academy/) - 由 Dart 社区编写的学习教程以及文章
+* [Smartherd 视频](https://www.youtube.com/watch?v=5rtujDjt50I&list=PLlxmoA0rQ-LyHW9voBdNo4gEEIh0SjG-q) - 关于Dart语言的一系列教程视频
 * [此站的英文官网](https://www.dartlang.org/)
 
 另见 Dart Web 开发的 [社区和支持]({{site.webdev}}/community)。
