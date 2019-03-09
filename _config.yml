@@ -26,7 +26,7 @@ pub: https://pub.dartlang.org
 pub-api: https://pub.dartlang.org/documentation
 pub-pkg: https://pub.dartlang.org/packages
 lints: https://dart-lang.github.io/linter/lints
-dartpad: https://dartpad.dartlang.org
+dartpad: https://dartpad.cn
 news: https://news.dartlang.org
 group: https://groups.google.com/a/dartlang.org
 
@@ -66,10 +66,10 @@ defaults:
 
 custom:
   dartpad:
-    embed-dart-prefix: https://dartpad.dartlang.org/embed-dart.html
-    embed-html-prefix: https://dartpad.dartlang.org/embed-html.html
-    embed-inline-prefix: https://dartpad.dartlang.org/embed-inline.html
-    direct-link: https://dartpad.dartlang.org
+    embed-dart-prefix: https://dartpad.cn/embed-dart.html
+    embed-html-prefix: https://dartpad.cn/embed-html.html
+    embed-inline-prefix: https://dartpad.cn/embed-inline.html
+    direct-link: https://dartpad.cn
   downloads:
     dartarchive-be-url-prefix: https://storage.googleapis.com/dart-archive/channels/be/raw
     dartarchive-dev-url-prefix: https://storage.googleapis.com/dart-archive/channels/dev/release
