@@ -123,7 +123,7 @@ maintainers version their package takes this convention into account. They are
 free to make sweeping changes to code under `src` without it being a breaking
 change to the package.
 
-[package guide]: https://www.dartlang.org/tools/pub/package-layout
+[package guide]: /tools/pub/package-layout
 
 That means that if you import some other package's private library, a minor,
 theoretically non-breaking point release of that package could break your code.
@@ -135,7 +135,7 @@ theoretically non-breaking point release of that package could break your code.
 基于包维护者对版本的考虑，package 使用了这种约定。
 在不破坏 package 的情况下，维护者可以自由地对 `src` 目录下的代码进行修改。
 
-[package guide]: https://www.dartlang.org/tools/pub/package-layout
+[package guide]: /tools/pub/package-layout
 
 这意味着，你如果导入了其中的私有库，
 按理论来讲，一个不破坏 package 的次版本就会影响到你的代码。
@@ -1825,10 +1825,6 @@ when a setter is small and has a corresponding getter that uses `=>`.
 num get x => center.x;
 set x(num value) => center = Point(value, center.y);
 {% endprettify %}
-
-It's rarely a good idea to use `=>` for non-setter void members. The `=>`
-implies "returns a value", so readers may misinterpret what the void member does
-if you use it.
 {% endcomment %}
 
 
@@ -1887,12 +1883,9 @@ num get x => center.x;
 set x(num value) => center = Point(value, center.y);
 {% endprettify %}
 
-对非 setter，void 返回值的成员，使用 `=>` 是一个不错的注意，
-`=>` 语法暗示会“返回一个值”，如果你在 void 返回值的成员上使用，会让读代码的人误解成员的行为。
-
 
 {% comment %}
-### DON'T use `this.` when not needed to avoid shadowing.
+### DON'T use `this.` except to redirect to a named constructor or to avoid shadowing. {#dont-use-this-when-not-needed-to-avoid-shadowing}
 
 {% include linter-rule.html rule="unnecessary_this" %}
 
@@ -1900,8 +1893,8 @@ JavaScript requires an explicit `this.` to refer to members on the object whose
 method is currently being executed, but Dart&mdash;like C++, Java, and
 C#&mdash;doesn't have that limitation.
 
-The only time you need to use `this.` is when a local variable with the same
-name shadows the member you want to access.
+There are only two times you need to use `this.`. One is when a local variable
+with the same name shadows the member you want to access:
 
 {:.bad-style}
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (this-dot)"?>
@@ -1932,6 +1925,38 @@ class Box {
   void update(value) {
     this.value = value;
   }
+}
+{% endprettify %}
+
+The other time to use `this.` is when redirecting to a named constructor:
+
+{:.bad-style}
+<?code-excerpt "misc/lib/effective_dart/usage_bad.dart (this-dot-constructor)"?>
+{% prettify dart %}
+class ShadeOfGray {
+  final int brightness;
+
+  ShadeOfGray(int val) : brightness = val;
+
+  ShadeOfGray.black() : this(0);
+
+  // This won't parse or compile!
+  // ShadeOfGray.alsoBlack() : black();
+}
+{% endprettify %}
+
+{:.good-style}
+<?code-excerpt "misc/lib/effective_dart/usage_good.dart (this-dot-constructor)"?>
+{% prettify dart %}
+class ShadeOfGray {
+  final int brightness;
+
+  ShadeOfGray(int val) : brightness = val;
+
+  ShadeOfGray.black() : this(0);
+
+  // But now it will!
+  ShadeOfGray.alsoBlack() : this.black();
 }
 {% endprettify %}
 
@@ -1954,7 +1979,7 @@ This looks surprising, but works like you want. Fortunately, code like this is
 relatively rare thanks to initializing formals.
 {% endcomment %}
 
-### **不要** 使用 `this.` ，除非遇到了变量冲突的情况。
+### **不要** 使用 `this.` ，在重定向命名函数和避免冲突的情况下除外。
 
 {% include linter-rule.html rule="unnecessary_this" %}
 
@@ -1962,6 +1987,7 @@ JavaScript 需要使用 `this.` 来引用对象的成员变量，
 但是 Dart&mdash;和 C++, Java, 以及C#&mdash;没有这种限制。
 
 只有当局部变量和成员变量名字一样的时候，你才需要使用 `this.` 来访问成员变量。
+只有两种情况需要使用 `this.` 。其中一种情况是要访问的局部变量和成员变量命名一样的时候：
 
 {:.bad-style}
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (this-dot)"?>
@@ -1992,6 +2018,38 @@ class Box {
   void update(value) {
     this.value = value;
   }
+}
+{% endprettify %}
+
+另一种使用 `this.` 的情况是在重定向到一个命名函数的时候：
+
+{:.bad-style}
+<?code-excerpt "misc/lib/effective_dart/usage_bad.dart (this-dot-constructor)"?>
+{% prettify dart %}
+class ShadeOfGray {
+  final int brightness;
+
+  ShadeOfGray(int val) : brightness = val;
+
+  ShadeOfGray.black() : this(0);
+
+  // 这样是无法解析和编译的！
+  // ShadeOfGray.alsoBlack() : black();
+}
+{% endprettify %}
+
+{:.good-style}
+<?code-excerpt "misc/lib/effective_dart/usage_good.dart (this-dot-constructor)"?>
+{% prettify dart %}
+class ShadeOfGray {
+  final int brightness;
+
+  ShadeOfGray(int val) : brightness = val;
+
+  ShadeOfGray.black() : this(0);
+
+  // 现在就可以了！
+  ShadeOfGray.alsoBlack() : this.black();
 }
 {% endprettify %}
 

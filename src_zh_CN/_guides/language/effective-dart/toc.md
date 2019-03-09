@@ -130,7 +130,7 @@
 * <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%B8%BA%E5%AD%97%E6%AE%B5%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84-getter-%E5%92%8C-setter-%E6%96%B9%E6%B3%95'><strong>不要</strong> 为字段创建不必要的 getter 和 setter 方法。</a>
 * <a href='/guides/language/effective-dart/usage#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-final-%E5%85%B3%E9%94%AE%E5%AD%97%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7'><strong>推荐</strong> 使用 <code>final</code> 关键字来创建只读属性。</a>
 * <a href='/guides/language/effective-dart/usage#%E8%80%83%E8%99%91-%E5%AF%B9%E7%AE%80%E5%8D%95%E6%88%90%E5%91%98%E4%BD%BF%E7%94%A8--'><strong>考虑</strong> 对简单成员使用 <code>=&gt;</code> 。</a>
-* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-this-%E9%99%A4%E9%9D%9E%E9%81%87%E5%88%B0%E4%BA%86%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5'><strong>不要</strong> 使用 <code>this.</code> ，除非遇到了变量冲突的情况。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-this-%E5%9C%A8%E9%87%8D%E5%AE%9A%E5%90%91%E5%91%BD%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%81%BF%E5%85%8D%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E9%99%A4%E5%A4%96'><strong>不要</strong> 使用 <code>this.</code> ，在重定向命名函数和避免冲突的情况下除外。</a>
 * <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E6%97%B6%E5%80%99%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%80%BC'><strong>要</strong> 尽可能的在定义变量的时候初始化变量值。</a>
 
 **构造函数**
