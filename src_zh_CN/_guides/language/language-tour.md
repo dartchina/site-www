@@ -6538,6 +6538,8 @@ Enumerated types have the following limits:
 
 For more information, see the [Dart language specification][].
 
+{% endcomment %}
+
 
 #### 使用枚举
 
