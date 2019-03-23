@@ -1486,8 +1486,13 @@ add `const` before the set literal:
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-set)"?>
 {% prettify dart %}
-final constantSet =
-    const {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+final constantSet = const {
+  'fluorine',
+  'chlorine',
+  'bromine',
+  'iodine',
+  'astatine',
+};
 // constantSet.add('helium'); // Uncommenting this causes an error.
 {% endprettify %}
 
@@ -1560,8 +1565,13 @@ assert(elements.length == 5);
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-set)"?>
 {% prettify dart %}
-final constantSet =
-    const {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+final constantSet = const {
+  'fluorine',
+  'chlorine',
+  'bromine',
+  'iodine',
+  'astatine',
+};
 // constantSet.add('helium'); // Uncommenting this causes an error.
 {% endprettify %}
 
@@ -2943,7 +2953,7 @@ You can override many of these operators, as described in
 | unary prefix             | <code>-<em>expr</em></code>    <code>!<em>expr</em></code>    <code>~<em>expr</em></code>    <code>++<em>expr</em></code>    <code>--<em>expr</em></code>   |
 | multiplicative           | `*`    `/`    `%`    `~/`                      |
 | additive                 | `+`    `-`                                     |
-| shift                    | `<<`    `>>`                                   |
+| shift                    | `<<`    `>>`    `>>>`                          |
 | bitwise AND              | `&`                                            |
 | bitwise XOR              | `^`                                            |
 | bitwise OR               | `|`                                            |
@@ -2954,8 +2964,15 @@ You can override many of these operators, as described in
 | if null                  | `??`                                           |
 | conditional              | <code><em>expr1</em> ? <em>expr2</em> : <em>expr3</em></code> |
 | cascade                  | `..`                                           |
-| assignment               | `=`    `*=`    `/=`    `~/=`    `%=`    `+=`    `-=`    `<<=`    `>>=`    `&=`    `^=`    `|=`    `??=` |
+| assignment               | `=`    `*=`    `/=`    `+=`    `-=`    `&=`    `^=`    <em>etc.</em> |
 {:.table .table-striped}
+
+<aside class="alert alert-warning" markdown="1">
+  **Warning:**
+  Operator precedence is an approximation of the behavior of a Dart parser.
+  For definitive answers, consult the grammar in the
+  [Dart language specification][].
+</aside>
 
 When you use operators, you create expressions. Here are some examples
 of operator expressions:
@@ -3009,7 +3026,7 @@ Vector version of +.
 | unary prefix             | <code>-<em>expr</em></code>    <code>!<em>expr</em></code>    <code>~<em>expr</em></code>    <code>++<em>expr</em></code>    <code>--<em>expr</em></code>   |
 | multiplicative           | `*`    `/`    `%`    `~/`                      |
 | additive                 | `+`    `-`                                     |
-| shift                    | `<<`    `>>`                                   |
+| shift                    | `<<`    `>>`    `>>>`                          |
 | bitwise AND              | `&`                                            |
 | bitwise XOR              | `^`                                            |
 | bitwise OR               | `|`                                            |
@@ -3020,8 +3037,14 @@ Vector version of +.
 | if null                  | `??`                                           |
 | conditional              | <code><em>expr1</em> ? <em>expr2</em> : <em>expr3</em></code> |
 | cascade                  | `..`                                           |
-| assignment               | `=`    `*=`    `/=`    `~/=`    `%=`    `+=`    `-=`    `<<=`    `>>=`    `&=`    `^=`    `|=`    `??=` |
+| assignment               | `=`    `*=`    `/=`    `+=`    `-=`    `&=`    `^=`    <em>etc.</em> |
 {:.table .table-striped}
+
+<aside class="alert alert-warning" markdown="1">
+  **提示：**
+  上述表格中描述的运算符优先级近似于Dart 解析器实际行为。
+  更准确的描述，请参阅 [Dart language specification][] 中的语法。
+</aside>
 
 创建表达式的时候会用到运算符。 
 下面是一些运算符表达式的实例：
@@ -6513,9 +6536,7 @@ Enumerated types have the following limits:
 * You can't subclass, mix in, or implement an enum.
 * You can't explicitly instantiate an enum.
 
-For more information, see the
-[Dart Language Specification](/guides/language/spec).
-{% endcomment %}
+For more information, see the [Dart language specification][].
 
 
 #### 使用枚举
@@ -6572,8 +6593,7 @@ switch (aColor) {
 * 枚举不能被子类化，混合或实现。
 * 枚举不能被显式实例化。
 
-有关更多信息，参考
-[Dart Language Specification](/guides/language/spec).
+有关更多信息，参考 [Dart language specification][] 。
 
 {% comment %}
 ### Adding features to a class: mixins
@@ -7093,7 +7113,7 @@ angle brackets (`<...>`) just after the class name. For example:
 var nameSet = Set<String>.from(names);
 {% endprettify %}
 
-[PENDING: update this sample; it ]
+{% comment %}[PENDING: update this sample; it ]{% endcomment %}
 
 The following code creates a map that has integer keys and values of
 type View:
@@ -7115,7 +7135,7 @@ var views = Map<int, View>();
 var nameSet = Set<String>.from(names);
 {% endprettify %}
 
-[PENDING: update this sample; it ]
+{% comment %}[PENDING: update this sample; it ]{% endcomment %}
 
 下面代码创建了一个 key 为 integer， value 为 View 的 map 对象：
 
@@ -7939,7 +7959,8 @@ Also see the articles
 [Dart Language Asynchrony Support: Phase 1](/articles/language/await-async)
 and
 [Dart Language Asynchrony Support: Phase 2](/articles/language/beyond-async),
-and the [Dart language specification](/guides/language/spec).
+and the [Dart language specification][].
+
 {% endcomment %}
 
 
@@ -8003,10 +8024,11 @@ Future main() [!async!] {
 [Dart Language Asynchrony Support: Phase 1](/articles/language/await-async)
 和
 [Dart Language Asynchrony Support: Phase 2](/articles/language/beyond-async),
-以及 [Dart language specification](/guides/language/spec).
+以及 [Dart language specification][] 。
 
 
 {% comment %}
+
 <a id="generator"></a>
 ## Generators
 
@@ -8056,6 +8078,7 @@ Iterable<int> naturalsDownFrom(int n) sync* {
 
 For more information about generators, see the article
 [Dart Language Asynchrony Support: Phase 2](/articles/language/beyond-async).
+
 {% endcomment %}
 
 
@@ -8678,8 +8701,7 @@ documentation.]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}})
 
 This page summarized the commonly used features in the Dart language.
 More features are being implemented, but we expect that they won’t break
-existing code. For more information, see the [Dart Language
-Specification](/guides/language/spec) and
+existing code. For more information, see the [Dart language specification][] and
 [Effective Dart](/guides/language/effective-dart).
 
 To learn more about Dart's core libraries, see
@@ -8691,6 +8713,7 @@ To learn more about Dart's core libraries, see
 [dart:isolate]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-isolate
 [dart:math]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-math
 [dart]: /server/tools/dart-vm
+[Dart language specification]: /guides/language/spec
 [dartdevc]: {{site.webdev}}/tools/dartdevc
 [DON’T use const redundantly]: /guides/language/effective-dart/usage#dont-use-const-redundantly
 [double]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/double-class.html
@@ -8727,7 +8750,7 @@ To learn more about Dart's core libraries, see
 本页概述了 Dart 语言中常用的功能。
 还有更多特性有待实现，但我们希望它们不会破坏现有代码。
 有关更多信息，请参考
-[Dart Language Specification](/guides/language/spec) 和
+[Dart language specification][] 和
 [Effective Dart](/guides/language/effective-dart).
 
 要了解更多关于 Dart 核心库的内容，请参考
@@ -8739,6 +8762,7 @@ To learn more about Dart's core libraries, see
 [dart:isolate]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-isolate
 [dart:math]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-math
 [dart]: /server/tools/dart-vm
+[Dart language specification]: /guides/language/spec
 [dartdevc]: {{site.webdev}}/tools/dartdevc
 [DON’T use const redundantly]: /guides/language/effective-dart/usage#dont-use-const-redundantly
 [double]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/double-class.html
