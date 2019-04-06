@@ -7,10 +7,12 @@ toc: false
 
 
 {% comment %}
+
 **The Dart Tutorials** teach you how to use the Dart
 language, tools, and APIs to build applications.
 If you want a hands-on coding experience, try a
 **[codelab](/codelabs)**.
+
 {% endcomment %}
 
 
@@ -83,7 +85,7 @@ Leverage that code or put your code out in the world to share with others.
   <div class="card">
     <h3><a href="/tutorials/libraries/shared-pkgs">Install Shared Packages</a></h3>
     <p>Organize and share code at the
-       [Pub site]({{site.pub}}).</p>
+       <a href="{{site.pub}}">Pub site.</a></p>
   </div>
 </div>
 
@@ -99,18 +101,20 @@ Dart 开发者一直忙于创建可以帮助你提高工作效率的代码库。
 <div class="card-grid">
   <div class="card">
     <h3><a href="/tutorials/libraries/shared-pkgs">安装共享包</a></h3>
-    <p>在 [Pub site]({{site.pub}}) 上组织和共享代码。
+    <p>在 <a href="{{site.pub}}">Pub site.</a> 上组织和共享代码。
     </p>
   </div>
 </div>
 
 
 {% comment %}
+
 ## More tutorials
 
 * [Server-side Dart tutorials](/tutorials/server)
 * [Web tutorials]({{site.webdev}}/tutorials)
 * [Dart Academy](https://dart.academy)
+
 {% endcomment %}
 
 

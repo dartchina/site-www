@@ -7,10 +7,12 @@ description: "Dart 项目的社区，邮件列表，bug 数据库。"
 
 
 {% comment %}
+
 Track the Dart project, get help, and talk with other Dart developers.
 
 We pledge to maintain an open and welcoming environment.
 For details, see our [code of conduct](/code-of-conduct).
+
 {% endcomment %}
 
 
@@ -21,6 +23,7 @@ For details, see our [code of conduct](/code-of-conduct).
 
 
 {% comment %}
+
 ## Stay informed
 
 * [Dart news]({{site.news}}) -
@@ -32,8 +35,7 @@ For details, see our [code of conduct](/code-of-conduct).
   Information about existing features and planned changes.
 * [@dart_lang](https://twitter.com/dart_lang) -
   The official Twitter account.
-* [+dartlang](https://plus.google.com/+dartlang) -
-  The official Google+ account.
+  
 {% endcomment %}
 
 
@@ -52,9 +54,11 @@ For details, see our [code of conduct](/code-of-conduct).
 
 
 {% comment %}
+
 ## Join the conversation
 
 Get answers and connect with Dart developers.
+
 {% endcomment %}
 
 
@@ -64,6 +68,7 @@ Get answers and connect with Dart developers.
 
 
 {% comment %}
+
 #### Communities
 
 * [StackOverflow](http://stackoverflow.com/tags/dart) -
@@ -71,7 +76,7 @@ Get answers and connect with Dart developers.
 * [Gitter](https://gitter.im/dart-lang/home) -
   Chat with Dart team and community members.
 * [Dart on Reddit](https://www.reddit.com/r/dartlang)
-* [Dartisans on Google+](http://g.co/dartisans)
+
 {% endcomment %}
 
 
@@ -108,6 +113,7 @@ Get answers and connect with Dart developers.
 
 
 {% comment %}
+
 ## Contribute
 
 Dart is open source. Learn how to
@@ -120,6 +126,7 @@ Dart is open source. Learn how to
     ([issue tracker](https://github.com/dart-lang/site-www/issues/))
 * [Dart reviews]({{site.group}}/d/forum/reviews) -
   High-traffic list of all core SDK code reviews.
+
 {% endcomment %}
 
 
@@ -138,6 +145,7 @@ Dart 是开源项目。了解如何
 
 
 {% comment %}
+
 ## Additional community resources
 
 Our wonderful community has provided these resources.
@@ -148,6 +156,7 @@ Our wonderful community has provided these resources.
 * [Chinese version of this site (此网站的中文版)](http://www.dartdoc.cn)
 
 Also see [Community and Support]({{site.webdev}}/community) on Dart webdev.
+
 {% endcomment %}
 
 
