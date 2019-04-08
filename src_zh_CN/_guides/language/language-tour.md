@@ -2649,7 +2649,7 @@ list.forEach(
 多数函数是有名字的， 比如 `main()` 和 `printElement()`。
 也可以创建没有名字的函数，这种函数被称为 _匿名函数_，
 有时候也被称为 _lambda_ 或者 _closure_ 。
-匿名函数可以被复制到一个变量中，
+匿名函数可以赋值到一个变量中，
 举个例子，在一个集合中可以添加或者删除一个匿名函数。
 
 匿名函数和命名函数看起来类似&mdash; 
@@ -3459,7 +3459,7 @@ assert(a == 6);
 ### 赋值运算符
 
 使用 `=` 为变量赋值。
-使用 `??=` 运算符时，只有当被复制变量为 null 时才会赋值给变量。
+使用 `??=` 运算符时，只有当被赋值的变量为 null 时才会赋值给它。
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (assignment)"?>
 {% prettify dart %}
