@@ -1,9 +1,11 @@
 ---
-title: "Terms of Use"
+title: "使用条款"
 permalink: /terms
-description: "The terms of use for dartlang.org."
+description: "dartlang.org 的使用条款。"
 toc: false
 ---
+
+{% comment %}
 
 The Dart website (the "Website") is hosted by Google.
 By using and/or visiting the Website,
@@ -31,6 +33,32 @@ allowed uses of the marks. Our goal in protecting the Dart trademarks
 is to benefit the entire community by ensuring that the marks are only used
 in ways that are consistent with Google's mission to provide a free and open
 source SDK.
+
+[Terms of Service]: https://policies.google.com/terms
+[Privacy Policy]: https://policies.google.com/privacy
+
+{% endcomment %}
+
+<div class="alert alert-warning" markdown="1">
+**警告：**
+此篇内容涉及法律专业措辞，限于译者能力，仅作参考，原文见 [TERMS](https://www.dartlang.org/terms) 。
+</div>
+
+Dart 网站由Google托管。使用和/或访问本网站即表示您同意接受 Google 的
+[Terms of Service][] 以及 [Privacy Policy][] 。
+
+"Dart" 名称以及 Dart Logo
+{% asset shared/dart/icon/64.png width="32px" alt="Dart logo" class="align-baseline" %}
+（"Dart Marks"）为 Google 拥有商标，不包含在知识共享署名 4.0 国际许可下的许可资产中。
+Google 会授予你不可转让，非独占，免版税的有限许可，以使用 Dart 商标 ，但须遵守 [Dart Brand Guidelines](/brand) 。
+除上述规定外，本协议中的任何内容均不授予或应被视为授予你在 Dart 商标中的任何权利，所有权或权益。
+
+如上所述，Google 拥有 Dart 商标，但我们对其进行许可，以便开发者社区可以使用它们来支持 Dart SDK，
+包括通过培训材料和其他社区内容。
+
+这里，重要的是为了确保人们不通过混淆或其他滥用的方式使用商标，因此我们准备了 [brand guidelines](/brand)
+来描述商标的允许用途。我们保护 Dart 商标的目标是通过确保商标仅以符合 Google 提供免费开源 SDK 使命的方式使用，
+从而使整个社区受益。
 
 [Terms of Service]: https://policies.google.com/terms
 [Privacy Policy]: https://policies.google.com/privacy
