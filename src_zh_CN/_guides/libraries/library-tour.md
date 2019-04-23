@@ -67,12 +67,12 @@ and no third-party libraries.
 The platform-specific dart:io and dart:html libraries
 are covered in the [dart:io tour][] and the [dart:html tour.][dart:html tour]
 
-Other places to find library information are
-[pub.dartlang.org][pub.dartlang.org] and the
+Other places to find library information are the
+[Pub site][pub.dartlang] and the
 [Dart web developer library guide.][webdev libraries]
 You can find API documentation for all dart:* libraries in the
 [Dart API reference][Dart API] or, if you're using Flutter,
-the [Flutter API reference.][docs.flutter.io]
+the [Flutter API reference.][docs.flutter]
 
 <aside class="alert alert-info" markdown="1">
   **DartPad tip:** You can play with the code in this page by copying it into a
@@ -88,11 +88,11 @@ the [Flutter API reference.][docs.flutter.io]
 的介绍，详见 [dart:io tour][] 和 [dart:html tour][dart:html tour] 。
 
 更多库信息可以在
-[pub.dartlang.org][pub.dartlang.org] 和
+[Pub site][pub.dartlang] 和
 [Dart web developer library guide.][webdev libraries] 查找。
 所有 dart:* 库的 API 文档可以在
 [Dart API reference][Dart API] 查找， 如果使用的是 Flutter
-可以在 [Flutter API reference.][docs.flutter.io] 查找。
+可以在 [Flutter API reference.][docs.flutter] 查找。
 
 <aside class="alert alert-info" markdown="1">
   **DartPad tip：** 可以通过将该页中的代码拷贝到 [DartPad][DartPad] 中进行演示。
@@ -3139,8 +3139,8 @@ var scores = [
 var jsonText = jsonEncode(scores);
 assert(jsonText ==
     '[{"score":40},{"score":80},'
-    '{"score":100,"overtime":true,'
-    '"special_guest":null}]');
+        '{"score":100,"overtime":true,'
+        '"special_guest":null}]');
 {% endprettify %}
 
 Only objects of type int, double, String, bool, null, List, or Map (with
@@ -3196,8 +3196,8 @@ var scores = [
 var jsonText = jsonEncode(scores);
 assert(jsonText ==
     '[{"score":40},{"score":80},'
-    '{"score":100,"overtime":true,'
-    '"special_guest":null}]');
+        '{"score":100,"overtime":true,'
+        '"special_guest":null}]');
 {% endprettify %}
 
 只有 int， double， String， bool, null, List, 或者 Map 类型对象可以直接编码成 JSON。
