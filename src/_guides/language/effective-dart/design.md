@@ -10,9 +10,6 @@ prevpage:
 
 Here are some guidelines for writing consistent, usable APIs for libraries.
 
-* TOC
-{:toc}
-
 ## Names
 
 Naming is an important part of writing readable, maintainable code.
@@ -214,7 +211,7 @@ There is one exception to this rule. Input properties in [Angular][]
 components sometimes use imperative verbs for boolean setters because these
 setters are invoked in templates, not from other Dart code.
 
-[angular]: {{site.webdev}}/angular
+[angular]: {{site.angulardart}}
 </aside>
 
 
@@ -905,7 +902,7 @@ these setters are not intended to be invoked from Dart code and don't need a
 corresponding getter. (If they are used from Dart code, they *should* have a
 getter.)
 
-[angular]: {{site.webdev}}/angular
+[angular]: {{site.angulardart}}
 </aside>
 
 ### AVOID returning `null` from members whose return type is `bool`, `double`, `int`, or `num`.
