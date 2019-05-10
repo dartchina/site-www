@@ -7,7 +7,7 @@ toc: false
 
 ## Dart 编程语言中文版
 
-Dart 编程语言中文版（以下称为`中文版`）源于对 Dart 官方 [dartlang.org](https://www.dartlang.org) 英文官方版本（以下称为`英文版`）的翻译。目前 Dart 官方使用该翻译的版本做为 [dartlang.org](https://www.dartlang.org) 的中文版本。
+Dart 编程语言中文版（以下称为`中文版`）源于对 Dart 官方 [dart.dev](https://dart.dev) 英文官方版本（以下称为`英文版`）的翻译。目前 Dart 官方使用该翻译的版本做为 [dart.dev](https://dart.dev) 的中文版本。
 - `中文版` github 地址：[site-www-cn](https://github.com/dartchina/site-www-cn)。
 - `英文版` github 地址：[site-www](https://github.com/dart-lang/site-www) 。
 
