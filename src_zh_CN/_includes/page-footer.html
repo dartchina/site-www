@@ -1,75 +1,35 @@
 <footer id="page-footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-3">
-        <div class="content">
-          <div class="brand">
-            <img src="{% asset shared/dart/logo+text/horizontal/mono.svg @path %}" alt="Dart logo" class="brand"/>
-          </div>
-          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
-          <style>.menu .material-icons { font-size: 14px; }</style>
-          {%- assign dateFormat = '%Y/%m/%d %R %Z' -%}
-          <ul class="menu">
-            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
-            <li>
-              <a href="{{site.repo.this}}"
-                 title="该站在 GitHub 开源"
-                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
-              &nbsp;
-              <a href="{{site.repo.this}}/issues"
-                 title="为该站提交 issue"
-                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
-              &nbsp;
-              <a {% if site.data.ci.job-id %}
-                 href="{{site.repo.this | regex_replace: 'github.com','travis-ci.org'}}/jobs/{{site.data.ci.job-id}}"
-                 title="Site build #{{site.data.ci.build-number}} ({{site.data.ci.build-time | date: dateFormat}})"
-                 {% else %}
-                 title="Site built on {{site.now | default: site.time | date: dateFormat}}"
-                 {% endif %}
-                 class="no-automatic-external"><i class="material-icons">build</i></a>
-            </li>
-          </ul>
-          <h4><a href="/about_zh_CN">关于 dartlang 中文版</a></h4>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3">
-        <div class="content">
-          <h4>技术</h4>
-          <ul>
-            <li><a href="{{site.flutter}}">Dart 移动开发 (Flutter)</a></li>
-            <li><a href="{{site.webdev}}">Dart web 开发</a></li>
-            <li><a href="{{site.dart_vm}}">Dart 服务器开发</a></li>
-            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
-            <li><a href="/guides/libraries">Dart 库</a></li>
-            <li><a href="/guides/language">Dart 编程语言</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-lg-3">
-        <div class="content">
-          <h4>资源</h4>
-          <ul>
-            <li><a href="{{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}">API 参考</a></li>
-            <li><a href="{{site.custom.dartpad.direct-link}}">DartPad</a></li>
-            <li><a href="{{site.pub}}">Dart packages</a></li>
-            <li><a href="{{site.news}}">Dart 新闻</a></li>
-            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-lg-3">
-        <div class="content">
-          <h4>社区</h4>
-          <ul>
-            <li><a href="/community">支持和邮件列表</a></li>
-            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
-            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
-            <li><a href="https://gitter.im/dart-lang/home">Gitter 聊天室</a></li>
-          </ul>
-        </div>
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style>
+        {%- assign dateFormat = '%Y/%m/%d %R %Z' -%}
+        <ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dartlang 中文版</a></li>
+          <li>
+            <a href="{{site.repo.this}}"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="{{site.repo.this}}/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a {% if site.data.ci.job-id %}
+               href="{{site.repo.this | regex_replace: 'github.com','travis-ci.org'}}/jobs/{{site.data.ci.job-id}}"
+               title="Site build #{{site.data.ci.build-number}} ({{site.data.ci.build-time | date: dateFormat}})"
+               {% else %}
+               title="Site built on {{site.now | default: site.time | date: dateFormat}}"
+               {% endif %}
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </footer>
+

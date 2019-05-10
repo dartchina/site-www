@@ -361,8 +361,9 @@ There is one exception to this rule. Input properties in [Angular][]
 components sometimes use imperative verbs for boolean setters because these
 setters are invoked in templates, not from other Dart code.
 
-[angular]: {{site.webdev}}/angular
+[angular]: {{site.angulardart}}
 </aside>
+
 {% endcomment %}
 
 ### **推荐** 使用非命令式动词短语命名布尔类型的变量和属性。
@@ -422,7 +423,7 @@ showPopup     // Sounds like it shows the popup.
 这条规则有一个例外。 Angular组件中的输入属性有时会使用命令式动词来表示布尔设置器，
 因为这些 setter 是在模板中调用的，而不是从其它 Dart 代码中调用的。
 
-[angular]: {{site.webdev}}/angular
+[angular]: {{site.angulardart}}
 </aside>
 
 {% comment %}
@@ -1731,8 +1732,9 @@ these setters are not intended to be invoked from Dart code and don't need a
 corresponding getter. (If they are used from Dart code, they *should* have a
 getter.)
 
-[angular]: {{site.webdev}}/angular
+[angular]: {{site.angulardart}}
 </aside>
+
 {% endcomment %}
 
 
@@ -1752,7 +1754,7 @@ getter.)
 通常，这些 setter 是不打算在 Dart 中调用的，也就不需要相应的 getter。（如果在 Dart 代码
 中使用它们，那么它们*应该*有一个对应的 getter 。）
 
-[angular]: {{site.webdev}}/angular
+[angular]: {{site.angulardart}}
 </aside>
 
 

@@ -1,16 +1,16 @@
 ---
-layout: default
 title: "Dart 测试"
 description: "如何测试 Flutter, Web, 以及 VM 应用。"
 ---
 
 
 {% comment %}
+
 Software testing, an important part of app development, helps verify that
 your app is working correctly before you release it.
 This Dart testing guide outlines several types of testing, and points
 you to where you can learn how to test your
-[mobile]({{site.flutter}}), [web]({{site.webdev}}),
+[mobile,]({{site.flutter}}) [web](/web),
 and [server-side apps and scripts](/server).
 
 <aside class="alert alert-info" markdown="1">
@@ -21,12 +21,13 @@ defines its GUI elements as _components_.
 This doc uses **component** (except when explicitly discussing Flutter),
 but both terms refer to the same concept.
 </aside>
+
 {% endcomment %}
 
 
 软件测试是应用程序开发的重要组成部分，可帮助你在应用程序发布之前验证应用程序的正确性。
 此 Dart 测试指南概述了几种类型的测试，并指出了可以学习
-[移动]({{site.flutter}}), [Web]({{site.webdev}})，
+[移动]({{site.flutter}}), [Web](/web)，
 以及 [服务器应用和脚本](/server) 地方。
 
 <aside class="alert alert-info" markdown="1">
@@ -183,12 +184,13 @@ Use the following resources to learn more about testing Flutter apps:
 
 
 {% comment %}
+
 ## Web testing
 
 Use the following resources to learn more about testing Dart web
 applications:
 
-* [Testing]({{site.webdev}}/angular/guide/testing)(a page
+* [Testing]({{site.angulardart}}/guide/testing)(a page
   in the AngularDart guide)<br>
   How to use the [angular_test]({{site.pub}}/packages/angular_test)
   package to test AngularDart components and subsystems.
@@ -196,6 +198,7 @@ applications:
 * [package:webdriver]({{site.pub}}/packages/webdriver)<br>
   A Dart package for interfacing with
   [WebDriver](https://www.w3.org/TR/webdriver/) servers.
+  
 {% endcomment %}
 
 
@@ -203,7 +206,7 @@ applications:
 
 通过下面的资源了解更多关于 Dart web 应用测试的内容：
 
-* [Testing]({{site.webdev}}/angular/guide/testing)（ AngularDart 指南中的一个页面）<br>
+* [Testing]({{site.angulardart}}/guide/testing)（ AngularDart 指南中的一个页面）<br>
   如何使用 [angular_test]({{site.pub}}/packages/angular_test)
   package 来测试 AngularDart component 以及其系统。
   <!-- More pages are coming! -->
@@ -228,7 +231,7 @@ debugging Dart applications.
 ### IDE
 
 When it comes to debugging, your first line of defense is your IDE.
-Dart plugins exist for many commonly used IDEs.
+Dart plugins exist for many [commonly used IDEs](/tools/#ides-and-editors).
 
 If you don't have a preferred IDE, try
 [WebStorm]({{site.webdev}}/tools/webstorm) for web apps, or
@@ -240,7 +243,7 @@ IntelliJ Ultimate include additional built-in support for running test suites.
 
 ### IDE
 
-在调试方面，第一个要解决的问题就是 IDE 。许多常用的IDE都有 Dart 插件。
+在调试方面，第一个要解决的问题就是 IDE 。许多[常用的IDE](/tools/#ides-and-editors)都有 Dart 插件。
 
 如果没有一个首选的 IDE ，请尝试
 [WebStorm]({{site.webdev}}/tools/webstorm) 用来开发 Web 应用，或

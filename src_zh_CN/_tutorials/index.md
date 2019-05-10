@@ -1,14 +1,11 @@
 ---
 title: Dart 学习指南
 description: 编写 Dart 应用程序的学习指南
-permalink: /tutorials
-toc: false
 ---
-
 
 {% comment %}
 
-**The Dart Tutorials** teach you how to use the Dart
+These tutorials teach you how to use the Dart
 language, tools, and APIs to build applications.
 If you want a hands-on coding experience, try a
 **[codelab](/codelabs)**.
@@ -16,7 +13,7 @@ If you want a hands-on coding experience, try a
 {% endcomment %}
 
 
-**Dart 学习指南** 教你如何使用 Dart 语言，工具，以及 API 
+这些指南会教你如何使用 Dart 语言，工具，以及 API 
 构建应用程序。如果你想要一份体验动手编码的指导，请尝试
 **[codelab](/codelabs)** 。
 

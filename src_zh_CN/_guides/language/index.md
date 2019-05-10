@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "综述: Dart 编程语言"
 permalink: /guides/language
 short-title: "Dart 编程语言"
@@ -7,12 +6,13 @@ toc: false
 ---
 
 {% comment %}
+
 These two resources are popular with both beginning Dartisans and experts.
- 
+
 <div class="card-grid">
   <div class="card">
-    <h3><a href="/guides/language/language-tour">A Tour of the Dart Language</a></h3>
-    <p>A walk through all of Dart's major language features.</p>
+    <h3><a href="/guides/language/language-tour">Language tour</a></h3>
+    <p>A walk through all of the major features of the Dart language.</p>
   </div>
   <div class="card">
     <h3><a href="/guides/language/effective-dart">Effective Dart</a></h3>
@@ -21,14 +21,15 @@ These two resources are popular with both beginning Dartisans and experts.
     and design.</p>
   </div>
 </div>
+
 {% endcomment %}
 
 下面两种资源很受初期 Dartisans 和专家的欢迎。
 
 <div class="card-grid">
   <div class="card">
-    <h3><a href="/guides/language/language-tour">Dart 编程语言概览</a></h3>
-    <p>概括的了解 Dart 语言的主要功能。</p>
+    <h3><a href="/guides/language/language-tour">语言概览</a></h3>
+    <p>浏览所有 Dart 语言的主要功能。</p>
   </div>
   <div class="card">
     <h3><a href="/guides/language/effective-dart">Effective Dart</a></h3>
@@ -38,20 +39,21 @@ These two resources are popular with both beginning Dartisans and experts.
 </div>
 
 {% comment %}
+
 ## Other resources
 
 <ul markdown="1">
-<li markdown="1"> [Dart's Type System](/guides/language/sound-dart)<br>
+<li markdown="1"> [Dart's type system](/guides/language/sound-dart)<br>
     Learn about Dart's sound type system.
 </li>
 
 <ul markdown="1">
-<li markdown="1"> [Fixing Common Type Problems](/guides/language/sound-problems)<br>
+<li markdown="1"> [Fixing common type problems](/guides/language/sound-problems)<br>
    How to fix errors and warnings you may encounter.
 </li>
 </ul>
 
-<li markdown="1"> [Customize Static Analysis](/guides/language/analysis-options)<br>
+<li markdown="1"> [Customizing static analysis](/guides/language/analysis-options)<br>
     A guide on customizing the analyzer using an analysis options file.
 </li>
 
@@ -76,6 +78,7 @@ These two resources are popular with both beginning Dartisans and experts.
     A definitive, highly technical description of the Dart language.
 </li>
 </ul>
+
 {% endcomment %}
 
 ## 其他资源

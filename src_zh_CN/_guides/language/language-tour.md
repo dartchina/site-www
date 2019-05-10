@@ -10,10 +10,10 @@ This page shows you how to use each major Dart feature, from
 variables and operators to classes and libraries, with the assumption
 that you already know how to program in another language.
 
-To learn more about Dart's core libraries, see
-[A Tour of the Dart Libraries](/guides/libraries/library-tour).
+To learn more about Dart's core libraries, see the
+[library tour](/guides/libraries/library-tour).
 Whenever you want more details about a language feature,
-consult the [Dart Language Specification](/guides/language/spec).
+consult the [Dart language specification][].
 
 <div class="alert alert-info" markdown="1">
 **Tip:**
@@ -30,7 +30,7 @@ You can play with most of Dart's language features using DartPad
 学习更多 Dart 核心库, 参考
 [Dart 库概览](/guides/libraries/library-tour).
 想了解更多有关语言功能的详细信息,
-参考 [Dart 编程语言规范](/guides/language/spec).
+参考 [Dart language specification][](Dart 编程语言规范)。
 
 <div class="alert alert-info" markdown="1">
 **提示:**
@@ -1314,6 +1314,7 @@ assert(iMeantToDoThis.isNaN);
 {% endprettify %}
 
 {% comment %}
+
 ### Lists
 
 Perhaps the most common collection in nearly every programming language
@@ -1361,9 +1362,77 @@ var constantList = const [1, 2, 3];
 // constantList[1] = 1; // Uncommenting this causes an error.
 {% endprettify %}
 
+<a id="spread-operator"> </a>
+Dart 2.3 introduced the **spread operator** (`...`) and the
+**null-aware spread operator** (`...?`),
+which provide a concise way to insert multiple elements into a collection.
+
+For example, you can use the spread operator (`...`) to insert
+all the elements of a list into another list:
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-spread)"?>
+{% prettify dart %}
+var list = [1, 2, 3];
+var list2 = [0, ...list];
+assert(list2.length == 4);
+{% endprettify %}
+
+If the expression to the right of the spread operator might be null,
+you can avoid exceptions by using a null-aware spread operator (`...?`):
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-null-spread)"?>
+{% prettify dart %}
+var list;
+var list2 = [0, ...?list];
+assert(list2.length == 1);
+{% endprettify %}
+
+For more details and examples of using the spread operator, see the 
+[spread operator proposal.][spread proposal]
+
+<a id="collection-operators"> </a>
+Dart 2.3 also introduced **collection if** and **collection for**,
+which you can use to build collections using conditionals (`if`)
+and repetition (`for`).
+
+Here's an example of using **collection if**
+to create a list with three or four items in it:
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-if)"?>
+{% prettify dart %}
+var nav = [
+  'Home',
+  'Furniture',
+  'Plants',
+  if (promoActive) 'Outlet'
+];
+{% endprettify %}
+
+Here's an example of using **collection for**
+to manipulate the items of a list before
+adding them to another list:
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-for)"?>
+{% prettify dart %}
+var listOfInts = [1, 2, 3];
+var listOfStrings = [
+  '#0',
+  for (var i in listOfInts) '#$i'
+];
+assert(listOfStrings[1] == '#1');
+{% endprettify %}
+
+For more details and examples of using collection if and for, see the 
+[control flow collections proposal.][collections proposal]
+
+[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/control-flow-collections/feature-specification.md
+
+[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/spread-collections/feature-specification.md
+
 The List type has many handy methods for manipulating lists. For more
 information about lists, see [Generics](#generics) and
 [Collections](/guides/libraries/library-tour#collections).
+
 {% endcomment %}
 
 ### List
@@ -1412,12 +1481,74 @@ var constantList = const [1, 2, 3];
 // constantList[1] = 1; // 取消注释会引起错误。
 {% endprettify %}
 
+<a id="spread-operator"> </a>
+Dart 在 2.3 引入了 **Spread 操作符** (`...`) 和
+**null-aware Spread 操作符** (`...?`)，
+它提供了一种将多个元素插入集合的简洁方法。
+
+例如，你可以使用 Spread 操作符 (`...`) 将一个 List 中的所有元素插入到
+另一个 List 中：
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-spread)"?>
+{% prettify dart %}
+var list = [1, 2, 3];
+var list2 = [0, ...list];
+assert(list2.length == 4);
+{% endprettify %}
+
+如果 Spread 操作符右边可能为 null ，你可以使用 null-aware Spread 操作符 (`...?`) 来避免产生异常。
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-null-spread)"?>
+{% prettify dart %}
+var list;
+var list2 = [0, ...?list];
+assert(list2.length == 1);
+{% endprettify %}
+
+更多 Spread 操作符的内容和使用示例，参见 [Spread 操作符提案。][spread proposal]
+
+<a id="collection-operators"> </a>
+Dart 在 2.3 还同时引入了 **Collection If** 和 **Collection For**，
+在构建集合时，可以使用条件判断 (`if`) 和循环 (`for`) 。
+
+下面示例是使用 **Collection If** 来创建一个 List ， 它可能包含
+3 个或 4 个元素：
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-if)"?>
+{% prettify dart %}
+var nav = [
+  'Home',
+  'Furniture',
+  'Plants',
+  if (promoActive) 'Outlet'
+];
+{% endprettify %}
+
+下面示例是使用 **Collection For** 将列表中的元素修改后添加到另一个列表中：
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-for)"?>
+{% prettify dart %}
+var listOfInts = [1, 2, 3];
+var listOfStrings = [
+  '#0',
+  for (var i in listOfInts) '#$i'
+];
+assert(listOfStrings[1] == '#1');
+{% endprettify %}
+
+更多 **Collection If** 和 **Collection For** 的内容和使用示例，参阅 
+[集合的流控制提案。][collections proposal]
+
+[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/control-flow-collections/feature-specification.md
+
+[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/spread-collections/feature-specification.md
+
 List 类型包含了很多 List 的操作函数。 
 更多信息参考 [泛型](#generics) 和
 [集合](/guides/libraries/library-tour#collections).
 
-
 {% comment %}
+
 ### Sets
 
 A set in Dart is an unordered collection of unique items.
@@ -1496,9 +1627,17 @@ final constantSet = const {
 // constantSet.add('helium'); // Uncommenting this causes an error.
 {% endprettify %}
 
+As of Dart 2.3, sets support spread operators (`...` and `...?`)
+and collection ifs and fors,
+just like lists do.
+For more information, see the
+[list spread operator](#spread-operator) and
+[list collection operator](#collection-operators) discussions.
+
 For more information about sets, see
 [Generics](#generics) and
 [Sets](/guides/libraries/library-tour#sets).
+
 {% endcomment %}
 
 ### Set
@@ -1575,11 +1714,18 @@ final constantSet = const {
 // constantSet.add('helium'); // Uncommenting this causes an error.
 {% endprettify %}
 
+在 Dart 2.3 中，Set 支持 Spread 操作符 (`...` and `...?`) 和
+Collection If 和 Collection For ,就像 List 一样。
+更多内容，参阅
+[list spread operator](#spread-operator) 和
+[list collection operator](#collection-operators) 相关讨论。
+
 更多关于 Set 的内容，参阅
 [Generic](#generics) 及
 [Set](/guides/libraries/library-tour#sets)。
 
 {% comment %}
+
 ### Maps
 
 In general, a map is an object that associates keys and values. Both
@@ -1685,9 +1831,16 @@ final constantMap = const {
 // constantMap[2] = 'Helium'; // Uncommenting this causes an error.
 {% endprettify %}
 
+As of Dart 2.3, maps support spread operators (`...` and `...?`)
+and collection if and for, just like lists do.
+For details and examples, see the
+[spread operator proposal][spread proposal] and the
+[control flow collections proposal.][collections proposal]
+
 For more information about maps, see
 [Generics](#generics) and
 [Maps](/guides/libraries/library-tour#maps).
+
 {% endcomment %}
 
 ### Map
@@ -1790,11 +1943,19 @@ final constantMap = const {
 // constantMap[2] = 'Helium'; // 取消注释会引起错误。
 {% endprettify %}
 
+
+在 Dart 2.3 中，Map 支持 Spread 操作符 (`...` and `...?`) 和
+Collection If 和 Collection For ,就像 List 一样。
+更多内容和示例，参阅
+[list spread operator](#spread-operator) 和
+[list collection operator](#collection-operators) 相关讨论。
+
 更名多关于 Map 的内容，参考
 [Generics](#generics) and
 [Maps](/guides/libraries/library-tour#maps).
 
 {% comment %}
+
 ### Runes
 
 In Dart, runes are the UTF-32 code points of a string.
@@ -7334,10 +7495,8 @@ are a unit of privacy: identifiers that start with an underscore (\_)
 are visible only inside the library. *Every Dart app is a library*, even
 if it doesn’t use a `library` directive.
 
-Libraries can be distributed using packages. See
-[Pub Package and Asset Manager](/tools/pub)
-for information about
-pub, a package manager included in the SDK.
+Libraries can be distributed using [packages](/guides/packages).
+
 {% endcomment %}
 
 ## 库和可见性
@@ -7347,10 +7506,10 @@ pub, a package manager included in the SDK.
 以下划线 (\_) 开头的标识符仅在库内可见。
 *每个 Dart 应用程序都是一个库* ，虽然没有使用 `library` 指令。
 
-库可以通过包来分发。有关 pub（集成在SDK中的包管理器）的信息，请参考 
-[Pub Package 和 Asset Manager](/tools/pub)。
+库可以通过[包](/guides/packages)来分发。
 
 {% comment %}
+
 ### Using libraries
 
 Use `import` to specify how a namespace from one library is used in the
@@ -8710,13 +8869,13 @@ To learn more about Dart's core libraries, see
 [A Tour of the Dart Libraries](/guides/libraries/library-tour).
 
 [AssertionError]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/AssertionError-class.html
-[dart2js]: {{site.webdev}}/tools/dart2js
+[dart2js]: /tools/dart2js
 [dart:html]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html
 [dart:isolate]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-isolate
 [dart:math]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-math
 [dart]: /server/tools/dart-vm
 [Dart language specification]: /guides/language/spec
-[dartdevc]: {{site.webdev}}/tools/dartdevc
+[dartdevc]: /tools/dartdevc
 [DON’T use const redundantly]: /guides/language/effective-dart/usage#dont-use-const-redundantly
 [double]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/double-class.html
 [Error]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Error-class.html
@@ -8759,19 +8918,19 @@ To learn more about Dart's core libraries, see
 [A Tour of the Dart Libraries](/guides/libraries/library-tour).
 
 [AssertionError]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/AssertionError-class.html
-[dart2js]: {{site.webdev}}/tools/dart2js
+[dart2js]: /tools/dart2js
 [dart:html]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-html
 [dart:isolate]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-isolate
 [dart:math]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-math
 [dart]: /server/tools/dart-vm
 [Dart language specification]: /guides/language/spec
-[dartdevc]: {{site.webdev}}/tools/dartdevc
+[dartdevc]: /tools/dartdevc
 [DON’T use const redundantly]: /guides/language/effective-dart/usage#dont-use-const-redundantly
 [double]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/double-class.html
 [Error]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Error-class.html
 [Exception]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Exception-class.html
-[Flutter]: https://flutter.io
-[Flutter debug mode]: https://flutter.io/debugging/#debug-mode-assertions
+[Flutter]: {{site.flutter}}
+[Flutter debug mode]: {{site.flutter}}/docs/testing/debugging#debug-mode-assertions
 [forEach()]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Iterable/forEach.html
 [Function API reference]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Function-class.html
 [Future]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/Future-class.html

@@ -2,13 +2,13 @@
 title: Effective Dart
 description: Best practices for building consistent, maintainable, efficient Dart libraries.
 permalink: /guides/language/effective-dart
-toc: true
 nextpage:
   url: /guides/language/effective-dart/style
   title: 风格
 ---
 
 {% comment %}
+
 Over the past several years, we've written a ton of Dart code and learned a lot
 about what works well and what doesn't. We're sharing this with you so you can
 write consistent, robust, fast code too. There are two overarching themes:

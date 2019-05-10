@@ -1,5 +1,4 @@
 ---
-layout: default
 permalink: /community
 title: "社区和支持"
 description: "Dart 项目的社区，邮件列表，bug 数据库。"
@@ -155,7 +154,7 @@ Our wonderful community has provided these resources.
 * [Smartherd videos](https://www.youtube.com/watch?v=5rtujDjt50I&list=PLlxmoA0rQ-LyHW9voBdNo4gEEIh0SjG-q) - A series of tutorial videos about the Dart language
 * [Chinese version of this site (此网站的中文版)](http://www.dartdoc.cn)
 
-Also see [Community and Support]({{site.webdev}}/community) on Dart webdev.
+Also see the [Flutter community page.]({{site.flutter}}/community)
 
 {% endcomment %}
 
@@ -168,4 +167,4 @@ Also see [Community and Support]({{site.webdev}}/community) on Dart webdev.
 * [Smartherd 视频](https://www.youtube.com/watch?v=5rtujDjt50I&list=PLlxmoA0rQ-LyHW9voBdNo4gEEIh0SjG-q) - 关于Dart语言的一系列教程视频
 * [此站的英文官网](https://www.dartlang.org/)
 
-另见 Dart Web 开发的 [社区和支持]({{site.webdev}}/community)。
+另见 [Flutter 社区]({{site.flutter}}/community)。

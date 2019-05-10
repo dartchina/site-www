@@ -5,14 +5,12 @@ short-title: Dart 库概览
 ---
 <?code-excerpt plaster="none"?>
 
-
 {% comment %}
-This tour shows how to use the main features of the following libraries,
-which are included in all Dart platforms:
 
-{% comment %}
-[CHECK: is "all" guaranteed to stay true?]
-{% endcomment %}
+This page shows you how to use the major features in Dart’s core libraries.
+It’s just an overview, and by no means comprehensive.
+Whenever you need more details about a class,
+consult the [Dart API reference.][Dart API]
 
 [dart:core](#dartcore---numbers-collections-strings-and-more)
 : Built-in types, collections, and other core functionality.
@@ -21,25 +19,24 @@ which are included in all Dart platforms:
 [dart:async](#dartasync---asynchronous-programming)
 : Support for asynchronous programming, with classes such as Future and Stream.
 
-{% comment %}
-update-for-dart-2
-Q: When will Future move to dart:core?
-{% endcomment %}
-
 [dart:math](#dartmath---math-and-random)
 : Mathematical constants and functions, plus a random number generator.
 
 [dart:convert](#dartconvert---decoding-and-encoding-json-utf-8-and-more)
 : Encoders and decoders for converting between different data representations, including JSON and UTF-8.
+
+[dart:html](#darthtml)
+: DOM and other APIs for browser-based apps.
+
+[dart:io](#dartio)
+: I/O for programs that can use the Dart VM,
+  including Flutter apps, servers, and command-line scripts.
+
 {% endcomment %}
 
 
-本章将介绍以下库的主要功能及使用方式，
-所有Dart平台中都包含这些库：
-
-{% comment %}
-[CHECK: is "all" guaranteed to stay true?]
-{% endcomment %}
+本页介绍如何使用 Dart 核心库中的主要功能。这只是一个概览，并不全面。
+当你需要有关类的更多详细信息时，请参阅[Dart API 参考][Dart API]。
 
 [dart:core](#dartcore---numbers-collections-strings-and-more)
 : 内置类型，集合和其他核心功能。 
@@ -48,28 +45,28 @@ Q: When will Future move to dart:core?
 [dart:async](#dartasync---asynchronous-programming)
 : 支持异步编程，包括Future和Stream等类。
 
-{% comment %}
-update-for-dart-2
-Q: When will Future move to dart:core?
-{% endcomment %}
-
 [dart:math](#dartmath---math-and-random)
 : 数学常数和函数，以及随机数生成器。
 
 [dart:convert](#dartconvert---decoding-and-encoding-json-utf-8-and-more)
 : 用于在不同数据表示之间进行转换的编码器和解码器，包括 JSON 和 UTF-8 。
 
+[dart:html](#darthtml)
+: 用于基于浏览器应用的 DOM 和其他 API 。
+
+[dart:io](#dartio)
+: 服务器和命令行应用程序的 I/O 操作，
+  包括 Flutter 应用，服务端应用，以及命令行脚本。.
 
 {% comment %}
+
 This page is just an overview;
 it covers only a few dart:* libraries
 and no third-party libraries.
-The platform-specific dart:io and dart:html libraries
-are covered in the [dart:io tour][] and the [dart:html tour.][dart:html tour]
 
 Other places to find library information are the
 [Pub site][pub.dartlang] and the
-[Dart web developer library guide.][webdev libraries]
+[Dart web developer library guide][webdev libraries].
 You can find API documentation for all dart:* libraries in the
 [Dart API reference][Dart API] or, if you're using Flutter,
 the [Flutter API reference.][docs.flutter]
@@ -78,6 +75,7 @@ the [Flutter API reference.][docs.flutter]
   **DartPad tip:** You can play with the code in this page by copying it into a
   [DartPad.][DartPad]
 </aside>
+
 {% endcomment %}
 
 
@@ -100,11 +98,13 @@ the [Flutter API reference.][docs.flutter]
 
 
 {% comment %}
+
 ## dart:core - numbers, collections, strings, and more
 
 The dart:core library ([API reference][dart:core])
 provides a small but critical set of built-in functionality.
 This library is automatically imported into every Dart program.
+
 {% endcomment %}
 
 
@@ -116,6 +116,7 @@ dart:core 库 ([API reference][dart:core])
 
 
 {% comment %}
+
 ### Printing to the console
 
 The top-level `print()` method takes a single argument (any Object)
@@ -130,6 +131,7 @@ print('I drink $tea.');
 
 For more information on basic strings and `toString()`, see
 [Strings](/guides/language/language-tour#strings) in the language tour.
+
 {% endcomment %}
 
 
@@ -150,6 +152,7 @@ print('I drink $tea.');
 
 
 {% comment %}
+
 ### Numbers
 
 The dart:core library defines the num, int, and double classes, which
@@ -207,6 +210,7 @@ assert(double.parse('1.2e+2') == 120.0);
 For more information, see the API documentation for
 [int,][int] [double,][double] and [num.][num] Also see
 the [dart:math section](#dartmath---math-and-random).
+
 {% endcomment %}
 
 
@@ -267,6 +271,7 @@ assert(double.parse('1.2e+2') == 120.0);
 
 
 {% comment %}
+
 ### Strings and regular expressions
 
 A string in Dart is an immutable sequence of UTF-16 code units.
@@ -278,6 +283,7 @@ replace parts of strings.
 
 The String class defines such methods as `split()`, `contains()`,
 `startsWith()`, `endsWith()`, and more.
+
 {% endcomment %}
 
 
@@ -292,6 +298,7 @@ String 定义了例如 `split()`， `contains()`，
 
 
 {% comment %}
+
 #### Searching inside a string
 
 You can find particular locations within a string, as well as check
@@ -312,6 +319,7 @@ assert('Never odd or even'.endsWith('even'));
 // Find the location of a string inside a string.
 assert('Never odd or even'.indexOf('odd') == 6);
 {% endprettify %}
+
 {% endcomment %}
 
 
@@ -2847,21 +2855,25 @@ inputStream
 ### More information
 
 For some examples of using Future and Stream in command-line apps,
-see the [dart:io tour.][dart:io tour]
+see the [dart:io tour][dart:io tour].
 Also see these articles and tutorials:
 
 -   [Asynchronous Programming: Futures](/tutorials/language/futures)
 -   [Futures and Error Handling](/guides/libraries/futures-error-handling)
--   [The Event Loop and Dart]({{site.webdev}}/articles/performance/event-loop)
 -   [Asynchronous Programming: Streams](/tutorials/language/streams)
 -   [Creating Streams in Dart](/articles/libraries/creating-streams)
+{% comment %}
+[PENDING: update/remove article link]
+-   [The Event Loop and Dart](/articles/performance/event-loop)
+{% endcomment %}
+
 {% endcomment %}
 
 
 ### 更多内容
 
 更多在 command-line 应用中使用 Future 和 Stream 的实例，参考
-[dart:io tour.][dart:io tour]
+[dart:io 概览][dart:io tour]
 也可以参考下列文章和教程：
 
 -   [Asynchronous Programming: Futures](/tutorials/language/futures)
@@ -3313,10 +3325,21 @@ for (int i = 0; i < encoded.length; i++) {
 
 
 {% comment %}
+
 ### Other functionality
 
 The dart:convert library also has converters for ASCII and ISO-8859-1
 (Latin1). For details, see the [API reference for the dart:convert library.][dart:convert]
+
+## dart:html - browser-based apps {#darthtml}
+
+{% include dart-html-tour.md %}
+
+
+## dart:io - I/O for servers and command-line apps {#dartio}
+
+{% include dart-io-tour.md %}
+
 {% endcomment %}
 
 
@@ -3324,6 +3347,15 @@ The dart:convert library also has converters for ASCII and ISO-8859-1
 
 dart:convert 库同样包含 ASCII 和 ISO-8859-1 (Latin1) 转换器。
 更多详情，参考 [API docs for the dart:convert library。][dart:convert]
+
+## dart:html - 基于浏览器的应用 {#darthtml}
+
+{% include dart-html-tour.md %}
+
+
+## dart:io - 服务器和命令行应用程序的 I/O 。 {#dartio}
+
+{% include dart-io-tour.md %}
 
 
 {% comment %}
@@ -3337,7 +3369,7 @@ as well as platform-specific libaries like the
 [Dart web development libraries][webdev libraries]
 and the [Flutter libraries.][docs.flutter]
 
-You can get yet more libraries by using the [pub tool](/tools/pub). The
+You can get yet more libraries by using the [pub package manager](/guides/packages). The
 [collection,]({{site.pub}}/packages/collection)
 [crypto,]({{site.pub}}/packages/crypto)
 [http,]({{site.pub}}/packages/http)
@@ -3359,8 +3391,7 @@ To learn more about the Dart language, see the
 [dart:async]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html
 [dart:collection]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-collection/dart-collection-library.html
 [dart:convert]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html
-[dart:html tour]: {{site.webdev}}/guides/html-library-tour
-[dart:io tour]: /server/io-library-tour
+[dart:io tour]: #dartio
 [dart:math]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-math/dart-math-library.html
 [dart:typed\_data]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-typed_data/dart-typed_data-library.html
 [Dart API]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}
@@ -3394,7 +3425,8 @@ To learn more about the Dart language, see the
 [UTF-8]: https://en.wikipedia.org/wiki/UTF-8
 [web audio]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-web_audio/dart-web_audio-library.html
 [Uri]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Uri-class.html
-[webdev libraries]: {{site.webdev}}/guides/web-programming
+[webdev libraries]: /web/libraries
+
 {% endcomment %}
 
 
@@ -3406,7 +3438,7 @@ To learn more about the Dart language, see the
 以及特定于平台的库，如 [Dart web development libraries][webdev libraries] 和 [Flutter libraries.][docs.flutter] 。
 
 
-您可以使用 [pub tool](/tools/pub) 工具获得更多库。
+您可以使用 [pub 包管理](/guides/packages) 工具获得更多库。
 [collection,]({{site.pub}}/packages/collection)
 [crypto,]({{site.pub}}/packages/crypto)
 [http,]({{site.pub}}/packages/http)
@@ -3414,7 +3446,8 @@ To learn more about the Dart language, see the
 [test]({{site.pub}}/packages/test)
 以上只是简单的列举了一些可以通过 pub 安装的库。
 
-要了解有关 Dart 语言的更多信息，请参考 [language tour][]。
+要了解有关 Dart 语言的更多信息，请参考
+[language tour][]。
 
 [language tour]: /guides/language/language-tour
 [docs.flutter]: {{site.flutter_api}}
@@ -3427,8 +3460,7 @@ To learn more about the Dart language, see the
 [dart:async]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-async/dart-async-library.html
 [dart:collection]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-collection/dart-collection-library.html
 [dart:convert]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-convert/dart-convert-library.html
-[dart:html tour]: {{site.webdev}}/guides/html-library-tour
-[dart:io tour]: /server/io-library-tour
+[dart:io tour]: #dartio
 [dart:math]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-math/dart-math-library.html
 [dart:typed\_data]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-typed_data/dart-typed_data-library.html
 [Dart API]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}
@@ -3462,4 +3494,4 @@ To learn more about the Dart language, see the
 [UTF-8]: https://en.wikipedia.org/wiki/UTF-8
 [web audio]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-web_audio/dart-web_audio-library.html
 [Uri]: {{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}/dart-core/Uri-class.html
-[webdev libraries]: {{site.webdev}}/guides/web-programming
+[webdev libraries]: /web/libraries

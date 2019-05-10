@@ -1,56 +1,223 @@
+- title: 示例 & 概览
+  expanded: false
+  children:
+    - title: 语言示例
+      permalink: /samples
+    - title: Codelab
+      permalink: /codelabs
+    - title: 概览
+      urlExactMatch: true
+      match-page-url-exactly: true
+      permalink: /tutorials
+
 - title: 语言
-  permalink: /guides/language
-  urlExactMatch: true
+  expanded: false
   children:
     - title: 概览
       permalink: /guides/language/language-tour
+    - title: 类型系统
+      permalink: /guides/language/sound-dart
+    - title: 规范
+      permalink: /guides/language/spec
     - title: Effective Dart
       permalink: /guides/language/effective-dart
-      children:
-        - title: 风格
-          permalink: /guides/language/effective-dart/style
-        - title: 文档
-          permalink: /guides/language/effective-dart/documentation
-        - title: 使用
-          permalink: /guides/language/effective-dart/usage
-        - title: 设计
-          permalink: /guides/language/effective-dart/design
-    - title: 示例代码
-      permalink: /samples
 
-- title: 库
-  permalink: /guides/libraries
-  urlExactMatch: true
+- title: 核心库
+  expanded: false
   children:
+    - title: 综述
+      urlExactMatch: true
+      match-page-url-exactly: true
+      permalink: /guides/libraries
     - title: 概览
       permalink: /guides/libraries/library-tour
+    - title: 文章
+      children:
+        - title: Intro to dart:io
+          permalink: /articles/libraries/dart-io
+        - title: Creating streams
+          permalink: /articles/libraries/creating-streams
 
-- title: 平台
-  permalink: /guides/platforms
-  urlExactMatch: true
+- title: 包
+  expanded: false
   children:
-    - title: 移动端 (Flutter中文网)
-      permalink: https://flutterchina.club
-    - title: Web
-      permalink: https://webdev.dartlang.org
-    - title: 服务器
-      permalink: /server
+    - title: 如何使用包
+      permalink: /guides/packages
+    - title: 常用的包
+      permalink: /guides/libraries/useful-libraries
+    - title: 创建包
+      permalink: /guides/libraries/create-library-packages
+    - title: 发布包
+      permalink: /tools/pub/publishing
+    - title: 引用包
+      expanded: false
+      children:
+        - title: 依赖
+          permalink: /tools/pub/dependencies
+        - title: 术语
+          permalink: /tools/pub/glossary
+        - title: 包的设计约定
+          permalink: /tools/pub/package-layout
+        - title: Pub 环境变量
+          permalink: /tools/pub/environment-variables
+        - title: Pubspec 文件
+          permalink: /tools/pub/pubspec
+        - title: Pub 问题分析与解决
+          permalink: /tools/pub/troubleshoot
+        - title: 版本
+          permalink: /tools/pub/versioning
 
-- title: 测试
-  permalink: /guides/testing
-  urlExactMatch: true
+- title: 开发
+  expanded: false
+  children:
+    - title: Futures & Async-Await
+      permalink: /tutorials/language/futures
+    - title: 使用 JSON
+      permalink: /guides/json
+    - title: Stream
+      permalink: /tutorials/language/streams
+    - title: 移动应用
+      permalink: /mobile
+    - title: 命令行应用 & 服务应用
+      children:
+        - title: 综述
+          urlExactMatch: true
+          match-page-url-exactly: true
+          permalink: /server
+        - title: 入门
+          permalink: /tutorials/server/get-started
+        - title: 编写命令行应用
+          permalink: /tutorials/server/cmdline
+        - title: 编写 HTTP 客户端和服务端应用
+          permalink: /tutorials/server/httpserver
+        - title: C & C++ 交互
+          permalink: /server/c-interop
+        - title: 库和包
+          permalink: /server/libraries
+    - title: Web 应用
+      children:
+        - title: 综述
+          urlExactMatch: true
+          match-page-url-exactly: true
+          permalink: /web
+        - title: 入门
+          permalink: /tutorials/web/get-started
+        - title: 动态获取数据
+          permalink: /tutorials/web/fetch-data
+        - title: 底层 Web 编程
+          children:
+          - title: Dart 和 HTML 关联
+            permalink: /tutorials/web/low-level-html/connect-dart-html
+          - title: 在 DOM 中增加 Element
+            permalink: /tutorials/web/low-level-html/add-elements 
+          - title: 在 DOM 中移除 Element
+            permalink: /tutorials/web/low-level-html/remove-elements
+        - title: JS/TS 交互
+          permalink: /web/js-interop
+        - title: 开发
+          permalink: /web/deployment
+        - title: 库和包
+          permalink: /web/libraries
+
+- title: 工具 & 技巧
+  expanded: false
+  children:
+  - title: 综述
+    urlExactMatch: true
+    match-page-url-exactly: true
+    permalink: /tools
+  - title: 编辑 & 调试
+    children:
+      - title: Dart DevTool
+        permalink: /tools/dart-devtools
+      - title: DartPad
+        permalink: /tools/dartpad
+      - title: IntelliJ & Android Studio
+        permalink: /tools/jetbrains-plugin
+      - title: VS Code 
+        permalink: /tools/vs-code
+  - title: Command-line tools
+    children:
+    - title: Dart SDK
+      expanded: true
+      children:
+        - title: 综述
+          permalink: /tools/sdk
+        - title: dart (Dart VM)
+          permalink: /tools/dart-vm
+        - title: dart2aot & dartaotruntime
+          permalink: /tools/dart2aot
+        - title: dart2js (prod JS)
+          permalink: /tools/dart2js
+        - title: dartanalyzer
+          permalink: /tools/dartanalyzer
+        - title: dartdevc (dev JS)
+          permalink: /tools/dartdevc
+        - title: dartdoc
+          permalink: /tools/dartdoc
+        - title: dartfmt
+          permalink: /tools/dartfmt
+        - title: pub
+          permalink: /tools/pub/cmd
+    - title: 其他命令行工具
+      expanded: true
+      children:
+        - title: build_runner
+          permalink: /tools/build_runner
+        - title: webdev
+          permalink: /tools/webdev
+  - title: 源码管理
+    children:
+      - title: 格式化代码
+        permalink: /guides/language/formatting
+      - title: 哪些内容不应该被提交
+        permalink: /guides/libraries/private-files
+  - title: 静态分析
+    children:
+      - title: Customizing static analysis
+        permalink: /guides/language/analysis-options
+      - title: Fixing common type problems
+        permalink: /guides/language/sound-problems
+  - title: 测试 & 优化
+    children:
+      - title: 测试
+        permalink: /guides/testing
+      - title: 调试 Web 应用
+        permalink: /web/debugging
 
 - title: 资源
-  # permalink: /resources
-  # urlExactMatch: true
+  expanded: false
   children:
-  - title: 安装
-    permalink: /install
-  - title: Codelab
-    permalink: /codelabs
-  - title: 学习指南
-    permalink: /tutorials
-  - title: 工具
-    permalink: /tools
-  - title: 社区支持
-    permalink: /community
+    - title: 行为守则
+      permalink: /code-of-conduct
+    - title: FAQ
+      permalink: /faq
+    - title: 历史
+      children:
+        - title: 迁移到 Dart&nbsp;2
+          urlExactMatch: true
+          match-page-url-exactly: true
+          permalink: /dart-2
+        - title: 迁移 Web 应用到 Dart&nbsp;2
+          permalink: /web/dart-2
+        - title: 过时的 Pub 功能
+          permalink: /tools/pub/obsolete
+
+- title: 相关网站
+  expanded: true
+  children:
+    - title: API 参考
+      permalink: https://api.dartlang.org
+    - title: Blog
+      permalink: https://medium.com/dartlang
+    - title: DartPad (在线编辑器)
+      permalink: https://dartpad.cn
+    - title: Flutter
+      permalink: https://flutter.dev
+    - title: Pub 包资源
+      permalink: https://pub.dev
+
+# - title: Books
+#   permalink: /resources/books
+# - title: Videos
+#   permalink: /resources/videos

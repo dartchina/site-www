@@ -4,9 +4,10 @@ description: 常用示例代码中包含详细示例说明链接。
 ---
 
 {% comment %}
+
 This collection is not exhaustive&mdash;it's just a brief
-introduction to the language for people who like to learn by example. You may
-also want to check out the language and library tours.
+introduction to the language for people who like to learn by example.
+You might also want to check out the language and library tours.
 
 <div class="card-grid">
   <div class="card">
@@ -26,6 +27,7 @@ also want to check out the language and library tours.
     </p>
   </div>
 </div>
+
 {% endcomment %}
 
 
@@ -51,6 +53,7 @@ also want to check out the language and library tours.
 
 
 {% comment %}
+
 ## Hello World
 
 Every app has a `main()` function.
@@ -62,6 +65,7 @@ void main() {
   print('Hello, World!');
 }
 {% endprettify %}
+
 {% endcomment %}
 
 
@@ -79,6 +83,7 @@ void main() {
 
 
 {% comment %}
+
 ## Variables
 
 Even in type-safe Dart code, most variables don't need explicit types,
@@ -97,6 +102,7 @@ var image = {
 {% endprettify %}
 
 [Read more](/guides/language/language-tour#variables) about variables in Dart, including default values, the `final` and `const` keywords, and static types.
+
 {% endcomment %}
 
 
@@ -603,6 +609,7 @@ class MockSpaceship implements Spacecraft {
 
 
 {% comment %}
+
 ## Async
 
 Avoid callback hell and make your code much more readable by
@@ -668,6 +675,7 @@ Stream<String> report(Spacecraft craft, Iterable<String> objects) async* {
 [Read more](/guides/language/language-tour#asynchrony-support) about
 asynchrony support, including async functions, `Future`, `Stream`,
 and the asynchronous loop (`await for`).
+
 {% endcomment %}
 
 
@@ -736,6 +744,7 @@ Stream<String> report(Spacecraft craft, Iterable<String> objects) async* {
 
 
 {% comment %}
+
 ## Exceptions
 
 To raise an exception, use `throw`:
@@ -768,6 +777,7 @@ Note that the code above is asynchronous;
 
 [Read more](/guides/language/language-tour#exceptions) about exceptions, including stack traces, `rethrow`, and the difference between
 Error and Exception.
+
 {% endcomment %}
 
 
@@ -806,13 +816,15 @@ try {
 
 
 {% comment %}
+
 ## Other topics
 
 Many more code samples are in the
-[Language Tour](/guides/language/language-tour) and the
-[Library Tour](/guides/libraries/library-tour).
-Also see the [Dart API reference]({{site.dart_api}}),
+[language tour](/guides/language/language-tour) and the
+[library tour](/guides/libraries/library-tour).
+Also see the [Dart API reference,]({{site.dart_api}})
 which often contains examples.
+
 {% endcomment %}
 
 
@@ -821,5 +833,5 @@ which often contains examples.
 更多代码示例在
 [语言概览](/guides/language/language-tour) 和
 [库概览](/guides/libraries/library-tour) 中。
-另请参阅 [Dart API reference]({{site.dart_api}})，
+另请参阅 [Dart API reference,]({{site.dart_api}})，
 其中通常包含代码示例。
