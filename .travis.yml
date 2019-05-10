@@ -62,4 +62,4 @@ after_script:
 
 # Only run Travis jobs for named branches (to avoid double builds for each PR)
 branches:
-  except: [master, src_zh_CN]
+  except: [master]
