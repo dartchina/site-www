@@ -48,8 +48,6 @@ For details, see our [code of conduct](/code-of-conduct).
   有关现有功能和计划变更信息。
 * [@dart_lang](https://twitter.com/dart_lang) -
   Twitter 官方账号。
-* [+dartlang](https://plus.google.com/+dartlang) -
-  Google+ 官方账号。
 
 
 {% comment %}
@@ -86,7 +84,6 @@ Get answers and connect with Dart developers.
 * [Gitter](https://gitter.im/dart-lang/home) -
   与 Dart 团队及社区成员交流。
 * [Dart on Reddit](https://www.reddit.com/r/dartlang)
-* [Dartisans on Google+](http://g.co/dartisans)
 
 
 {% comment %}
