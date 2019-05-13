@@ -1,11 +1,32 @@
 ---
-title: Dart documentation
-description: Learn to use the Dart language and libraries.
+title: Dart 文档
+description: 学习使用 Dart 语言和库。
 toc: false
 ---
 
+{% comment %}
+
 Welcome to the Dart documentation!
 Here are some of the most visited pages:
+
+{% comment %}
+To update these cards, edit src/_data/docs_cards.yml.
+{% endcomment %}
+
+<div class="card-grid">
+{% for card in site.data.docs_cards -%}
+  {% capture index0Modulo3 %}{{ forloop.index0 | modulo:3 }}{% endcapture %}
+  {% capture indexModulo3 %}{{ forloop.index | modulo:3 }}{% endcapture %}
+  <div class="card">
+    <h3><a href="{{card.url}}">{{card.name}}</a></h3>
+    <p>{{card.description}}</p>
+  </div>
+{% endfor -%}
+</div>
+
+{% endcomment %}
+
+欢迎来到 Dart 文档！以下是一些访问量最多的内容：
 
 {% comment %}
 To update these cards, edit src/_data/docs_cards.yml.

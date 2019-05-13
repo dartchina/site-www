@@ -1,18 +1,37 @@
-- name: Language samples
-  description: A brief, example-based introduction to the Dart language.
+# - name: Language samples
+#   description: A brief, example-based introduction to the Dart language.
+#   url: /samples
+# - name: Language tour
+#   description: A more thorough (yet still example-based) introduction to the Dart language.
+#   url: /guides/language/language-tour
+# - name: Effective Dart
+#   description: Best practices for building consistent, maintainable, efficient Dart code.
+#   url: /guides/language/effective-dart
+# - name: Library tour
+#   description: An example-based introduction to the major features in the Dart SDK's core libraries.
+#   url: /guides/libraries/library-tour
+# - name: Dart SDK
+#   description: What's in the SDK, and how to install it.
+#   url: /tools/sdk
+# - name: Futures & async-await
+#   description: How to write asynchronous Dart code that uses futures and the async and await keywords.
+#   url: /tutorials/language/futures
+
+- name: 语言示例
+  description: 对 Dart 语言的介绍，介绍内容基于简短的示例程序。
   url: /samples
-- name: Language tour
-  description: A more thorough (yet still example-based) introduction to the Dart language.
+- name: 语言概览
+  description: 对 Dart 语言更为详细的介绍（介绍内容仍基于示例程序）。
   url: /guides/language/language-tour
 - name: Effective Dart
-  description: Best practices for building consistent, maintainable, efficient Dart code.
+  description: 构建一致，可维护，高效 Dart 代码的最佳实践。
   url: /guides/language/effective-dart
-- name: Library tour
-  description: An example-based introduction to the major features in the Dart SDK's core libraries.
+- name: 库概览
+  description: 对 Dart SDK 的核心库主要功能介绍，介绍内容基于示例程序。
   url: /guides/libraries/library-tour
 - name: Dart SDK
-  description: What's in the SDK, and how to install it.
+  description: SDK 中包含了什么，以及如何安装 SDK 。
   url: /tools/sdk
-- name: Futures & async-await
-  description: How to write asynchronous Dart code that uses futures and the async and await keywords.
+- name: Future & Async-Await
+  description: 如何在 Dart 代码中使用 Future 、 Async 和 Await 在实现异步调用。
   url: /tutorials/language/futures
