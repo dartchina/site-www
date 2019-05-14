@@ -17,7 +17,7 @@
 #   description: How to write asynchronous Dart code that uses futures and the async and await keywords.
 #   url: /tutorials/language/futures
 
-- name: 语言示例
+- name: 
   description: 对 Dart 语言的介绍，介绍内容基于简短的示例程序。
   url: /samples
 - name: 语言概览

@@ -1,8 +1,10 @@
 ---
-title: Platforms
-description: "You can use Dart to write mobile apps, web apps, command-line apps, backends, and more."
+title: 平台
+description: "你可以使用 Dart 编写移动， Web ，命令行，后端等应用程序。"
 toc: true
 ---
+
+{% comment %}
 
 You can use Dart to write simple scripts or full-featured apps. Whether you're
 creating a mobile app, web app, command-line script, or server-side app, there's
@@ -21,6 +23,25 @@ depending on your target platform and goals:
 
 <img src="{% asset platforms.svg @path %}" width="800px" alt="Dart platform">
 
+{% endcomment %}
+
+Dart 可以用来编写简单的脚本或完整功能的应用程序。无论是创建移动应用，Web应用，命令行脚本还是服务端应用，
+都可以选择 Dart 作为解决方案。
+
+灵活的编译器技术允许以不同的方式运行 Dart 程序，具体的运行方式取决于目标平台以及需求：
+
+  * **Dart Native **: 对于针对设备（移动设备，桌面设备，服务器等）的程序，
+    Dart Native 包括带有 JIT（just-in-time）编译的 Dart VM
+    和用于生成机器代码的 AOT（ahead-of-time）编译器。
+  * **Dart Web 应用**: 对于面向 Web 的程序，
+    Dart Web 包括开发时编译器（`dartdevc`）
+    和生产时编译器（`dart2js`）。
+
+<img src="{% asset platforms.svg @path %}" width="800px" alt="Dart platform">
+
+
+{% comment %}
+
 ## Dart Native (VM JIT and AOT)
 
 Dart Native enables running Dart code compiled to native ARM or X64
@@ -35,6 +56,24 @@ More information:
 * [Write command-line apps](/tutorials/server/cmdline)
 * [Write HTTP clients and servers](/tutorials/server/httpserver)
 
+{% endcomment %}
+
+## Dart Native (VM JIT 和 AOT)
+
+Dart Native 支持将可执行的 Dart 代码编译为适用于移动，桌面和服务器应用程序的本机 ARM 或 X64 机器代码。
+
+[Flutter 框架]({{site.flutter}})是一个流行的多平台 UI 工具包，
+当应用的设备是移动端或桌面端时由 Dart Native 提供支持。
+
+更多内容：
+* [Flutter 入门文档]({{site.flutter}}/docs/get-started/)
+* [命令行及服务端应用入门](/tutorials/server/get-started)
+* [编写命令行应用](/tutorials/server/cmdline)
+* [编写 HTTP 客户端和服务端应用](/tutorials/server/httpserver)
+
+
+{% comment %}
+
 ### Lightning fast developer workflow (Dart VM JIT)
 
 Having a fast developer cycle is critical for iteration. 
@@ -43,6 +82,20 @@ The Dart VM has a just-in-time compiler (JIT) that supports both pure interpreta
 (as required on iOS devices, for example) and runtime optimization.
 
 More information: [`dart` VM tool](/tools/dart-vm)
+
+{% endcomment %}
+
+### 极速开发 (Dart VM JIT)
+
+缩短开发周期对于迭代至关重要。
+
+Dart VM 拥有 JIT （just-in-time）编译器
+Dart VM 具有即时编译器（JIT），它支持纯解释（例如，基于 iOS 开发中的需求）和运行时优化。
+
+更多内容： [`dart` VM 工具](/tools/dart-vm)
+
+
+{% comment %}
 
 ### Optimized production code (Dart AOT)
 
@@ -57,6 +110,22 @@ the sound Dart type system and manages memory using fast object allocation and a
 collector.](https://medium.com/flutter-io/flutter-dont-fear-the-garbage-collector-d69b3ff1ca30)
 
 More information: [`dart2aot` tool](/tools/dart2aot)
+
+{% endcomment %}
+
+### 生产代码优化 (Dart AOT)
+
+当应用程序准备好部署到生产环境时 - 无论是发布到应用程序商店还是部署到生产后端 - 
+都可以使用 Dart AOT 编译器将应用程序提前编译为本机 ARM 或 X64 的机器码。
+经过 AOT 编译的应用程序，能够快速启动和更流畅的运行。
+
+AOT 编译的程序在高效的 Dart 运行时内运行，该运行时会强制执行健全的 Dart 类型系统并使用快速对象分配和
+[分代垃圾收集器管理](https://medium.com/flutter-io/flutter-dont-fear-the-garbage-collector-d69b3ff1ca30)内存。
+
+更多内容：[`dart2aot` 工具](/tools/dart2aot)
+
+
+{% comment %}
 
 ## Dart Web (JavaScript)
 
@@ -73,6 +142,24 @@ also powered by Dart Web.
 
 More information: [Get started: web apps](/tutorials/web/get-started)
 
+{% endcomment %}
+
+
+## Dart Web (JavaScript)
+
+Dart Web 可以让 Dart 代码运行在支持 JavaScript 的 Web 平台。
+Dart Web 可以将 Dart 代码编译为 JavaScript 代码，
+从而运行在浏览器中 - 
+例如，内嵌 [V8](https://v8.dev/) 的 [Chrome](https://www.google.com/chrome/) 浏览器。
+
+[Flutter 框架]({{site.flutter}})是一个流行的多平台 UI 工具包，当应用的环境是 Web 时由 Dart Web 提供支持。
+[AngularDart]({{site.angulardart}}) 框架是一个流行的 Web 应用程序工具包，也由 Dart Web 提供支持。
+
+更多内容： [Web 应用入门](/tutorials/web/get-started)
+
+
+{% comment %}
+
 ### Lightning fast developer workflow (Dart dev compiler)
 
 The Dart dev compiler (dartdevc) is a Dart-to-JavaScript compiler
@@ -84,6 +171,20 @@ More information:
 * [`dartdevc` compiler](/tools/dartdevc)
 * [`webdev` tool](/tools/webdev)
 
+{% endcomment %}
+
+### 极速开发 (Dart 开发编译器)
+
+Dart 开发编译器（dartdevc）是一个 Dart 转 JavaScript 编译器，编译器针对快速转译进行了优化。
+避免直接使用 dartdevc，应该与 `webdev` 配合一起使用。
+`webdev` 是一种支持核心开发任务（如运行，调试和构建）的工具。
+
+更多内容：
+* [`dartdevc` 编译器](/tools/dartdevc)
+* [`webdev` 工具](/tools/webdev)
+
+{% comment %}
+
 ### Optimized production code (Dart JS compiler)
 
 The `dart2js` tool compiles Dart code to fast, compact, deployable JavaScript.
@@ -93,3 +194,15 @@ More information:
 * [Deployment tips](/web/deployment)
 * [`dart2js` compiler](/tools/dart2js)
 * [`webdev` tool](/tools/webdev)
+
+{% endcomment %}
+
+### 生产代码优化 (Dart JS 编译器)
+
+`dart2js` 工具将 Dar t代码编译为快速，紧凑，可部署的 JavaScript 应用。
+工具使用了诸如死码消除之类的技术。
+
+更多内容：
+* [部署技巧](/web/deployment)
+* [`dart2js` 编译器](/tools/dart2js)
+* [`webdev` 工具](/tools/webdev)
