@@ -1,6 +1,6 @@
 ---
 permalink: /community
-title: "社区和支持"
+title: "社区与支持"
 description: "Dart 项目的社区，邮件列表，bug 数据库。"
 ---
 
