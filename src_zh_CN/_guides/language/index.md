@@ -85,7 +85,7 @@ These two resources are popular with both beginning Dartisans and experts.
 
 <ul markdown="1">
 <li markdown="1"> [Dart 类型系统](/guides/language/sound-dart)<br>
-    了解 Dart 的健全类型系统。
+    了解 Dart 的安全类型系统。
 </li>
 
 <ul markdown="1">

@@ -1,8 +1,11 @@
 ---
-title: The Dart type system
-description: Why and how to write sound Dart code.
+title: The Dart 类型系统
+description: 如何编写健全的 Dart 代码。
 ---
 <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g; /\b(main)\d\b/$1/g"?>
+
+
+{% comment %}
 
 The Dart language is type safe: it uses a combination of static type checking and
 [runtime checks](#runtime-checks) to
@@ -87,6 +90,85 @@ void main() {
 
 [Try it in DartPad]({{site.dartpad}}/f64e963cb5f894e2146c2b28d5efa4ed).
 
+{% endcomment %}
+
+Dart 类型安全的语言：Dart 使用静态类型检查和
+[运行时检查](#runtime-checks)
+的组合来确保变量的值始终与变量的静态类型匹配。尽管类型是必需的，但由于
+[类型推断](#type-inference)
+，类型的注释是可选的。
+
+本章重点介绍 Dart 2 中添加的类型安全功能。有关 Dart 语言的完整介绍（包括类型），
+请参阅[语言概览](/guides/language/language-tour)。
+
+<aside class="alert alert-info" markdown="1">
+  **术语说明：**
+  术语 **sound** Dart 和 **type safe** Dart 通常可互换使用。
+  你可能还会看到术语 **strong mode** 。 
+  **strong mode** 是一种在Dart 1.x中可选的功能，
+  可为类型安全提供部分支持。
+</aside>
+
+静态类型检查的一个好处是能够使用 Dart 的
+[静态分析器][analysis]
+在编译时找到错误。
+
+可以向泛型类添加类型注释来修复大多数静态分析错误。最常见的泛型类是集合类型 `List<T>` 和 `Map<K,V>` 。
+
+例如，在下面的代码中，`main()` 创建一个列表并将其传递给 `printInts()` ，由 `printInts()` 函数打印这个整数列表。
+
+{:.fails-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (opening-example)" replace="/list(?=\))/[!$&!]/g"?>
+{% prettify dart %}
+void printInts(List<int> a) => print(a);
+
+void main() {
+  var list = [];
+  list.add(1);
+  list.add("2");
+  printInts([!list!]);
+}
+{% endprettify %}
+
+上面的代码在调用 `printInts(list)` 时会在 `list` （高亮提示）上产生类型错误：
+
+{:.console-output}
+<?code-excerpt "strong/analyzer-2-results.txt" retain="/List.*strong_analysis.*argument_type_not_assignable/" replace="/ at (lib|test)\/\w+\.dart:\d+:\d+//g"?>
+```nocode
+error • The argument type 'List' can't be assigned to the parameter type 'List<int>' • argument_type_not_assignable
+```
+
+高亮错误是因为产生了从 `List<dynamic>` 到 `List<int>` 的不正确的隐式转换。
+`list` 变量是 `List<dynamic>` 静态类型。这是因为 `list` 变量的初始化声明 `var list = []`
+没有为分析器提供足够的信息来推断比 `dynamic` 更具体的类型参数。
+`printInts()` 函数需要 `List<int>` 类型的参数，因此导致类型不匹配。
+
+在创建 `list` 时添加类型注释 `<int>`（代码中高亮显示部分）后，分析器会提示无法将字符串参数分配给 `int` 参数。
+删除 `list.add("2")` 中的字符串引号使代码通过静态分析并能够正常执行。
+
+{:.passes-sa}
+<?code-excerpt "strong/test/strong_test.dart (opening-example)" replace="/<int.(?=\[)|2/[!$&!]/g"?>
+{% prettify dart %}
+void printInts(List<int> a) => print(a);
+
+void main() {
+  var list = [!<int>!][];
+  list.add(1);
+  list.add([!2!]);
+  printInts(list);
+}
+{% endprettify %}
+
+{% comment %}
+  Note: DartPad does not yet support no-implicit-casts, but it does
+  report a runtime type error.
+{% endcomment -%}
+
+[尝试在 DartPad 中练习]({{site.dartpad}}/f64e963cb5f894e2146c2b28d5efa4ed).
+
+
+{% comment %}
+
 ## What is soundness?
 
 *Soundness* is about ensuring your program can't get into certain
@@ -102,6 +184,20 @@ enforces that soundness using a combination of static checking
 to `int` is a compile-time error. Casting an `Object` to a string using
 `as String` fails with a runtime error if the object isn't a
 string.
+
+{% endcomment %}
+
+
+## 什么是类型安全
+
+类型安全是为了确保程序不会进入某些无效状态。
+安全类型系统意味着程序永远不会进入表达式求值为与表达式的静态类型不匹配的值的状态。
+例如，如果表达式的静态类型是 `String` ，则在运行时保证在评估它的时候只会获取字符串。
+
+Dart 的类型系统，同 Java 和 C＃ 中的类型系统类似，是安全的。
+它使用静态检查（编译时错误）和运行时检查的组合来强制执行类型安全。
+例如，将 `String` 分配给 `int` 是一个编译时错误。如果`对象`不是字符串，
+使用 `as String` 将`对象`转换为字符串时，会由于运行时错误而导致转换失败。
 
 
 ## The benefits of soundness
