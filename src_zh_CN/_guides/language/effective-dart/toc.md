@@ -9,7 +9,7 @@
     
 <div class='effective_dart--summary_column' markdown='1'>
 
-### Style
+### 风格
 
 
 **标识符**
@@ -42,7 +42,7 @@
 <div class='effective_dart--summary_column' markdown='1'>
 
 
-### Documentation
+### 注释
 
 
 **注释**
@@ -84,7 +84,7 @@
 <div class='effective_dart--summary_column' markdown='1'>
 
 
-### Usage
+### 使用
 
 
 **库**
@@ -161,7 +161,7 @@
 <div class='effective_dart--summary_column' markdown='1'>
 
 
-### Design
+### 设计
 
 
 **命名**

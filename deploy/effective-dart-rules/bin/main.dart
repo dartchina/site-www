@@ -5,6 +5,14 @@ import 'package:html_unescape/html_unescape_small.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:path/path.dart' as path;
 
+
+var sectionZhCN = const <String, String>{
+  "Style": "风格",
+  "Documentation": "注释",
+  "Usage": "使用",
+  "Design": "设计",
+};
+
 Future<Null> main() async {
   var dirPath = "src_zh_CN/_guides/language/effective-dart";
   var filenames = const <String>[
@@ -97,7 +105,7 @@ Future<Null> main() async {
 }
 
 void write(IOSink out, Section section) {
-  out.writeln("\n### ${section.name}\n");
+  out.writeln("\n### ${sectionZhCN[section.name]}\n");
   for (var subsection in section.subsections) {
     out.writeln("\n**${subsection.name}**\n");
     for (var rule in subsection.rules) {

@@ -136,7 +136,7 @@ For links to all the guidelines, see the
     [dartfmt] 的实现使用同样的规则。指南中还指定了标识符的格式：
     `camelCase`，`using_underscores` 等。
 
-  * **[文档注释指南][]** &ndash; 这会告诉你关于如何编写注释文档的一切内容。
+  * **[注释指南][]** &ndash; 这会告诉你关于如何编写注释文档的一切内容。
     包括文档注释，常规的普通代码注释。
 
   * **[使用指南][]** &ndash; 这将教你如何充分利用语言功能来实现功能。
@@ -162,7 +162,7 @@ For links to all the guidelines, see the
 
 [dartfmt]: https://github.com/dart-lang/dart_style#readme
 [风格指南]: /guides/language/effective-dart/style
-[文档注释指南]: /guides/language/effective-dart/documentation
+[注释指南]: /guides/language/effective-dart/documentation
 [使用指南]: /guides/language/effective-dart/usage
 [设计指南]: /guides/language/effective-dart/design
 
