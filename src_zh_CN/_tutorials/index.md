@@ -90,7 +90,7 @@ Leverage that code or put your code out in the world to share with others.
 {% endcomment %}
 
 
-## 库 &amp; 包（Package）学习教程
+## 库 &amp; 包学习教程
 
 Dart 开发者一直忙于创建可以帮助你提高工作效率的代码库。
 高效的利用这些代码或通过这种方式将你的代码与世界各地的人一起分享。
