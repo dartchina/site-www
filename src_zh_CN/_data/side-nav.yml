@@ -1,11 +1,11 @@
-- title: 示例 & 概览
+- title: 示例 & 教程
   expanded: false
   children:
-    - title: 语言示例
+    - title: 示例程序
       permalink: /samples
     - title: Codelab
       permalink: /codelabs
-    - title: 概览
+    - title: 教程
       urlExactMatch: true
       match-page-url-exactly: true
       permalink: /tutorials
@@ -136,7 +136,7 @@
         permalink: /tools/jetbrains-plugin
       - title: VS Code 
         permalink: /tools/vs-code
-  - title: Command-line tools
+  - title: 命令行工具
     children:
     - title: Dart SDK
       expanded: true

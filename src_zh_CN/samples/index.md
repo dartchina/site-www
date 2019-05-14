@@ -1,6 +1,6 @@
 ---
-title: 示例代码
-description: 常用示例代码中包含详细示例说明链接。
+title: 示例程序
+description: 常用示例程序中包含详细示例说明链接。
 ---
 
 {% comment %}
@@ -830,8 +830,8 @@ which often contains examples.
 
 ## 其他主题
 
-更多代码示例在
+更多示例程序在
 [语言概览](/guides/language/language-tour) 和
 [库概览](/guides/libraries/library-tour) 中。
 另请参阅 [Dart API reference,]({{site.dart_api}})，
-其中通常包含代码示例。
+其中通常包含示例程序。
