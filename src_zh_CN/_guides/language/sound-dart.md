@@ -737,6 +737,8 @@ var ints = listOfDouble.map((x) => x.toInt());
 在推断 `map()` 方法的类型参数：`<int>` 时，Dart 使用此返回值的类型作为向上信息。
 
 
+{% comment %}
+
 ## Substituting types
 
 When you override a method, you are replacing something of one type (in the
@@ -755,6 +757,25 @@ type with a subtype.**
 
 Let's look at examples of simple type assignment and assignment with
 generic types.
+
+{% endcomment %}
+
+
+## 替换类型
+
+当重写方法时，可以使用一个新类型（在新方法中）替换旧类型（在旧方法中）。
+类似地，当参数传递给函数时，可以使用另一种类型（实际参数）的对象替换现有类型（具有声明类型的参数）要求的对象。
+什么时候可以用具有子类型或父类型的对象替换具有一种类型的对象那？
+
+从_消费者_和_生产者_的角度有助于我们思考替换类型的情况。
+消费者接受类型，生产者产生类型。
+
+**可以使用父类型替换消费者类型，使用子类型替换生产者类型。**
+
+下面让我们看一下普通类型赋值和泛型类型赋值的示例。
+
+
+{% comment %}
 
 ### Simple type assignment
 
@@ -805,6 +826,55 @@ is allowed:
 Cat c = MaineCoon();
 {% endprettify %}
 
+{% endcomment %}
+
+
+### 普通类型赋值
+
+将对象赋值给对象时，什么时候可以用其他类型替换当前类型？
+答案取决于对象是消费者还是生产者。
+
+分析以下类型层次结构：
+
+<img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon">
+
+思考下面示例中的普通赋值，其中 `Cat c` 是_消费者_而 `Cat()` 是_生产者_：
+
+<?code-excerpt "strong/lib/strong_analysis.dart (Cat-Cat-ok)"?>
+{% prettify dart %}
+Cat c = Cat();
+{% endprettify %}
+
+在消费者的位置，任意类型（`Animal`）的对象替换特定类型（`Cat`）的对象是安全的。
+因此使用 `Animal c` 替换 `Cat c` 是允许的，因为 Animal 是 Cat 的父类。
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (Animal-Cat-ok)"?>
+{% prettify dart %}
+Animal c = Cat();
+{% endprettify %}
+
+但是使用 `MaineCoon c` 替换 `Cat c` 会打破类型的安全性，
+因为父类可能会提供一种具有不同行为的 Cat ，例如 Lion ：
+
+{:.fails-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (MaineCoon-Cat-err)"?>
+{% prettify dart %}
+MaineCoon c = Cat();
+{% endprettify %}
+
+在生产者的位置，可以安全地将生产类型 (Cat) 替换成一个更具体的类型 （MaineCoon）的对象。
+因此，下面的操作是允许的：
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (Cat-MaineCoon-ok)"?>
+{% prettify dart %}
+Cat c = MaineCoon();
+{% endprettify %}
+
+
+{% comment %}
+
 ### Generic type assignment
 
 Are the rules the same for generic types? Yes. Consider the hierarchy
@@ -848,6 +918,53 @@ List<Cat> myCats = List<Animal>() [!as List<Cat>!];
 The code may fail at runtime. You can disallow implicit casts
 by specifying `implicit-casts: false` in the [analysis options file.][analysis_options.yaml]
 
+{% endcomment %}
+
+
+### 泛型赋值
+
+上面的规则同样适用于泛型类型吗？是的。
+考虑动物列表的层次结构&mdash; Cat 类型的 List 是 Animal 类型 List 的子类型，
+是 MaineCoon 类型 List 的父类型。
+
+<img src="images/type-hierarchy-generics.png" alt="List<Animal> -> List<Cat> -> List<MaineCoon>">
+
+在下面的示例中，可以将 `MaineCoon` 类型的 List 赋值给 `myCats` ，
+因为 `List<MaineCoon>` 是 `List<Cat>` 的子类型：
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-MaineCoon)" replace="/MaineCoon/[!$&!]/g"?>
+{% prettify dart %}
+List<Cat> myCats = List<[!MaineCoon!]>();
+{% endprettify %}
+
+{% comment %}
+Gist:  https://gist.github.com/4a2a9bc2242042ba5338533d091213c0
+DartPad: {{site.dartpad}}/4a2a9bc2242042ba5338533d091213c0
+
+[Try it in DartPad]({{site.dartpad}}/4a2a9bc2242042ba5338533d091213c0).
+{% endcomment %}
+
+从另一个角度看？可以将 `Animal` 类型的 List 赋值给 `List<Cat>` 吗？
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-Animal)" replace="/Animal/[!$&!]/g"?>
+{% prettify dart %}
+List<Cat> myCats = List<[!Animal!]>();
+{% endprettify %}
+
+上面的赋值通过了静态分析，但它进行了隐式的强制转换。上面的赋值相当于：
+
+<?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-implied-cast)" replace="/as.*(?=;)/[!$&!]/g"?>
+{% prettify dart %}
+List<Cat> myCats = List<Animal>() [!as List<Cat>!];
+{% endprettify %}
+
+代码在运行时可能会执行失败。通过在 [静态分析配置文件][analysis_options.yaml] 
+中指定 `implicit-casts: false` 来禁止隐式强制转换。
+
+
+{% comment %}
 
 ### Methods
 
@@ -865,6 +982,25 @@ For more information, see
 [Use sound return types when overriding methods](#use-proper-return-types)
 and [Use sound parameter types when overriding methods](#use-proper-param-types).
 
+{% endcomment %}
+
+
+### 方法
+
+在重写方法中，生产者和消费者规则仍然适用。例如：
+
+<img src="images/consumer-producer-methods.png" alt="Animal class showing the chase method as the consumer and the parent getter as the producer">
+
+对于使用者（例如 `chase(Animal)` 方法），可以使用父类型替换参数类型。
+对于生产者（例如 `父类` 的 Getter 方法），可以使用子类型替换返回值类型。
+
+有关更多信息，请参阅
+[重写方法时，使用安全类型的返回值](#use-proper-return-types)
+以及
+[重写方法时，使用安全类型的参数](#use-proper-param-types)。
+
+
+{% comment %}
 
 ## Other resources
 
@@ -884,3 +1020,26 @@ The following resources have further information on sound Dart:
 [Dart VM]: /server/tools/dart-vm
 [dartdevc]: /tools/dartdevc
 [strong mode]: /guides/language/sound-dart#how-to-enable-strong-mode
+
+{% endcomment %}
+
+
+## 其他资源
+
+以下是更多关于 Dart 类型安全的相关资源：
+
+* [修复常见类型问题](/guides/language/sound-problems) -
+  编写安全类型的 Dart 代码时可能遇到的错误，
+  以及解决错误的方法。
+* [Dart 2](/dart-2) - 如何从 Dart 1.x 代码迁移到 Dart 2 。
+* [Customizing static analysis][analysis] - 如何使用
+  分析配置文件设置及自定义分析器和 linter 。
+
+
+[analysis_options.yaml]: /guides/language/analysis-options
+[analysis]: /guides/language/analysis-options
+[Dart VM]: /server/tools/dart-vm
+[dartdevc]: /tools/dartdevc
+[strong mode]: /guides/language/sound-dart#how-to-enable-strong-mode
+
+
