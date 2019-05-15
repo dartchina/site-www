@@ -23,6 +23,8 @@ Dart 拥有丰富的核心库，他们为许多日常编程任务提供支持，
 
 下表列出了所有 Dart 核心库。每个库至少可以工作在其中一个[平台](/platforms)上。
 
+{% comment %}
+
 <div class="table-wrapper" markdown="1">
 |-----------------------------------------------+-------------------------------|
 | Library                                       | Supported platforms   |
@@ -46,6 +48,34 @@ Dart 拥有丰富的核心库，他们为许多日常编程任务提供支持，
 | [`dart:web_sql`][dart-web_sql]          <br> API for storing data in the browser that can be queried with SQL. | Web (obsolete) |
 {:.table .table-striped}
 </div>
+
+{% endcomment %}
+
+
+<div class="table-wrapper" markdown="1">
+|-----------------------------------------------+-------------------------------|
+| 库                                       | 支持平台   |
+|-----------------------------------------------|-------------------------------|
+| [`dart:async`][dart-async]              <br> 异步编程支持，比如 Future 和 Stream 类。 | 全部 |
+| [`dart:collection`][dart-collection]    <br> `dart:core` 中提供了集合扩展的类和工具。 | 全部 |
+| [`dart:convert`][dart-convert]          <br> 包括 JSON 和 UTF-8 在内的，不同数据表示见的编解码。 | 全部 |
+| [`dart:core`][dart-core]                <br> 所有 Dart 程序所需要的内建类型，集合以及其他核心功能。 | 全部 |
+| [`dart:developer`][dart-developer]      <br> 与开发人员相关工具，比如调试器和检查器。 | JIT<br>Web (实验性的，仅用于 dartdevc) |
+| [`dart:html`][dart-html]                <br> 为基于 Web 的应用支持 HTML 元素及其他资源。 | Web |
+| [`dart:index_db`][dart-index_db]        <br> 支持索引的客户端键值存储。 | Web |
+| [`dart:io`][dart-io]                    <br> 对非 Web 应用程序的文件，Socket，HTTP 和其他 I/O 的支持。 | JIT<br>AOT |
+| [`dart:isolate`][dart-isolate]          <br> 基于隔离的并发编程：类似于线程的独立任务。 | JIT<br>AOT |
+| [`dart:js`][dart-js]                    <br> 提供与 JavaScript 的交互操作。 [PENDING: obsolete? use package:js instead?] | Web |
+| [`dart:js_util`][dart-js_util]          <br> 用于高效操作 JSInterop 类型对象的工具方法。 | Web |
+| [`dart:math`][dart-math]                <br> 数学常数和函数，以及随机数生成器。 | 全部 |
+| [`dart:mirrors`][dart-mirrors]          <br> 基础反射用于支持内省和动态调用。 | JIT (实验性的， _不支持_&nbsp;Flutter) |
+| [`dart:typed_data`][dart-typed_data]    <br> 用于高效处理固定大小数据（比如，无符号 8 为整数）以及 SIMD 数字类型数据。 | 全部 |
+| [`dart:web_audio`][dart-web_audio]      <br> 基于浏览器的高保真音频编程。 | Web |
+| [`dart:web_gl`][dart-web_gl]            <br> 基于浏览器的 3D 编程。 | Web 
+| [`dart:web_sql`][dart-web_sql]          <br> 提供在浏览器中使用 SQL 查询存储数据的 API 。 | Web (废弃的) |
+{:.table .table-striped}
+</div>
+
 
 [dart-async]: https://api.dartlang.org/stable/dart-async/dart-async-library.html
 [dart-collection]: https://api.dartlang.org/stable/dart-collection/dart-collection-library.html
