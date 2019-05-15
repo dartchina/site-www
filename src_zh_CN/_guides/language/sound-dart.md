@@ -200,6 +200,8 @@ Dart 的类型系统，同 Java 和 C＃ 中的类型系统类似，是安全的
 使用 `as String` 将`对象`转换为字符串时，会由于运行时错误而导致转换失败。
 
 
+{% comment %}
+
 ## The benefits of soundness
 
 A sound type system has several benefits:
@@ -221,6 +223,30 @@ A sound type system has several benefits:
 * Better ahead of time (AOT) compilation.<br>
   While AOT compilation is possible without types, the generated
   code is much less efficient.
+
+{% endcomment %}
+
+
+## 类型安全的好处
+
+安全类型系统有以下几个好处：
+
+* 在编译时就可以检查并显示类型相关的错误。<br>
+  安全类型系统强制要求代码明确类型，
+  因此在编译时会显示与类型相关的错误，
+  这些错误可能在运行时可能很难发现。
+
+* 代码更容易阅读。<br>
+  代码更容易阅读，因为我们信赖一个拥有指定类型的值。
+  在类型安全的 Dart 中，类型是不会骗人的。 因为一个拥有指定类型的值是可以被信赖的。
+
+* 代码可维护性更高。<br>
+  在安全类型系统下，当更改一处代码后，
+  类型系统会警告因此影响到的其他代码块。
+
+* 更好的 AOT 编译。<br>
+  虽然在没有类型的情况下可以进行 AOT 编译，
+  但生成的代码效率要低很多。
 
 
 ## Tips for passing static analysis
