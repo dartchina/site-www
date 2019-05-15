@@ -92,7 +92,7 @@ void main() {
 
 {% endcomment %}
 
-Dart 类型安全的语言：Dart 使用静态类型检查和
+Dart 是类型安全的编程语言：Dart 使用静态类型检查和
 [运行时检查](#runtime-checks)
 的组合来确保变量的值始终与变量的静态类型匹配。尽管类型是必需的，但由于
 [类型推断](#type-inference)
@@ -191,7 +191,7 @@ string.
 ## 什么是类型安全
 
 类型安全是为了确保程序不会进入某些无效状态。
-安全类型系统意味着程序永远不会进入表达式求值为与表达式的静态类型不匹配的值的状态。
+安全的类型系统意味着程序永远不会进入表达式求值为与表达式的静态类型不匹配的值的状态。
 例如，如果表达式的静态类型是 `String` ，则在运行时保证在评估它的时候只会获取字符串。
 
 Dart 的类型系统，同 Java 和 C＃ 中的类型系统类似，是安全的。
@@ -229,10 +229,10 @@ A sound type system has several benefits:
 
 ## 类型安全的好处
 
-安全类型系统有以下几个好处：
+安全的类型系统有以下几个好处：
 
 * 在编译时就可以检查并显示类型相关的错误。<br>
-  安全类型系统强制要求代码明确类型，
+  安全的类型系统强制要求代码明确类型，
   因此在编译时会显示与类型相关的错误，
   这些错误可能在运行时可能很难发现。
 
@@ -241,7 +241,7 @@ A sound type system has several benefits:
   在类型安全的 Dart 中，类型是不会骗人的。 因为一个拥有指定类型的值是可以被信赖的。
 
 * 代码可维护性更高。<br>
-  在安全类型系统下，当更改一处代码后，
+  在安全的类型系统下，当更改一处代码后，
   类型系统会警告因此影响到的其他代码块。
 
 * 更好的 AOT 编译。<br>
@@ -367,8 +367,8 @@ a.chase([!Alligator!]()); // Not type safe or feline safe
 大多数静态类型的规则都很容易理解。
 下面是一些不太明显的规则：
 
-* 重写方法时，使用安全类型的返回值。
-* 重写方法时，使用安全类型的参数。
+* 重写方法时，使用类型安全返回值。
+* 重写方法时，使用类型安全的参数。
 * 不要将动态类型的 List 看做是有类型的 List 。
 
 让我们通过下面示例的类型结构，来更深入的了解这些规则：
@@ -376,7 +376,7 @@ a.chase([!Alligator!]()); // Not type safe or feline safe
 <img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon">
 
 <a name="use-proper-return-types"></a>
-### 重写方法时，使用安全类型的返回值
+### 重写方法时，使用类型安全的返回值
 
 子类方法中返回值类型必须与父类方法中返回值类型的类型相同或其子类型。
 考虑 Animal 类中的 Getter 方法：
@@ -412,7 +412,7 @@ class HoneyBadger extends Animal {
 {% endprettify %}
 
 <a name="use-proper-param-types"></a>
-### 重写方法时，使用安全类型的参数。
+### 重写方法时，使用类型安全的参数。
 
 子类方法的参数必须与父类方法中参数的类型相同或是其参数的父类型。
 不要使用原始参数的子类型，替换原有类型，这样会导致参数类型"收紧"。
@@ -995,9 +995,9 @@ and [Use sound parameter types when overriding methods](#use-proper-param-types)
 对于生产者（例如 `父类` 的 Getter 方法），可以使用子类型替换返回值类型。
 
 有关更多信息，请参阅
-[重写方法时，使用安全类型的返回值](#use-proper-return-types)
+[重写方法时，使用类型安全的返回值](#use-proper-return-types)
 以及
-[重写方法时，使用安全类型的参数](#use-proper-param-types)。
+[重写方法时，使用类型安全的参数](#use-proper-param-types)。
 
 
 {% comment %}
@@ -1029,7 +1029,7 @@ The following resources have further information on sound Dart:
 以下是更多关于 Dart 类型安全的相关资源：
 
 * [修复常见类型问题](/guides/language/sound-problems) -
-  编写安全类型的 Dart 代码时可能遇到的错误，
+  编写类型安全的 Dart 代码时可能遇到的错误，
   以及解决错误的方法。
 * [Dart 2](/dart-2) - 如何从 Dart 1.x 代码迁移到 Dart 2 。
 * [Customizing static analysis][analysis] - 如何使用
