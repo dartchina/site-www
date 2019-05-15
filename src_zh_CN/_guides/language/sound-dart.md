@@ -1,5 +1,5 @@
 ---
-title: The Dart 类型系统
+title: Dart 类型系统
 description: 如何编写健全的 Dart 代码。
 ---
 <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g; /\b(main)\d\b/$1/g"?>
@@ -249,6 +249,8 @@ A sound type system has several benefits:
   但生成的代码效率要低很多。
 
 
+{% comment %}
+
 ## Tips for passing static analysis
 
 Most of the rules for static types are easy to understand.
@@ -357,16 +359,120 @@ Animal a = Cat();
 a.chase([!Alligator!]()); // Not type safe or feline safe
 {% endprettify %}
 
-### Don't use a dynamic list as a typed list
+{% endcomment %}
 
-A dynamic list is good when you want to have a list with
-different kinds of things in it. However, you can't use a
-dynamic list as a typed list.
 
-This rule also applies to instances of generic types.
+## 静态检查中的一些技巧
 
-The following code creates a dynamic list of Dog, and assigns it to
-a list of type Cat, which generates an error during static analysis.
+大多数静态类型的规则都很容易理解。
+下面是一些不太明显的规则：
+
+* 重写方法时，使用安全类型的返回值。
+* 重写方法时，使用安全类型的参数。
+* 不要将动态类型的 List 看做是有类型的 List 。
+
+让我们通过下面示例的类型结构，来更深入的了解这些规则：
+
+<img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon">
+
+<a name="use-proper-return-types"></a>
+### 重写方法时，使用安全类型的返回值
+
+子类方法中返回值类型必须与父类方法中返回值类型的类型相同或其子类型。
+考虑 Animal 类中的 Getter 方法：
+
+<?code-excerpt "strong/lib/animal.dart (Animal)" replace="/Animal get.*/[!$&!]/g"?>
+{% prettify dart %}
+class Animal {
+  void chase(Animal a) { ... }
+  [!Animal get parent => ...!]
+}
+{% endprettify %}
+
+`父类` Getter 方法返回一个 Animal 。在 HoneyBadger 子类中，
+可以使用 HoneyBadger（或 Animal 的任何其他子类型）替换 Getter 的返回值类型，
+但不允许使用其他的无关类型。
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/animal.dart (HoneyBadger)" replace="/(\w+)(?= get)/[!$&!]/g"?>
+{% prettify dart %}
+class HoneyBadger extends Animal {
+  void chase(Animal a) { ... }
+  [!HoneyBadger!] get parent => ...
+}
+{% endprettify %}
+
+{:.fails-sa}
+<?code-excerpt "strong/lib/animal_bad.dart (HoneyBadger)" replace="/(\w+)(?= get)/[!$&!]/g"?>
+{% prettify dart %}
+class HoneyBadger extends Animal {
+  void chase(Animal a) { ... }
+  [!Root!] get parent => ...
+}
+{% endprettify %}
+
+<a name="use-proper-param-types"></a>
+### 重写方法时，使用安全类型的参数。
+
+子类方法的参数必须与父类方法中参数的类型相同或是其参数的父类型。
+不要使用原始参数的子类型，替换原有类型，这样会导致参数类型"收紧"。
+
+<aside class="alert alert-info" markdown="1">
+  **提示：** 如果有合理的理由使用子类型，可以使用 [`covariant` 关键字](/guides/language/sound-problems#the-covariant-keyword)。
+</aside>
+
+考虑 Animal 的 `chase(Animal)` 方法：
+
+<?code-excerpt "strong/lib/animal.dart (Animal)" replace="/void chase.*/[!$&!]/g"?>
+{% prettify dart %}
+class Animal {
+  [!void chase(Animal a) { ... }!]
+  Animal get parent => ...
+}
+{% endprettify %}
+
+`chase()` 方法的参数类型是 Animal 。一个 HoneyBadger 可以追逐任何东西。
+因此可以在重写 `chase()` 方法时将参数类型指定为任意类型 （Object） 。
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/animal.dart (chase-Object)" replace="/Object/[!$&!]/g"?>
+{% prettify dart %}
+class HoneyBadger extends Animal {
+  void chase([!Object!] a) { ... }
+  Animal get parent => ...
+}
+{% endprettify %}
+
+Mouse 是 Animal 的子类，下面的代码将 `chase()` 方法中参数的范围从 Animal 缩小到 Mouse 。
+
+{:.fails-sa}
+<?code-excerpt "strong/lib/animal_bad.dart (chase-Mouse)" replace="/(\w+)(?= x)/[!$&!]/g"?>
+{% prettify dart %}
+class Mouse extends Animal {...}
+
+class Cat extends Animal {
+  void chase([!Mouse!] x) { ... }
+}
+{% endprettify %}
+
+下面的代码不是类型安全的，因为 a 可以是一个 cat 对象，却可以给它传入一个 alligator 对象。
+
+<?code-excerpt "strong/lib/animal_bad.dart (chase-Alligator)" replace="/Alligator/[!$&!]/g"?>
+{% prettify dart %}
+Animal a = Cat();
+a.chase([!Alligator!]()); // Not type safe or feline safe
+{% endprettify %}
+
+
+### 不要将动态类型的 List 看做是有类型的 List 
+
+当期望在一个 List 中可以包含不同类型的对象时，动态列表是很好的选择。
+但是不能将动态类型的 List 看做是有类型的 List 。
+
+这个规则也适用于泛型类型的实例。
+
+下面代码创建一个 Dog 的动态 List ，并将其分配给 Cat 类型的 List ，
+表达式在静态分析期间会产生错误。
 
 {:.fails-sa}
 <?code-excerpt "strong/lib/animal_bad.dart (dynamic-list)" replace="/.dynamic.(?!.*OK)/[!$&!]/g"?>
@@ -380,6 +486,9 @@ void main() {
   List<dynamic> bar = <dynamic>[Dog(), Cat()]; // OK
 }
 {% endprettify %}
+
+
+{% comment %}
 
 ## Runtime checks
 
@@ -398,6 +507,28 @@ void main() {
 }
 {% endprettify %}
 
+{% endcomment %}
+
+
+## 运行时检查
+
+运行时检查工具，比如 [Dart VM][] 和 [dartdevc][]，
+处理分析器无法捕获的类型安全问题。
+
+例如，以下代码在运行时会抛出异常，
+因为将 Dog 类型的 List 赋值给 Cat 类型的 List 是错误的：
+
+{:.runtime-fail}
+<?code-excerpt "strong/test/strong_test.dart (runtime-checks)" replace="/cats[^;]*/[!$&!]/g"?>
+{% prettify dart %}
+void main() {
+  List<Animal> animals = [Dog()];
+  List<Cat> [!cats = animals!];
+}
+{% endprettify %}
+
+
+{% comment %}
 
 ## Type inference
 
@@ -431,6 +562,37 @@ types (String and int, which have the upper bound Object).
 So the map literal has the type `Map<String, Object>`,
 and so does the `arguments` variable.
 
+{% endcomment %}
+
+
+## 类型推断
+
+分析器（analyzer）可以推断字段，方法，局部变量和大多数泛型类型参数的类型。
+当分析器没有足够的信息来推断出一个特定类型时，会使用 `dynamic` 作为类型。
+
+下面是在泛型中如何进行类型推断的示例。在此示例中，名为 `arguments` 的变量包含一个 Map ，
+该 Map 将字符串键与各种类型的值配对。
+
+如果显式键入变量，则可以这样写：
+
+<?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1-orig)" replace="/Map<String, dynamic\x3E/[!$&!]/g"?>
+{% prettify dart %}
+[!Map<String, dynamic>!] arguments = {'argA': 'hello', 'argB': 42};
+{% endprettify %}
+
+或者，使用 `var` 让 Dart 来推断类型：
+
+<?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1)" replace="/var/[!$&!]/g"?>
+{% prettify dart %}
+[!var!] arguments = {'argA': 'hello', 'argB': 42}; // Map<String, Object>
+{% endprettify %}
+
+Map 字面量从其条目中推断出它的类型，然后变量从 Map 字面量的类型中推断出它的类型。
+在此 Map 中，键都是字符串，但值具有不同的类型（ String 和 int ，它们具有共同的上限类型 Object ）。
+因此，Map 字面量的类型为 `Map<String, Object>` ，也就是 `arguments` 的类型。
+
+
+{% comment %}
 
 ### Field and method inference
 
@@ -441,12 +603,37 @@ superclass method or field.
 A field that does not have a declared or inherited type but that is declared
 with an initial value, gets an inferred type based on the initial value.
 
+{% endcomment %}
+
+
+### 字段和方法推断
+
+
+重写父类的且没有指定类型的字段或方法，继承父类中字段或方法的类型。
+
+没有声明类型且不存在继承类型的字段，如果在声明时被初始化，
+那么字段的类型为初始化值的类型。
+
+{% comment %}
+
 ### Static field inference
 
 Static fields and variables get their types inferred from their
 initializer. Note that inference fails if it encounters a cycle
 (that is, inferring a type for the variable depends on knowing the
 type of that variable).
+
+{% endcomment %}
+
+
+### 静态字段推断
+
+静态字段和变量的类型从其初始化程序中推断获得。 
+需要注意的是，如果推断是个循环，推断会失败
+（也就是说，推断变量的类型取决于知道该变量的类型）。
+
+
+{% comment %}
 
 ### Local variable inference
 
@@ -468,6 +655,33 @@ x = 4.0;
 num y = 3; // a num can be double or int
 y = 4.0;
 {% endprettify %}
+
+{% endcomment %}
+
+
+### 局部变量推断
+
+在不考虑连续赋值的情况下，局部变量如果有初始化值的情况下，其类型是从初始化值推断出来的。
+这可能意味着推断出来的类型会非常严格。
+如果是这样，可以为他们添加类型注释。（🤔 This may mean that too precise a type may be inferred.
+If so, you can add a type annotation.）
+
+{:.fails-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (local-var-type-inference-error)"?>
+{% prettify dart %}
+var x = 3; // x is inferred as an int
+x = 4.0;
+{% endprettify %}
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (local-var-type-inference-ok)"?>
+{% prettify dart %}
+num y = 3; // a num can be double or int
+y = 4.0;
+{% endprettify %}
+
+
+{% comment %}
 
 ### Type argument inference
 
@@ -495,6 +709,32 @@ In the last example, `x` is inferred as `double` using downward information.
 The return type of the closure is inferred as `int` using upward information.
 Dart uses this return type as upward information when inferring the `map()`
 method's type argument: `<int>`.
+
+{% endcomment %}
+
+
+### 参数类型推断
+
+构造函数调用的类型参数和
+[泛型方法](/guides/language/language-tour#using-generic-methods)调用
+是根据上下文的向下信息和构造函数或泛型方法的参数的向上信息组合推断的。
+如果推断没有按照意愿或期望进行，那么你可以显式的指定他们的参数类型。
+
+{:.passes-sa}
+<?code-excerpt "strong/lib/strong_analysis.dart (type-arg-inference)"?>
+{% prettify dart %}
+// Inferred as if you wrote <int>[].
+List<int> listOfInt = [];
+
+// Inferred as if you wrote <double>[3.0].
+var listOfDouble = [3.0];
+
+// Inferred as Iterable<int>
+var ints = listOfDouble.map((x) => x.toInt());
+{% endprettify %}
+
+在最后一个示例中，根据向下信息 `x` 被推断为 `double` 。 闭包的返回类型根据向上信息推断为 `int` 。
+在推断 `map()` 方法的类型参数：`<int>` 时，Dart 使用此返回值的类型作为向上信息。
 
 
 ## Substituting types
