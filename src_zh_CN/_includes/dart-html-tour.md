@@ -1,3 +1,5 @@
+{% comment %}
+
 Use the [dart:html][] library to
 program the browser, manipulate objects and elements in the DOM, and
 access HTML5 APIs. DOM stands for *Document Object Model*, which
@@ -31,6 +33,39 @@ TODO: Consider helping users run these examples in DartPad.
 import 'dart:html';
 ```
 
+{% endcomment %}
+
+在浏览器上使用 [dart:html][] 库编程，操作 DOM 中的对象和元素，以及访问 HTML5 API 。
+DOM 全称为 **Document Object Model** ，用来描述 HTML 页面的层次结构。
+
+[dart:html][] 的其他常见用途是操作样式（*CSS*），获取 HTTP 请求数据，以及使用
+[WebSockets](#sending-and-receiving-real-time-data-with-websockets) 交换数据。
+HTML5（和 dart:html）有许多其他 API 本章节无法全部涵盖，本节未涵盖这些API。 dart:html 只能
+被用于 Web 应用，命令行应用无法使用。
+
+<div class="alert alert-info" markdown="1">
+**提示：**
+对于 Web 应用 UI 的高级处理方式，可以使用 Web 框架，例如：
+[AngularDart.]({{site.angulardart}})
+</div>
+
+在 Web 应用中使用 HTML 库，导入 dart:html ：
+
+{% comment %}
+TODO: Figure out why we get ERRORs when using code-excerpt with triple ticks.
+Workaround: use prettify dart (with liquid syntax,
+surrounded with braces and percent marks).
+
+TODO: Consider helping users run these examples in DartPad.
+{% endcomment %}
+
+{% comment %} code-excerpt "lib/html.dart (import)" {% endcomment %}
+```dart
+import 'dart:html';
+```
+
+{% comment %}
+
 ### Manipulating the DOM
 
 To use the DOM, you need to know about *windows*, *documents*,
@@ -52,6 +87,31 @@ The DOM models a tree of
 elements, but they can also be attributes, text, comments, and other DOM
 types. Except for the root node, which has no parent, each node in the
 DOM has one parent and might have many children.
+
+{% endcomment %}
+
+
+### DOM 操作
+
+在操作 DOM 前，需要对 *windows*， *documents*,
+*elements*， 以及 *nodes* 有所了解。
+
+[Window][] 对象表示 Web 浏览器的实际窗口。
+每个 Window 都有一个 Document 对象，该对象指向当前加载的文档。
+Window 对象还包括各种 API 的访问器，例如 IndexedDB（用于存储数据），
+requestAnimationFrame（用于动画）等。
+在选项卡式浏览器中，每个选项卡都有自己的 Window 对象。
+
+使用 [Document][] 对象，可以在文档中创建和操作 [Element][] 对象。
+需要注意的是，文档本身也是一个元素，可以被操作。
+
+DOM 模拟一棵树的[结点][Nodes]。这些节点通常是元素，
+但也可以是属性，文本，注释和其他 DOM 类型。
+除了根节点（该节点没有父节点）之外，
+DOM 中的每个节点都有一个父节点，且可能有许多子节点。
+
+
+{% comment %}
 
 #### Finding elements
 
@@ -90,6 +150,48 @@ that match the selector.
   // the ID 'id'.
   List<Element> elems3 = querySelectorAll('#id p.class');
 ```
+
+{% endcomment %}
+
+
+#### 查找元素
+
+在操作元素钱，首先需要一个能够表示它的对象。
+我们可以通过查找获取这个对象。
+
+查找一个或多个元素可以使用顶级函数 `querySelector()` 和 `querySelectorAll()` 。
+我们可以按ID，类，标签，名称或这些的任意组合进行查询。
+[CSS 选择器规范指南](http://www.w3.org/TR/css3-selectors/)
+定义了选择器的格式，例如使用 \# 前缀指定 ID 和点 (.) 前缀指定类。
+
+`querySelector()` 函数返回与选择器匹配的第一个元素，
+而 `querySelectorAll()` 返回与选择器匹配的元素集合。
+
+
+{% comment %}code-excerpt "lib/html.dart (querySelector)"{% endcomment %}
+```dart
+  // Find an element by id (an-id).
+  Element elem1 = querySelector('#an-id');
+
+  // Find an element by class (a-class).
+  Element elem2 = querySelector('.a-class');
+
+  // Find all elements by tag (<div>).
+  List<Element> elems1 = querySelectorAll('div');
+
+  // Find all text inputs.
+  List<Element> elems2 = querySelectorAll(
+    'input[type="text"]',
+  );
+
+  // Find all elements with the CSS class 'class'
+  // inside of a <p> that is inside an element with
+  // the ID 'id'.
+  List<Element> elems3 = querySelectorAll('#id p.class');
+```
+
+
+{% comment %}
 
 #### Manipulating elements
 
@@ -165,6 +267,79 @@ example of setting an attribute’s value:
 ```dart
   elem.attributes['someAttribute'] = 'someValue';
 ```
+
+{% endcomment %}
+
+
+#### 操作元素
+
+元素的状态可以通过属性来修改。节点和它的子元素定义所有元素具有的属性。
+例如，所有元素都具有可用于设置的 `classes` ， `hidden` ， `id` ， `style` 以及
+`title` 属性。子元素定义一些附加的属性，例如 [AnchorElement.][AnchorElement] 的 `href` 属性。
+
+思考下面示例 - 在 HTML 中指定锚元素：
+
+{% comment %}code-excerpt "test/html_test.dart (anchor-html)" replace="/.*'(.*?)'.*/$1/g"{% endcomment %}
+```html
+<a id="example" href="http://example.com">link text</a>
+```
+
+这个 \<a\> 标签指定具有 `href` 属性的元素并包含字符串 “linktext” 的文本节点（可通过 `text` 属性访问）。
+这里可以使用 AnchorElement 的 `href` 属性来修改链接转到的 URL ：
+
+{% comment %}code-excerpt "test/html_test.dart (href)"{% endcomment %}
+```dart
+var anchor = querySelector('#example') as AnchorElement;
+anchor.href = 'http://dartlang.org';
+```
+
+我们常常需要设置多个元素的属性。
+例如，以下代码中 “mac”, “win”, 或 “linux” 这些类的元素集合中都包含 `hidden` 属性。
+将 `hidden` 属性设置为 true 和将 `display:none` 添加到 CSS 具有相同的效果。
+
+
+{% comment %}code-excerpt "test/html_test.dart (os-html)" replace="/.*? = '''|''';$//g"{% endcomment %}
+```dart
+  <!-- In HTML: -->
+  <p>
+    <span class="linux">Words for Linux</span>
+    <span class="macos">Words for Mac</span>
+    <span class="windows">Words for Windows</span>
+  </p>
+```
+
+{% comment %}code-excerpt "test/html_test.dart (os)"{% endcomment %}
+```dart
+  // In Dart:
+  final osList = ['macos', 'windows', 'linux'];
+  final userOs = determineUserOs();
+
+  // For each possible OS...
+  for (var os in osList) {
+    // Matches user OS?
+    bool shouldShow = (os == userOs);
+
+    // Find all elements with class=os. For example, if
+    // os == 'windows', call querySelectorAll('.windows')
+    // to find all elements with the class "windows".
+    // Note that '.$os' uses string interpolation.
+    for (var elem in querySelectorAll('.$os')) {
+      elem.hidden = !shouldShow; // Show or hide.
+    }
+  }
+```
+
+当右侧属性不可用或不方便时，可以使用元素的 `attributes` 属性。
+此属性是 `Map<String, String>` ，其中键是属性名称。
+有关属性名称及其描述列表，请参阅
+[MDN 属性页面](https://developer.mozilla.org/en/HTML/Attributes) 。
+以下是设置 `attributes` 值的示例：
+
+{% comment %}code-excerpt "lib/html.dart (attributes)"{% endcomment %}
+```dart
+  elem.attributes['someAttribute'] = 'someValue';
+```
+
 
 #### Creating elements
 

@@ -3331,15 +3331,6 @@ for (int i = 0; i < encoded.length; i++) {
 The dart:convert library also has converters for ASCII and ISO-8859-1
 (Latin1). For details, see the [API reference for the dart:convert library.][dart:convert]
 
-## dart:html - browser-based apps {#darthtml}
-
-{% include dart-html-tour.md %}
-
-
-## dart:io - I/O for servers and command-line apps {#dartio}
-
-{% include dart-io-tour.md %}
-
 {% endcomment %}
 
 
@@ -3348,9 +3339,28 @@ The dart:convert library also has converters for ASCII and ISO-8859-1
 dart:convert 库同样包含 ASCII 和 ISO-8859-1 (Latin1) 转换器。
 更多详情，参考 [API docs for the dart:convert library。][dart:convert]
 
-## dart:html - 基于浏览器的应用 {#darthtml}
+
+{% comment %}
+
+## dart:html - browser-based apps {#darthtml}
 
 {% include dart-html-tour.md %}
+
+{% endcomment %}
+
+
+## dart:html - 基于浏览器应用 {#darthtml}
+
+{% include dart-html-tour.md %}
+
+
+{% comment %}
+
+## dart:io - I/O for servers and command-line apps {#dartio}
+
+{% include dart-io-tour.md %}
+
+{% endcomment %}
 
 
 ## dart:io - 服务器和命令行应用程序的 I/O 。 {#dartio}
