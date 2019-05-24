@@ -779,9 +779,9 @@ assert(listOfStrings[1] == '#1');
 For more details and examples of using collection if and for, see the 
 [control flow collections proposal.][collections proposal]
 
-[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/control-flow-collections/feature-specification.md
+[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md
 
-[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/spread-collections/feature-specification.md
+[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/2.3/spread-collections/feature-specification.md
 
 The List type has many handy methods for manipulating lists. For more
 information about lists, see [Generics](#generics) and
@@ -4125,7 +4125,7 @@ Iterable<int> naturalsDownFrom(int n) sync* {
 
 ## Callable classes
 
-To allow your Dart class to be called like a function,
+To allow an instance of your Dart class to be called like a function,
 implement the `call()` method.
 
 In the following example, the `WannabeFunction` class defines
