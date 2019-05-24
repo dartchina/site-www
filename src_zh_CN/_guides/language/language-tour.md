@@ -533,6 +533,7 @@ This page follows the
 [style guide recommendation](/guides/language/effective-dart/design#types)
 of using `var`, rather than type annotations, for local variables.
 </div>
+
 {% endcomment %}
 
 ## 变量
@@ -578,6 +579,7 @@ String name = 'Bob';
 
 
 {% comment %}
+
 ### Default value
 
 Uninitialized variables have an initial value of `null`. Even variables
@@ -597,6 +599,7 @@ During development, <code>assert(<em>condition</em>)</code>
 throws an exception unless *condition* is true. For details,
 see [Assert](#assert).
 </div>
+
 {% endcomment %}
 
 
@@ -621,6 +624,7 @@ assert(lineCount == null);
 </div>
 
 {% comment %}
+
 ### Final and const
 
 If you never intend to change a variable, use `final` or `const`, either
@@ -699,6 +703,7 @@ baz = [42]; // Error: Constant variables can't be assigned a value.
 
 For more information on using `const` to create constant values, see
 [Lists](#lists), [Maps](#maps), and [Classes](#classes).
+
 {% endcomment %}
 
 ### Final 和 Const
@@ -778,6 +783,7 @@ baz = [42]; // Error: 常量变量不能赋值修改。
 [Lists](#lists)， [Maps](#maps)， 和 [Classes](#classes)。
 
 {% comment %}
+
 ## Built-in types
 
 The Dart language has special support for the following types:
@@ -804,6 +810,7 @@ Because every variable in Dart refers to an object—an instance of a
 *class*—you can usually use *constructors* to initialize variables. Some
 of the built-in types have their own constructors. For example, you can
 use the `Map()` constructor to create a map.
+
 {% endcomment %}
 
 ## 内建类型
@@ -834,6 +841,7 @@ Those can't be initialized using literals, but they do have special support.
 例如， 通过 `Map()` 来构造一个 map 变量。
 
 {% comment %}
+
 ### Numbers
 
 Dart numbers come in two flavors:
@@ -941,6 +949,7 @@ const msPerSecond = 1000;
 const secondsUntilRetry = 5;
 const msUntilRetry = secondsUntilRetry * msPerSecond;
 {% endprettify %}
+
 {% endcomment %}
 
 ### Number
@@ -1425,9 +1434,9 @@ assert(listOfStrings[1] == '#1');
 For more details and examples of using collection if and for, see the 
 [control flow collections proposal.][collections proposal]
 
-[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/control-flow-collections/feature-specification.md
+[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md
 
-[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/spread-collections/feature-specification.md
+[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/2.3/spread-collections/feature-specification.md
 
 The List type has many handy methods for manipulating lists. For more
 information about lists, see [Generics](#generics) and
@@ -1539,9 +1548,9 @@ assert(listOfStrings[1] == '#1');
 更多 **Collection If** 和 **Collection For** 的内容和使用示例，参阅 
 [集合的流控制提案。][collections proposal]
 
-[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/control-flow-collections/feature-specification.md
+[collections proposal]: https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md
 
-[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/future-releases/spread-collections/feature-specification.md
+[spread proposal]: https://github.com/dart-lang/language/blob/master/accepted/2.3/spread-collections/feature-specification.md
 
 List 类型包含了很多 List 的操作函数。 
 更多信息参考 [泛型](#generics) 和
@@ -7431,6 +7440,7 @@ var foo = [!Foo<Object>!]();
 {% endprettify %}
 
 {% comment %}
+
 ### Using generic methods
 
 Initially, Dart's generic support was limited to classes.
@@ -7457,6 +7467,7 @@ allows you to use the type argument `T` in several places:
 
 For more information about generics, see
 [Using Generic Methods.](https://github.com/dart-lang/sdk/blob/master/pkg/dev_compiler/doc/GENERIC_METHODS.md)
+
 {% endcomment %}
 
 ### 使用泛型函数
@@ -7609,6 +7620,7 @@ lib2.Element element2 = lib2.Element();
 {% endprettify %}
 
 {% comment %}
+
 #### Importing only part of a library
 
 If you want to use only part of a library, you can selectively import
@@ -7624,6 +7636,7 @@ import 'package:lib2/lib2.dart' hide foo;
 {% endprettify %}
 
 <a id="deferred-loading"></a>
+
 {% endcomment %}
 
 
@@ -7645,6 +7658,7 @@ import 'package:lib2/lib2.dart' hide foo;
 
 
 {% comment %}
+
 #### Lazily loading a library
 
 _Deferred loading_ (also called _lazy loading_)
@@ -7703,6 +7717,7 @@ This behavior might change, so
 **don't depend on the current VM behavior.**
 For details, see [issue #33118.](https://github.com/dart-lang/sdk/issues/33118)
 </aside>
+
 {% endcomment %}
 
 
@@ -7761,6 +7776,7 @@ For details, see [issue #33118.](https://github.com/dart-lang/sdk/issues/33118)
 </aside>
 
 {% comment %}
+
 ### Implementing libraries
 
 See
@@ -7771,6 +7787,7 @@ for advice on how to implement a library package, including:
 * How to use the `export` directive.
 * When to use the `part` directive.
 * When to use the `library` directive.
+
 {% endcomment %}
 
 ### 实现库
@@ -7786,6 +7803,7 @@ for advice on how to implement a library package, including:
 
 
 {% comment %}
+
 <a id="asynchrony"></a>
 ## Asynchrony support
 
@@ -7814,6 +7832,7 @@ Dart 库中包含许多返回 Future 或 Stream 对象的函数.
 
 
 {% comment %}
+
 <a id="await"></a>
 ### Handling Futures
 
@@ -7898,6 +7917,7 @@ Future main() [!async!] {
   print('In main: version is ${[!await!] lookUpVersion()}');
 }
 {% endprettify %}
+
 {% endcomment %}
 
 
@@ -7985,6 +8005,7 @@ Future main() [!async!] {
 
 
 {% comment %}
+
 <a id="async"></a>
 ### Declaring async functions
 
@@ -8020,6 +8041,7 @@ PENDING: add example here
 
 Where else should we cover generalized void?
 {% endcomment %}
+
 {% endcomment %}
 
 
@@ -8057,6 +8079,7 @@ Where else should we cover generalized void?
 
 
 {% comment %}
+
 <a id="await-for"></a>
 ### Handling Streams
 
@@ -8116,11 +8139,6 @@ Future main() [!async!] {
 For more information about asynchronous programming, in general, see the
 [dart:async](/guides/libraries/library-tour#dartasync---asynchronous-programming)
 section of the library tour.
-Also see the articles
-[Dart Language Asynchrony Support: Phase 1](/articles/language/await-async)
-and
-[Dart Language Asynchrony Support: Phase 2](/articles/language/beyond-async),
-and the [Dart language specification][].
 
 {% endcomment %}
 
@@ -8181,11 +8199,6 @@ Future main() [!async!] {
 有关异步编程的更多信息，请参考
 [dart:async](/guides/libraries/library-tour#dartasync---asynchronous-programming) 
 部分。
-同时也可参考文章
-[Dart Language Asynchrony Support: Phase 1](/articles/language/await-async)
-和
-[Dart Language Asynchrony Support: Phase 2](/articles/language/beyond-async),
-以及 [Dart language specification][] 。
 
 
 {% comment %}
@@ -8237,9 +8250,6 @@ Iterable<int> naturalsDownFrom(int n) sync* {
 }
 {% endprettify %}
 
-For more information about generators, see the article
-[Dart Language Asynchrony Support: Phase 2](/articles/language/beyond-async).
-
 {% endcomment %}
 
 
@@ -8289,13 +8299,11 @@ Iterable<int> naturalsDownFrom(int n) sync* {
 }
 {% endprettify %}
 
-有关生成器的更多信息，请参考文章
-[Dart Language Asynchrony Support: Phase 2](/articles/language/beyond-async) 。
-
 {% comment %}
+
 ## Callable classes
 
-To allow your Dart class to be called like a function,
+To allow an instance of your Dart class to be called like a function,
 implement the `call()` method.
 
 In the following example, the `WannabeFunction` class defines
@@ -8327,15 +8335,12 @@ src="{{site.custom.dartpad.embed-inline-prefix}}?id=405379bacf30335f3aed&vertica
     style="border: 1px solid #ccc;">
 </iframe>
 
-For more information on treating classes like functions, see
-[Emulating Functions in Dart](/articles/language/emulating-functions).
 {% endcomment %}
 
 ## 可调用类
 
 
-通过实现类的 call() 方法，
-能够让类像函数一样被调用。
+通过实现类的 call() 方法，允许使用类似函数调用的方式来使用该类的实例。
 
 在下面的示例中，`WannabeFunction` 类定义了一个 call() 函数，
 函数接受三个字符串参数，函数体将三个字符串拼接，字符串间用空格分割，并在结尾附加了一个感叹号。
@@ -8365,10 +8370,8 @@ src="{{site.custom.dartpad.embed-inline-prefix}}?id=405379bacf30335f3aed&vertica
     style="border: 1px solid #ccc;">
 </iframe>
 
-有关把类当做方法使用的更多信息，请参考
-[Emulating Functions in Dart](/articles/language/emulating-functions) 。
-
 {% comment %}
+
 ## Isolates
 
 Most computers, even on mobile platforms, have multi-core CPUs.
@@ -8382,6 +8385,7 @@ accessible from any other isolate.
 
 For more information, see the
 [dart:isolate library documentation.][dart:isolate]
+
 {% endcomment %}
 
 ## Isolates
@@ -8398,6 +8402,7 @@ For more information, see the
 [dart:isolate library documentation.][dart:isolate] 。
 
 {% comment %}
+
 ## Typedefs
 
 In Dart, functions are objects, just like strings and numbers are
@@ -8474,6 +8479,7 @@ void main() {
   assert(sort is Compare<int>); // True!
 }
 {% endprettify %}
+
 {% endcomment %}
 
 ## Typedefs
@@ -8556,6 +8562,7 @@ void main() {
 {% endprettify %}
 
 {% comment %}
+
 ## Metadata
 
 Use metadata to give additional information about your code. A metadata
@@ -8614,6 +8621,7 @@ Metadata can appear before a library, class, typedef, type parameter,
 constructor, factory, function, field, parameter, or variable
 declaration and before an import or export directive. You can
 retrieve metadata at runtime using reflection.
+
 {% endcomment %}
 
 ## 元数据
@@ -8675,10 +8683,12 @@ constructor、 factory、 function、 field、 parameter 或者 variable
 使用反射可以在运行时获取元数据信息。
 
 {% comment %}
+
 ## Comments
 
 Dart supports single-line comments, multi-line comments, and
 documentation comments.
+
 {% endcomment %}
 
 ## 注释
@@ -8686,6 +8696,7 @@ documentation comments.
 Dart 支持单行注释、多行注释和文档注释。
 
 {% comment %}
+
 ### Single-line comments
 
 A single-line comment begins with `//`. Everything between `//` and the
@@ -8698,6 +8709,7 @@ void main() {
   print('Welcome to my Llama farm!');
 }
 {% endprettify %}
+
 {% endcomment %}
 
 ### 单行注释
@@ -8714,6 +8726,7 @@ void main() {
 {% endprettify %}
 
 {% comment %}
+
 ### Multi-line comments
 
 A multi-line comment begins with `/*` and ends with `*/`. Everything
@@ -8734,6 +8747,7 @@ void main() {
    */
 }
 {% endprettify %}
+
 {% endcomment %}
 
 ### 多行注释
@@ -8759,6 +8773,7 @@ void main() {
 {% endprettify %}
 
 {% comment %}
+
 ### Documentation comments
 
 Documentation comments are multi-line or single-line comments that begin
@@ -8807,6 +8822,7 @@ For an example of generated documentation, see the [Dart API
 documentation.]({{site.dart_api}}/{{site.data.pkg-vers.SDK.channel}}) For advice on how to structure
 your comments, see
 [Guidelines for Dart Doc Comments.](/guides/language/effective-dart/documentation)
+
 {% endcomment %}
 
 ### 文档注释
