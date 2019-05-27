@@ -3,7 +3,7 @@ title: "Effective Dart: 风格"
 description: Formatting and naming rules for consistent, readable code.
 nextpage:
   url: /guides/language/effective-dart/documentation
-  title: 文档注释
+  title: 注释
 prevpage:
   url: /guides/language/effective-dart
   title: 概述

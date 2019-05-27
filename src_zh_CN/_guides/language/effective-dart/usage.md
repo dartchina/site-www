@@ -6,7 +6,7 @@ nextpage:
   title: 设计
 prevpage:
   url: /guides/language/effective-dart/documentation
-  title: 文档注释
+  title: 注释
 ---
 <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g"?>
 
