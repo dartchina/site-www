@@ -20,7 +20,20 @@
     - title: 规范
       permalink: /guides/language/spec
     - title: Effective Dart
-      permalink: /guides/language/effective-dart
+      expanded: false
+      children:
+        - title: 综述
+          urlExactMatch: true
+          match-page-url-exactly: true
+          permalink: /guides/language/effective-dart
+        - title: 风格
+          permalink: /guides/language/effective-dart/style
+        - title: 文档
+          permalink: /guides/language/effective-dart/documentation
+        - title: 使用
+          permalink: /guides/language/effective-dart/usage
+        - title: 设计
+          permalink: /guides/language/effective-dart/design
 
 - title: 核心库
   expanded: false
