@@ -9,19 +9,20 @@ prevpage:
 <?code-excerpt plaster="none"?>
 
 {% comment %}
+
 Here are some guidelines for writing consistent, usable APIs for libraries.
+
 {% endcomment %}
 
 下面给出的准则用于指导为库编写一致的、可用的 API。
 
-* TOC
-{:toc}
-
 {% comment %}
+
 ## Names
 
 Naming is an important part of writing readable, maintainable code.
 The following best practices can help you achieve that goal.
+
 {% endcomment %}
 
 ## 命名
@@ -30,6 +31,7 @@ The following best practices can help you achieve that goal.
 以下最佳实践可帮助你实现这个目标。
 
 {% comment %}
+
 ### DO use terms consistently.
 
 Use the same name for the same thing, throughout your code. If a precedent
@@ -58,6 +60,7 @@ their knowledge of the problem domain itself, the conventions of the core
 libraries, and other parts of your own API. By building on top of those, you
 reduce the amount of new knowledge they have to acquire before they can be
 productive.
+
 {% endcomment %}
 
 ### **要** 使用一致的术语。

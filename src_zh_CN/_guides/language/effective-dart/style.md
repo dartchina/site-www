@@ -28,10 +28,9 @@ code.
 那么这将让我们彼此之间更容易的互相学习和互相贡献。
 它使我们所有人都可以更容易地学习并为彼此的代码做出贡献。
 
-* TOC
-{:toc}
 
 {% comment %}
+
 ## Identifiers
 
 Identifiers come in three flavors in Dart.
@@ -44,6 +43,7 @@ Identifiers come in three flavors in Dart.
 
 *   `lowercase_with_underscores` use only lowercase letters, even for acronyms,
     and separate words with `_`.
+    
 {% endcomment %}
 
 ## 标识符

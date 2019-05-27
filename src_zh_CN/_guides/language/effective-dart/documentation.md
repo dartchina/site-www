@@ -34,14 +34,13 @@ likely that you're doing too little. Try to step it up.
 和练习一样：从技术上你*可以*做很多，但是实际上你
 只做了一点点。尝试着逐步提高。
 
-* TOC
-{:toc}
-
 {% comment %}
+
 ## Comments
 
 The following tips apply to comments that you don't want included in the
 generated documentation.
+
 {% endcomment %}
 
 
@@ -51,6 +50,7 @@ generated documentation.
 
 
 {% comment %}
+
 ### DO format comments like sentences.
 
 {:.good-style}
@@ -63,6 +63,7 @@ if (_chunks.isEmpty) return false;
 Capitalize the first word unless it's a case-sensitive identifier. End it with a
 period (or "!" or "?", I suppose). This is true for all comments: doc comments,
 inline stuff, even TODOs. Even if it's a sentence fragment.
+
 {% endcomment %}
 
 

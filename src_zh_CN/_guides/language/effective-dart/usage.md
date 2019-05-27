@@ -24,15 +24,15 @@ library may not be able to tell that you've internalized the ideas here, but
 库的*使用者*可能不需要知道你在其中的一些想法，
 但是*维护者*肯定是需要的。
 
-* TOC
-{:toc}
 
 {% comment %}
+
 ## Libraries
 
 These guidelines help you compose your program out of multiple files in a
 consistent, maintainable way. To keep these guidelines brief, they use "import"
 to cover `import` and `export` directives. The guidelines apply equally to both.
+
 {% endcomment %}
 
 ## 库
