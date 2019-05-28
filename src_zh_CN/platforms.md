@@ -30,10 +30,10 @@ Dart 可以用来编写简单的脚本或完整功能的应用程序。无论是
 
 灵活的编译器技术允许以不同的方式运行 Dart 程序，具体的运行方式取决于目标平台以及需求：
 
-  * **Dart Native **: 对于针对设备（移动设备，桌面设备，服务器等）的程序，
+  * **Dart Native**: 对于针对设备（移动设备，桌面设备，服务器等）的程序，
     Dart Native 包括带有 JIT（just-in-time）编译的 Dart VM
     和用于生成机器代码的 AOT（ahead-of-time）编译器。
-  * **Dart Web 应用**: 对于面向 Web 的程序，
+  * **Dart Web**: 对于面向 Web 的程序，
     Dart Web 包括开发时编译器（`dartdevc`）
     和生产时编译器（`dart2js`）。
 
