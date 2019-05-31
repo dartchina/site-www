@@ -4,7 +4,14 @@
     - title: 示例程序
       permalink: /samples
     - title: Codelab
-      permalink: /codelabs
+      expanded: true
+      children:
+        - title: 综述
+          urlExactMatch: true
+          match-page-url-exactly: true
+          permalink: /codelabs
+        - title: Cheatsheet Codelab
+          permalink: /codelabs/dart-cheatsheet
     - title: 教程
       urlExactMatch: true
       match-page-url-exactly: true
