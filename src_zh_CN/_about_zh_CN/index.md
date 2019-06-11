@@ -1,6 +1,5 @@
 ---
 title: "关于"
-permalink: /about_zh_CN
 description: "关于 Dart 编程语言中文版"
 toc: false
 ---
@@ -22,7 +21,34 @@ Dart 编程语言中文版（以下称为`中文版`）源于对 Dart 官方 [da
 
 如果您发现错误，您可以通过以下方式反馈：
 
-1. 页面错误可点击当前页面的 {% include shared/page-github-links-for-about-zh-CN.html %} 修改错误或提交 issue 。
+{% assign repo = page.repo | default: site.repo.this -%}
+{% capture path -%} {{repo}}/tree/{{site.branch}}/{{site.source}}/{{page.path}} {%- endcapture -%}
+{% assign title = page.title | default: page.url -%}
+{% assign url = site.url | append: page.url -%}
+
+{% capture issueTitle -%} title='{{title}}' page issue {%- endcapture -%}
+
+{% assign nl = '%0D%0A' -%}
+{% capture issueBody -%}body=
+Page URL: {{url}}{{nl}}
+Page source: {{path}}{{nl}}
+{{nl}}
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.{{nl}}
+{{nl}}
+Description of issue:
+{%- endcapture -%}
+
+1. 页面错误可点击当前页面的
+<span class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="{{path}}" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="{{repo}}/issues/new?{{issueTitle}}&{{issueBody}}" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</span>
+修改错误或提交 issue 。
 
 1. 联系本人
 	- 邮件：`243297288@qq.com`

@@ -44,6 +44,9 @@ collections:
   guides:
     output: true
     permalink: /guides/:path
+  about_zh_CN:
+    output: true
+    permalink: /about_zh_CN/:path
 
 defaults:
 - scope:
