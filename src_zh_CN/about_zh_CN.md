@@ -22,19 +22,9 @@ Dart 编程语言中文版（以下称为`中文版`）源于对 Dart 官方 [da
 
 如果您发现错误，您可以通过以下方式反馈：
 
-1. 页面错误可点击当前页面的
-<span>
-  <a href="{{path}}" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
-    <i class="fas fa-file-alt fa-sm"></i>
-  </a>
-  <a href="{{repo}}/issues/new?{{issueTitle}}&{{issueBody}}" class="btn no-automatic-external" title="Report a issue with this page"
-    target="_blank" rel="noopener">
-    <i class="fas fa-bug fa-sm"></i>
-  </a>
-</span>
-修改错误或提交 issue 。
+1. 页面错误可点击当前页面的 {% include shared/page-github-links-for-about-zh-CN.html %} 修改错误或提交 issue 。
 
-2. 联系本人
+1. 联系本人
 	- 邮件：`243297288@qq.com`
 	- 微信：`gunavy2009` （请添加验证备注）
 
