@@ -47,11 +47,9 @@ Equivalent: `new Map<>();`
 
 ## 字面量的使用
 
-### `‘代换 ${val}’`
+### `‘插值 ${val}’`
 
 在字面量字符串中引入 `val` 的值。
-
-Puts the value of `val` into a string literal.
 等价于： `‘Substitution’ + val`
 
 ### `<type>[ ]`

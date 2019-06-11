@@ -10,7 +10,7 @@
           urlExactMatch: true
           match-page-url-exactly: true
           permalink: /codelabs
-        - title: Cheatsheet Codelab
+        - title: Codelab 速查
           permalink: /codelabs/dart-cheatsheet
     - title: 教程
       urlExactMatch: true
