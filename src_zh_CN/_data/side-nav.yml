@@ -224,7 +224,7 @@
           permalink: /tools/pub/obsolete
 
 - title: 相关网站
-  expanded: true
+  expanded: false
   children:
     - title: API 参考
       permalink: https://api.dartlang.org
@@ -241,3 +241,15 @@
 #   permalink: /resources/books
 # - title: Videos
 #   permalink: /resources/videos
+
+- title: 关于
+  expanded: true
+  children:
+    - title: 关于本站
+      urlExactMatch: true
+      match-page-url-exactly: true
+      permalink: /about_zh_CN
+    - title: 贡献者指北
+      permalink: /about_zh_CN/contributor-guide
+    - title: 中文排版指北
+      permalink: /about_zh_CN/chinese-copywriting-guidelines
