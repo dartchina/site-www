@@ -56,6 +56,13 @@ Description of issue:
 
 ## 使用
 
+### 使用原则
+
 1. 使用该 `中文版` 请遵守官方 `TERMS` 。
-2. 使用该 `中文版` 部署或发布的网站，请保留此页面及此页面相关入口。
-3. 使用该 `中文版` 部分内容，请注明 `中文版` github 地址：[site-www-cn](https://github.com/dartchina/site-www-cn)。
+2. 使用该 `中文版` 部署或发布网站前，请联系译者或管理员获取授权，并保留此页面及此页面相关入口。
+3. 使用该 `中文版` 译文内容前，请联系译者或管理员获取授权，并在文章开头明显位置注明本文出处、译者和[DartChina](https://github.com/dartchina)的完整链接。
+
+### Copyright
+
+> **版权声明：**[DartChina](https://github.com/dartchina)译文仅用于学习、研究和交流。
+> 版权归 [Dart](https://github.com/dart-lang) 、 [DartChina](https://github.com/dartchina) 和译者所有，欢迎非商业转载。

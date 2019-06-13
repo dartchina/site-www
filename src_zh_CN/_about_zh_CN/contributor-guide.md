@@ -61,7 +61,7 @@ src_zh_CN 为译文文件夹。翻译译文在该文件夹中进行。src_zh_CN 
 #### 完整章节
 
 非成员需要 Fork 本仓库，基于仓库 src_zh_CN 分支创建新分支，翻译完成后通过 PR 进行提交，
-后由 DartChina 成员处理及合并。
+后由 DartChina 成员处理及合并。需要注意的是：没有全部完成之前，不可以通过 PR 推送到译文仓库。
 
 #### 错误和 Issue
 
@@ -154,3 +154,39 @@ English：Everything you can imagine is real.
 这里常用的对比工具如：`BeyondCompare` ， `vscode + 对比插件` 等。
 </aside>
 
+### 翻译规则
+
+<aside class="alert alert-info" markdown="1">
+**提示：**
+章节节选自[LCTT](https://github.com/LCTT/wiki/blob/master/guide/translation.md)
+</aside>
+
+- 要忠实原文，可以在不损失原文含义的情况下进行意译，但是不能导致读者有误解和难以理解的语素增加。
+- 译文的排版要求符合[中文排版指北](/about_zh_CN/chinese-copywriting-guidelines)。
+- 所有内置的代码要格式正确（通常选题会确保正确），如果原文有误，可以修改。
+- 正确使用 Markdown 标签，通常沿袭选题原文中的标签即可。
+- 在必要时，如原文有误、原文需要进一步解释时，可以增加译注。
+
+### 译后检查
+
+<aside class="alert alert-info" markdown="1">
+**提示：**
+章节节选自[LCTT](https://github.com/LCTT/wiki/blob/master/guide/translation.md)
+</aside>
+
+完成翻译后，译者应至少自行检查一遍：
+
+- 检查全篇是否格式排版规范。
+- 检查全篇是否通顺、行文是否一致。
+- 检查段落组织是否合理，必要时可以调整段落设置。
+
+## 禁止事项
+
+<aside class="alert alert-info" markdown="1">
+**提示：**
+章节节选自[LCTT](https://github.com/LCTT/wiki/blob/master/guide/translation.md)
+</aside>
+
+- 我们允许使用类似谷歌翻译这样的工具来辅助翻译，但是**绝不允许**直接提交翻译工具的结果，略加修改就提交上来。
+- 我们鼓励各种英语水平和技术水平的人参与翻译贡献，因此，选择符合自己能力和兴趣的文章翻译即可。
+- 如参考引用已有译文，应联系译者获得许可，按照译文许可方式引用，**绝不允许**出现盗用和侵权行为。
