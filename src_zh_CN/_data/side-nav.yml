@@ -227,11 +227,11 @@
   expanded: false
   children:
     - title: API 参考
-      permalink: https://api.dartlang.org
+      permalink: https://api.dart.dev
     - title: Blog
       permalink: https://medium.com/dartlang
     - title: DartPad (在线编辑器)
-      permalink: https://dartpad.cn
+      permalink: https://dartpad.dartlang.org
     - title: Flutter
       permalink: https://flutter.dev
     - title: Pub 包资源

@@ -12,14 +12,13 @@ prevpage:
 
 {% comment %}
 
-This is the most "blue-collar" guide in Effective Dart. You'll apply the
-guidelines here every day in the bodies of your Dart code. *Users* of your
-library may not be able to tell that you've internalized the ideas here, but
-*maintainers* of it sure will.
+You can use these guidelines every day in the bodies of your Dart code. *Users*
+of your library may not be able to tell that you've internalized the ideas here,
+but *maintainers* of it sure will.
 
 {% endcomment %}
 
-该指南在 Effective Dart 中是最为基础的部分。
+
 每天在你写的 Dart 代码中都会应用到这些准则。
 库的*使用者*可能不需要知道你在其中的一些想法，
 但是*维护者*肯定是需要的。
@@ -35,6 +34,7 @@ to cover `import` and `export` directives. The guidelines apply equally to both.
 
 {% endcomment %}
 
+
 ## 库
 
 这些准则可以帮助你在多个文件编写程序的情况下保证一致性和可维护性。
@@ -43,6 +43,7 @@ to cover `import` and `export` directives. The guidelines apply equally to both.
 
 
 {% comment %}
+
 ### DO use strings in `part of` directives.
 
 Many Dart developers avoid using `part` entirely. They find it easier to reason
@@ -79,7 +80,9 @@ And not:
 {% prettify dart %}
 part of my_library;
 {% endprettify %}
+
 {% endcomment %}
+
 
 ### **要** 在 `part of` 中使用字符串。
 
@@ -117,6 +120,7 @@ part of my_library;
 
 
 {% comment %}
+
 ### DON'T import libraries that are inside the `src` directory of another package.
 
 The `src` directory under `lib` [is specified][package guide] to contain
@@ -129,7 +133,9 @@ change to the package.
 
 That means that if you import some other package's private library, a minor,
 theoretically non-breaking point release of that package could break your code.
+
 {% endcomment %}
+
 
 ### **不要** 导入 package 中 `src` 目录下的库。
 
@@ -142,7 +148,9 @@ theoretically non-breaking point release of that package could break your code.
 这意味着，你如果导入了其中的私有库，
 按理论来讲，一个不破坏 package 的次版本就会影响到你的代码。
 
+
 {% comment %}
+
 ### PREFER relative paths when importing libraries within your own package's `lib` directory.
 
 {% include linter-rule.html rule="avoid_relative_lib_imports" %}
@@ -191,7 +199,9 @@ library. Follow these two rules:
 
 * An import path should never contain `/lib/`.
 * A library under `lib` should never use `../` to escape the `lib` directory.
+
 {% endcomment %}
+
 
 ### **建议** 使用相对路径在导入你自己 package 中的 `lib` 目录。
 
@@ -238,17 +248,23 @@ import 'package:my_package/src/utils.dart';
 * 导入路径不应包含 `/lib/` 。
 * `lib` 下的库永远不应该使用 `../` 来跨越 `lib` 目录。
 
+
 {% comment %}
+
 ## Strings
 
 Here are some best practices to keep in mind when composing strings in Dart.
+
 {% endcomment %}
+
 
 ## 字符串
 
 下面是一些需要记住的，关于在 Dart 中使用字符串的最佳实践。
 
+
 {% comment %}
+
 ### DO use adjacent strings to concatenate string literals.
 
 {% include linter-rule.html rule="prefer_adjacent_string_concatenation" %}
@@ -272,7 +288,9 @@ raiseAlarm(
 raiseAlarm('ERROR: Parts of the spaceship are on fire. Other ' +
     'parts are overrun by martians. Unclear which are which.');
 {% endprettify %}
+
 {% endcomment %}
+
 
 ### **要** 使用临近字符字的方式连接字面量字符串。
 
@@ -297,7 +315,9 @@ raiseAlarm('ERROR: Parts of the spaceship are on fire. Other ' +
     'parts are overrun by martians. Unclear which are which.');
 {% endprettify %}
 
+
 {% comment %}
+
 ### PREFER using interpolation to compose strings and values.
 
 {% include linter-rule.html rule="prefer_interpolation_to_compose_strings" %}
@@ -317,7 +337,9 @@ it's almost always cleaner and shorter to use interpolation:
 {% prettify dart %}
 'Hello, ' + name + '! You are ' + (year - birth).toString() + ' y...';
 {% endprettify %}
+
 {% endcomment %}
+
 
 ### **推荐** 使用插值的形式来组合字符串和值。
 
@@ -338,7 +360,9 @@ it's almost always cleaner and shorter to use interpolation:
 'Hello, ' + name + '! You are ' + (year - birth).toString() + ' y...';
 {% endprettify %}
 
+
 {% comment %}
+
 ### AVOID using curly braces in interpolation when not needed.
 
 {% include linter-rule.html rule="unnecessary_brace_in_string_interps" %}
@@ -360,7 +384,9 @@ alphanumeric text, the `{}` should be omitted.
 'Hi, ${name}!'
     "Wear your wildest ${decade}'s outfit."
 {% endprettify %}
+
 {% endcomment %}
+
 
 ### **避免** 在字符串插值中使用不必要的大括号。
 
@@ -383,19 +409,25 @@ alphanumeric text, the `{}` should be omitted.
     "Wear your wildest ${decade}'s outfit."
 {% endprettify %}
 
+
 {% comment %}
+
 ## Collections
 
 Out of the box, Dart supports four collection types: lists, maps, queues, and sets.
 The following best practices apply to collections.
+
 {% endcomment %}
+
 
 ## 集合
 
 Dart 集合中原生支持了四种类型：list， map， queue， 和 set。
 下面是应用于集合的最佳实践。
 
+
 {% comment %}
+
 ### DO use collection literals when possible.
 
 {% include linter-rule.html rule="prefer_collection_literals" %}
@@ -443,7 +475,9 @@ Note that this doesn't apply to the *named* constructors for those classes.
 `List.from()`, `Map.fromIterable()`, and friends all have their uses. Likewise,
 if you're passing a size to `List()` to create a non-growable one, then it
 makes sense to use that.
+
 {% endcomment %}
+
 
 ### **要** 尽可能的使用集合字面量。
 
@@ -491,7 +525,9 @@ var addresses = Map<String, Address>();
 `List.from()`、 `Map.fromIterable()` 都有其使用场景。 
 如果需要一个固定长度的结合，使用 ``List()`` 来创建一个固定长度的 list 也是合理的。
 
+
 {% comment %}
+
 ### DON'T use `.length` to see if a collection is empty.
 
 The [Iterable][] contract does not require that a collection know its length or
@@ -516,7 +552,9 @@ if (words.isNotEmpty) return words.join(' ');
 if (lunchBox.length == 0) return 'so hungry...';
 if (!words.isEmpty) return words.join(' ');
 {% endprettify %}
+
 {% endcomment %}
+
 
 ### **不要** 使用 `.length` 来判断一个集合是否为空。
 
@@ -542,7 +580,9 @@ if (lunchBox.length == 0) return 'so hungry...';
 if (!words.isEmpty) return words.join(' ');
 {% endprettify %}
 
+
 {% comment %}
+
 ### CONSIDER using higher-order methods to transform a sequence.
 
 If you have a collection and want to produce a new modified collection from it,
@@ -563,6 +603,7 @@ var aquaticNames = animals
 At the same time, this can be taken too far. If you are chaining or nesting
 many higher-order methods, it may be clearer to write a chunk of imperative
 code.
+
 {% endcomment %}
 
 ### **考虑** 使用高阶（higher-order）函数来转换集合数据。
