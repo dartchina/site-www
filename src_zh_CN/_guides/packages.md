@@ -1,8 +1,10 @@
 ---
-title: How to use packages
-short-title: Packages
-description: Learn more about pub, Dart's tool for managing packages.
+title: 如何使用包
+short-title: 包
+description: 了解更多有关 Dart 管理包的工具 Pub 的内容。
 ---
+
+{% comment %}
 
 The Dart ecosystem uses _packages_ to manage shared software
 such as libraries and tools.
@@ -31,6 +33,34 @@ To use a package, do the following:
 * Use pub to get your package's dependencies.
 * If your Dart code depends on a library in the package, import the library.
 
+{% endcomment %}
+
+
+Dart 生态系统使用_包_来管理**共享软件**，比如：库和工具。
+我们使用 **Pub 包管理工具** 来获取 Dart 包。
+在 [**Pub**]({{site.pub}}) 上，可以找到公开可用的包。
+或者从本地文件系统或其他的位置，比如 Git 仓库，加载可用的包。
+无论包是从什么途径加载的， Pub 都会进行版本依赖管理，
+从而帮助我们获得版本兼容的软件包以及 SDK 。
+
+大多数 [Dart-savvy IDEs][] 都支持 Pub 的使用，包括包的创建，下载，更新和发布。
+同样上述功能也可以在命令行上通过 [`pub`](/tools/pub/cmd) 来操作。
+或者可以在命令行上使用pub。
+
+Dart 包目录中至少包含一个 [pubspec 文件](/tools/pub/pubspec)。
+pubspec 文件记录一些关于包的元数据。
+此外，包还包含其他依赖项（在 pubspec 中列出），
+Dart 库，应用，资源，测试，图片，以及示例。
+
+通过以下步骤，引用使用包：
+
+* 创建一个 pubspec （一个名为 `pubspec.yaml` 文件，文件列出依赖的包以及包含的其他元数据，比如当前包的名称）。
+* 使用 Pub 获取当前所依赖的包。
+* 如果当前 Dart 代码依赖包中的某个库，导入（import）该库。
+
+
+{% comment %}
+
 ## Creating a pubspec
 
 The pubspec is a file named <code class="literal">pubspec.yaml</code>
@@ -55,6 +85,35 @@ dependencies:
 For details on creating a pubspec,
 see the [pubspec documentation](/tools/pub/pubspec)
 and the documentation for the packages that you want to use.
+
+{% endcomment %}
+
+
+## 创建 pubspec
+
+pubspec 是一个名为 <code class="literal">pubspec.yaml</code> 的文件，
+文件位于应用的根路径。
+最简单的 pubspec 只需要列出包名：
+
+{% comment %} TODO: make 3-backtick-yaml the same as prettify yaml {% endcomment %}
+{% prettify yaml %}
+name: my_app
+{% endprettify %}
+
+下面是一个 pubspec 的示例，示例中声明依赖了在 Pub 站点上托管的两个包（ `js` 和 `intl` ）：
+
+{% prettify yaml %}
+name: my_app
+dependencies:
+  js: ^0.6.0
+  intl: ^0.15.8
+{% endprettify %}
+
+有关创建 pubspec 的详细内容，请参阅 [pubspec 文档](/tools/pub/pubspec)
+以及使用包的相关文档。
+
+
+{% comment %}
 
 ## Getting packages
 
@@ -87,6 +146,37 @@ that your app depends on to the corresponding package in the system cache.
 PENDING: Here only to make it easy to find the packages discussion:
 packages-dir.html
 {% endcomment %}
+
+{% endcomment %}
+
+
+## 获取包
+
+项目中一旦拥有了 pubspec 文件，就可以在项目根目录中执行
+<code class="literal">pub get</code> 命令：
+
+```terminal
+$ cd <path-to-my_app>
+$ pub get
+```
+
+上面的操作即_获取依赖_。
+`pub get` 命令确定当前应用所依赖的包，并将它们保存到中央[系统缓存](/tools/pub/glossary#system-cache)（central system cache）中。
+如果当前应用依赖了一个公开包， Pub 会从 [Pub 站点]({{site.pub}}) 该包。
+对于一个 [Git 依赖](/tools/pub/dependencies#git-packages)， Pub 会 Clone 该 Git 仓库。
+同样包括包的相关依赖也会被下载。
+例如，如果 `js` 包依赖 `test` 包， `pub` 会同时获取 `js` 包和 `test` 包。
+
+Pub 会创建一个`.packages` 文件（位于应用程序的根路目录下），
+该文件将应用程序所依赖的每个包名相应的映射到系统缓存中的包。
+
+{% comment %}
+PENDING: Here only to make it easy to find the packages discussion:
+packages-dir.html
+{% endcomment %}
+
+
+{% comment %}
 
 ## Importing libraries from packages
 
@@ -141,6 +231,63 @@ import 'package:transmogrify/parser.dart';
 This way, the import can always get to `parser.dart` regardless of where the
 importing file is.
 
+{% endcomment %}
+
+
+## 从包中导入库
+
+使用 <code class="literal">package:</code> 前缀，导入包中的库：
+
+```dart
+import 'package:js/js.dart' as js;
+import 'package:intl/intl.dart';
+```
+
+Dart 运行时
+
+Dart 运行时会抓取 `package:` 之后的内容，
+并在应用程序的 `.packages` 文件中查找它。
+
+也可以使用此方式从自己的包中导入库。
+思考下面的 pubspec 文件，该文件声明了对 `transmogrify` 包（虚构的包名）的依赖：
+
+{% prettify yaml %}
+name: my_app
+dependencies:
+  transmogrify:
+{% endprettify %}
+
+假设包的布局如下：
+
+{% prettify none %}
+transmogrify/
+  lib/
+    transmogrify.dart
+    parser.dart
+  test/
+    parser/
+      parser_test.dart
+{% endprettify %}
+
+`parser_test` 文件可以通过 import `parser.dart` 的方式来导入：
+
+{% prettify dart %}
+import '../../lib/parser.dart';
+{% endprettify %}
+
+但是相对路径是**脆弱的**。如果 `parser_test.dart` 在包目录中上下移动，
+那么该路径就会被破坏。
+我们应该通过下面的方式来代替：
+
+{% prettify dart %}
+import 'package:transmogrify/parser.dart';
+{% endprettify %}
+
+这样，无论 `parser.dart` 文件在哪个位置，总可以被导入。
+
+
+{% comment %}
+
 ## Upgrading a dependency
 
 The first time you get a new dependency for your package,
@@ -179,16 +326,68 @@ $ pub upgrade transmogrify
 That command upgrades `transmogrify` to the latest version
 but leaves everything else the same.
 
+{% endcomment %}
+
+
+## 升级依赖
+
+第一次获取依赖时，Pub 会下载依赖及其兼容的最新版本。
+然后通过创建 **lockfile** 锁定依赖，以始终使用这个版本。
+Pub 会在 pubspec 旁创建并存储一个名为 `pubspec.lock` 文件。
+它列出了使用的每个依赖包的指定版本（当前包或传递包的版本）。
+
+如果包是一个应用程序包，那么应该将此文件加入到[源文件管理](/guides/libraries/private-files)。
+这样，在应用上开发的每个人都能够使用所有相同版本的包。
+同样加入到 lockfile 可以保证部署的应用使用的是同一版本的代码。
+
+如果已经准备更新依赖到最新版本，使用命令 `pub upgrade` ：
+
+{% prettify sh %}
+$ pub upgrade
+{% endprettify %}
+
+上面的命令用于重新生成 lockfile 文件，并使用最新可用版本的依赖包。
+如果仅升级某个依赖，可以在命令中指定需要升级的包：
+
+{% prettify sh %}
+$ pub upgrade transmogrify
+{% endprettify %}
+
+上面的命令升级 `transmogrify` 到最新版本，但维持其它包不变。
+
+
+{% comment %}
+
 ## More information
 
 The following pages have more information about packages and
 the pub package manager.
 
+{% endcomment %}
+
+
+## 更多内容
+
+以下链接的页面是关于包及 Pub 包管理的更多内容。
+
+
+{% comment %}
 
 ### How to
 
 * [Creating packages](/guides/libraries/create-library-packages)
 * [Publishing packages](/tools/pub/publishing)
+
+{% endcomment %}
+
+
+### 如何使用
+
+* [创建包](/guides/libraries/create-library-packages)
+* [发布包](/tools/pub/publishing)
+
+
+{% comment %}
 
 ### Reference
 
@@ -198,6 +397,21 @@ the pub package manager.
 * [Pub package layout conventions](/tools/pub/package-layout)
 * [Pub versioning philosophy](/tools/pub/versioning)
 * [Pubspec format](/tools/pub/pubspec)
+
+{% endcomment %}
+
+
+### 参考
+
+* [Pub 依赖](/tools/pub/dependencies)
+* [Pub 环境变量](/tools/pub/environment-variables)
+* [Pub 术语](/tools/pub/glossary)
+* [Pub 包布局约定](/tools/pub/package-layout)
+* [Pub 版本哲学](/tools/pub/versioning)
+* [Pubspec 格式](/tools/pub/pubspec)
+
+
+{% comment %}
 
 ### Pub commands
 
@@ -216,9 +430,41 @@ The `pub` tool provides the following commands:
 For an overview of all the `pub` commands,
 see the [pub tool documentation](/tools/pub/cmd).
 
+{% endcomment %}
+
+
+### Pub 命令
+
+`pub` 工具提供一下命令：
+
+* [`pub cache`](/tools/pub/cmd/pub-cache)
+* [`pub deps`](/tools/pub/cmd/pub-deps)
+* [`pub downgrade`](/tools/pub/cmd/pub-downgrade)
+* [`pub get`](/tools/pub/cmd/pub-get)
+* [`pub global`](/tools/pub/cmd/pub-global)
+* [`pub publish`](/tools/pub/cmd/pub-lish)
+* [`pub run`](/tools/pub/cmd/pub-run)
+* [`pub upgrade`](/tools/pub/cmd/pub-upgrade)
+* [`pub uploader`](/tools/pub/cmd/pub-uploader)
+
+有关所有 `pub` 命令的概述，
+参见 [pub 工具文档](/tools/pub/cmd)。
+
+
+{% comment %}
+
 ### Troubleshooting
 
 [Troubleshooting pub](/tools/pub/troubleshoot) gives solutions to problems that
 you might encounter when using pub.
+
+[Dart-savvy IDEs]: /tools#ides-and-editors
+
+{% endcomment %}
+
+
+### 故障排除
+
+[Pub 故障排除](/tools/pub/troubleshoot) 提供使用中可能遇到问题的解决方法。
 
 [Dart-savvy IDEs]: /tools#ides-and-editors
