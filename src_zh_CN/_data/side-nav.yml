@@ -63,7 +63,7 @@
   children:
     - title: 如何使用包
       permalink: /guides/packages
-    - title: 常用的包
+    - title: 常用包
       permalink: /guides/libraries/useful-libraries
     - title: 创建包
       permalink: /guides/libraries/create-library-packages
