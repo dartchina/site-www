@@ -24,13 +24,13 @@ You can play with most of Dart's language features using DartPad
 </div>
 {% endcomment %}
 
-这里将介绍 Dart 主要功能，从变量和运算符到类和库，假设您已经知道如何使用其他语言编程。
+这里将介绍 Dart 编程语言的主要功能，从变量和运算符到类和库，这里假设您已经了解如何使用其他的语言编程。
 
 
 学习更多 Dart 核心库, 参考
 [Dart 库概览](/guides/libraries/library-tour).
-想了解更多有关语言功能的详细信息,
-参考 [Dart language specification][](Dart 编程语言规范)。
+想了解更多有关语言功能的详细内容,
+参见 [Dart language specification][](Dart 编程语言规范)。
 
 <div class="alert alert-info" markdown="1">
 **提示:**
@@ -148,7 +148,7 @@ main() {
 
 :   便利输出方式。
 
-`'...'` (or `"..."`)
+`'...'` （或 `"..."`）
 
 :   字符串常量。
 

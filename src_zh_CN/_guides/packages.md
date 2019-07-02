@@ -36,7 +36,7 @@ To use a package, do the following:
 {% endcomment %}
 
 
-Dart 生态系统使用_包_来管理**共享软件**，比如：库和工具。
+Dart 生态系统使用 _包_ 来管理**共享软件**，比如：库和工具。
 我们使用 **Pub 包管理工具** 来获取 Dart 包。
 在 [**Pub**]({{site.pub}}) 上，可以找到公开可用的包。
 或者从本地文件系统或其他的位置，比如 Git 仓库，加载可用的包。
@@ -242,8 +242,6 @@ importing file is.
 import 'package:js/js.dart' as js;
 import 'package:intl/intl.dart';
 ```
-
-Dart 运行时
 
 Dart 运行时会抓取 `package:` 之后的内容，
 并在应用程序的 `.packages` 文件中查找它。
