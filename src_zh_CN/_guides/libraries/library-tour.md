@@ -737,7 +737,7 @@ assert(fruits.length == 4);
 
 // Remove all elements from a list.
 fruits.clear();
-assert(fruits.length == 0);
+assert(fruits.isEmpty);
 {% endprettify %}
 
 Use `indexOf()` to find the index of an object in a list:
@@ -821,7 +821,7 @@ assert(fruits.length == 4);
 
 // 移除多个元素到 list 对象。
 fruits.clear();
-assert(fruits.length == 0);
+assert(fruits.isEmpty);
 {% endprettify %}
 
 使用 `indexOf()` 方法查找一个对象在 list 中的下标值。

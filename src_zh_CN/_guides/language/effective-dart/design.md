@@ -1860,7 +1860,7 @@ the static declarative structure of the code and aren't "executed" at runtime.
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-declaration)"?>
 {% prettify dart %}
 bool isEmpty(String parameter) {
-  bool result = parameter.length == 0;
+  bool result = parameter.isEmpty;
   return result;
 }
 {% endprettify %}
@@ -1959,7 +1959,7 @@ annotations）*和*泛型调用（generic invocations）*的类型参数。
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-declaration)"?>
 {% prettify dart %}
 bool isEmpty(String parameter) {
-  bool result = parameter.length == 0;
+  bool result = parameter.isEmpty;
   return result;
 }
 {% endprettify %}
